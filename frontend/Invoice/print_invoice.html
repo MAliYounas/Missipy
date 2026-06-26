@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Invoice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="print_invoice.css">
+</head>
+<body>
+  <main class="print-page">
+    <section class="invoice-paper" aria-label="Printable invoice">
+      <header class="shop-header">
+        <p class="shop-header__label">Sales Invoice</p>
+        <h1>Missipy</h1>
+        <p class="shop-header__tagline">Business Suite</p>
+        <div class="shop-header__details">
+          <p>Shop Address: Main Market, City</p>
+          <p>Phone: 0300-0000000</p>
+          <p>Email: info@missipy.com</p>
+        </div>
+      </header>
+
+      <section class="invoice-info">
+        <p><span>Customer</span><strong id="print_customer_name">Walk-in customer</strong></p>
+        <p><span>Phone</span><strong id="print_customer_phone">-</strong></p>
+        <p><span>Invoice No</span><strong id="print_invoice_number">-</strong></p>
+        <p><span>Date</span><strong id="print_invoice_date">-</strong></p>
+        <p><span>Payment</span><strong id="print_payment_method">Cash</strong></p>
+      </section>
+
+      <div class="print-table-wrap">
+        <table class="print-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Code</th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>GST</th>
+              <th>Disc</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="print_invoice_items"></tbody>
+        </table>
+      </div>
+
+      <section class="print-summary">
+        <div class="summary-box">
+          <p><span>Subtotal</span><strong id="print_subtotal">0.00</strong></p>
+          <p><span>Discount</span><strong id="print_discount">0.00</strong></p>
+          <p><span>GST</span><strong id="print_gst">0.00</strong></p>
+          <p class="summary-box__total"><span>Total</span><strong id="print_total">0.00</strong></p>
+        </div>
+      </section>
+
+      <footer class="invoice-footer">
+        <p class="print-note">Thank you for shopping with Missipy.</p>
+        <p class="print-note">Goods once sold are subject to shop return policy.</p>
+        <p>Computer generated invoice. No signature required.</p>
+      </footer>
+    </section>
+
+    <div class="print-actions">
+      <button id="print_button" type="button">Print Invoice</button>
+      <button id="back_button" type="button">Back to Invoice</button>
+    </div>
+  </main>
+
+  <script src="print_invoice.js"></script>
+</body>
+</html>

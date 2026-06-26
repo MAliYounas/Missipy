@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Sidebar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="supplier.css">
+</head>
+<body>
+  <input class="sidebar-toggle" type="checkbox" id="sidebar-toggle" aria-label="Collapse sidebar">
+
+  <aside class="app-sidebar" aria-label="Main navigation">
+    <div class="sidebar__top">
+      <div class="sidebar__header">
+        <a class="brand" href="#" aria-label="Missipy home" data-label="Missipy">
+          <span class="brand__logo" aria-hidden="true">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </span>
+          <span class="brand__content">
+            <span class="brand__name">Missipy</span>
+            <span class="brand__tagline">Business Suite</span>
+          </span>
+        </a>
+
+        <label class="sidebar-toggle-button" for="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="fa-solid fa-angles-left sidebar-toggle-button__close" aria-hidden="true"></i>
+          <i class="fa-solid fa-angles-right sidebar-toggle-button__open" aria-hidden="true"></i>
+        </label>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Sidebar menu">
+        <ul class="sidebar-nav__list">
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Home Page\home_page.html" data-label="Home">
+              <i class="fa-solid fa-house sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Home</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Dashboard\dashboard.html" data-label="Dashboard">
+              <i class="fa-solid fa-chart-pie sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Invoice\invoice.html" data-label="Invoice">
+              <i class="fa-solid fa-file-invoice sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Invoice</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Sales\sales.html" data-label="Sales">
+              <i class="fa-solid fa-receipt sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Sales</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Purchases\purchases.html" data-label="Purchases">
+              <i class="fa-solid fa-cart-shopping sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Purchases</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Inventory\inventory.html" data-label="Inventory">
+              <i class="fa-solid fa-boxes-stacked sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Inventory</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Customer\customer.html" data-label="Customers">
+              <i class="fa-solid fa-users sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Customers</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link sidebar-nav__link--active" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Supplier\supplier.html" aria-current="page" data-label="Suppliers">
+              <i class="fa-solid fa-truck-fast sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Suppliers</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="C:\Users\hp\OneDrive - Higher Education Commission\Pictures\Missipy\frontend\Expense\expense.html" data-label="Expenses">
+              <i class="fa-solid fa-wallet sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Expenses</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="#" data-label="Reports">
+              <i class="fa-solid fa-chart-line sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Reports</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="#" data-label="Accounts">
+              <i class="fa-solid fa-building-columns sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Accounts</span>
+            </a>
+          </li>
+          <li class="sidebar-nav__item">
+            <a class="sidebar-nav__link" href="#" data-label="Settings">
+              <i class="fa-solid fa-gear sidebar-nav__icon"></i>
+              <span class="sidebar-nav__text">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Suppliers">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">Supplier Management</span>
+          <h1 class="customer-header__title">Add supplier</h1>
+          <p class="customer-header__text">Save supplier contact details, address, tax information, opening balance, and payment terms for purchases and stock management.</p>
+        </div>
+      </header>
+
+      <form class="customer-form" action="#">
+        <section class="customer-card" aria-labelledby="supplier-basic-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="supplier-basic-title">Basic information</h2>
+              <p class="customer-card__subtitle">Primary details used for purchases, payments, and searching suppliers.</p>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Supplier Name</span>
+              <input type="text" placeholder="Enter supplier or company name">
+            </label>
+            <label class="customer-field">
+              <span>Phone Number</span>
+              <input type="tel" placeholder="03XX-XXXXXXX">
+            </label>
+            <label class="customer-field">
+              <span>Email</span>
+              <input type="email" placeholder="Optional">
+            </label>
+            <label class="customer-field">
+              <span>NTN / Tax ID</span>
+              <input type="text" placeholder="Optional tax number">
+            </label>
+          </div>
+        </section>
+
+        <section class="customer-card" aria-labelledby="supplier-address-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="supplier-address-title">Address & account</h2>
+              <p class="customer-card__subtitle">Useful for purchase orders, deliveries, payment tracking, and outstanding balance records.</p>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field customer-field--wide">
+              <span>Address</span>
+              <input type="text" placeholder="House, street, area">
+            </label>
+            <label class="customer-field">
+              <span>City</span>
+              <input type="text" placeholder="City name">
+            </label>
+            <label class="customer-field">
+              <span>Supplier Type</span>
+              <select>
+                <option>Regular</option>
+                <option>Manufacturer</option>
+                <option>Distributor</option>
+                <option>Wholesaler</option>
+                <option>Credit Supplier</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Contact Person</span>
+              <input type="text" placeholder="Manager or sales person">
+            </label>
+            <label class="customer-field customer-field--wide">
+              <span>Notes</span>
+              <textarea placeholder="Delivery schedule, purchase notes, or supplier terms"></textarea>
+            </label>
+          </div>
+
+          <div class="customer-actions">
+            <button class="customer-save-button" type="button">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Save Supplier</span>
+            </button>
+            <button class="customer-clear-button" type="button">
+              <i class="fa-solid fa-eraser"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+        </section>
+      </form>
+
+      <section class="customer-table-card" aria-labelledby="supplier-table-title">
+        <div class="customer-table-card__header">
+          <div>
+            <h2 class="customer-card__title" id="supplier-table-title">Supplier list</h2>
+            <p class="customer-card__subtitle">Saved suppliers will appear here for quick purchase and payment records.</p>
+          </div>
+          <div class="customer-table-card__controls">
+            <span class="customer-table-card__badge">0 Suppliers</span>
+            <button class="table-delete-button" type="button">
+              <i class="fa-solid fa-trash"></i>
+              <span>Delete</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="customer-table-wrap">
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Type</th>
+                <th>Contact Person</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="customer-table__empty">
+                <td colspan="5">
+                  <i class="fa-solid fa-truck-fast"></i>
+                  <span>No suppliers added yet.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

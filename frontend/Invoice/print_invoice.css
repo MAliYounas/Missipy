@@ -1,0 +1,359 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--black);
+  background: var(--white);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.print-page {
+  min-height: 100vh;
+  padding: 28px 16px;
+}
+
+.invoice-paper {
+  width: min(520px, 100%);
+  margin: 0 auto;
+  min-height: auto;
+  padding: 28px 24px;
+  background: var(--white);
+}
+
+.shop-header {
+  padding-bottom: 18px;
+  border-bottom: 2px dashed var(--black);
+  text-align: center;
+}
+
+.shop-header__label {
+  margin: 0 0 8px;
+  padding: 0;
+  color: var(--black);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.shop-header h1 {
+  margin: 0;
+  color: var(--black);
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.shop-header__tagline,
+.shop-header__details p,
+.invoice-info p,
+.print-note,
+.invoice-footer p {
+  margin: 3px 0 0;
+  color: var(--black);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.shop-header__details {
+  margin-top: 9px;
+}
+
+.invoice-info {
+  display: grid;
+  gap: 7px;
+  margin-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed var(--black);
+}
+
+.invoice-info p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.invoice-info span,
+.invoice-info strong {
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.invoice-info strong {
+  text-align: right;
+}
+
+.print-table-wrap {
+  margin-top: 16px;
+  border: 1px solid var(--black);
+  overflow: visible;
+}
+
+.print-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.print-table th,
+.print-table td {
+  padding: 8px 4px;
+  border-right: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  text-align: left;
+  vertical-align: top;
+  font-size: 11px;
+}
+
+.print-table th {
+  color: var(--white);
+  background: var(--black);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.print-table td {
+  color: var(--black);
+  font-weight: 600;
+}
+
+.print-table th:last-child,
+.print-table td:last-child {
+  border-right: 0;
+}
+
+.print-table th:nth-child(1),
+.print-table th:nth-child(4),
+.print-table th:nth-child(5),
+.print-table th:nth-child(6),
+.print-table th:nth-child(7),
+.print-table th:nth-child(8),
+.print-table td:nth-child(1),
+.print-table td:nth-child(4),
+.print-table td:nth-child(5),
+.print-table td:nth-child(6),
+.print-table td:nth-child(7),
+.print-table td:nth-child(8) {
+  text-align: right;
+}
+
+.print-table th:nth-child(1),
+.print-table td:nth-child(1) {
+  width: 6%;
+}
+
+.print-table th:nth-child(2),
+.print-table td:nth-child(2) {
+  width: 13%;
+}
+
+.print-table th:nth-child(3),
+.print-table td:nth-child(3) {
+  width: 28%;
+}
+
+.print-table th:nth-child(4),
+.print-table td:nth-child(4) {
+  width: 7%;
+}
+
+.print-table th:nth-child(6),
+.print-table td:nth-child(6),
+.print-table th:nth-child(7),
+.print-table td:nth-child(7) {
+  width: 8%;
+}
+
+.print-table th:nth-child(5),
+.print-table td:nth-child(5) {
+  width: 13%;
+}
+
+.print-table th:nth-child(8),
+.print-table td:nth-child(8) {
+  width: 17%;
+}
+
+.print-table th:not(:nth-child(3)) {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.print-table td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.print-table td:nth-child(2),
+.print-table td:nth-child(3) {
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.print-table td:nth-child(4),
+.print-table td:nth-child(5),
+.print-table td:nth-child(6),
+.print-table td:nth-child(7),
+.print-table td:nth-child(8) {
+  font-size: 9px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.print-table th:nth-child(3),
+.print-table td:nth-child(3) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.print-table td strong {
+  display: block;
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.print-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.print-summary {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 2px dashed var(--black);
+}
+
+.summary-box {
+  width: 100%;
+}
+
+.summary-box p {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 8px;
+  padding: 0;
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.summary-box p:last-child {
+  margin-bottom: 0;
+}
+
+.summary-box__total {
+  margin-top: 12px !important;
+  padding-top: 12px;
+  color: var(--black) !important;
+  background: transparent;
+  border-top: 2px solid var(--black);
+  font-size: 18px !important;
+}
+
+.summary-box__total strong,
+.summary-box__total span {
+  color: var(--black);
+}
+
+.invoice-footer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 2px dashed var(--black);
+  text-align: center;
+}
+
+.print-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.print-actions button {
+  min-height: 40px;
+  padding: 9px 16px;
+  color: var(--white);
+  background: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.print-actions button:last-child {
+  color: var(--black);
+  background: var(--white);
+}
+
+@media (max-width: 720px) {
+  .invoice-paper {
+    padding: 20px 16px;
+    min-height: auto;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  body {
+    background: var(--white);
+  }
+
+  .print-page {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .invoice-paper {
+    width: 100%;
+    max-width: 125mm;
+    min-height: auto;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .shop-header h1 {
+    font-size: 30px;
+  }
+
+  .print-table th,
+  .print-table td,
+  .summary-box p {
+    font-size: 11px;
+  }
+
+  .print-actions {
+    display: none;
+  }
+}
