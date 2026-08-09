@@ -457,4 +457,62 @@ html {
     min-width: 0 !important;
     max-width: 100% !important;
   }
+
+  /* Chart / forecast areas stay inside their cards */
+  .forecast-hub-grid,
+  .forecast-insight-grid,
+  .forecast-panel-grid,
+  .forecast-recommend-grid,
+  .forecast-alert-list,
+  .forecast-entry,
+  .forecast-insight,
+  .forecast-panel,
+  .forecast-recommend,
+  .forecast-alert {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .forecast-bars,
+  .forecast-bars--tall {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .forecast-bars span {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    max-height: 100% !important;
+  }
+
+  .forecast-alert {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .forecast-alert__count {
+    max-width: 100% !important;
+    text-align: left !important;
+    font-size: clamp(14px, 5vw, 20px) !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .forecast-entry__title,
+  .forecast-entry__text,
+  .forecast-insight h3,
+  .forecast-insight p,
+  .forecast-panel h3,
+  .forecast-panel p,
+  .forecast-panel li,
+  .forecast-recommend h3,
+  .forecast-recommend p,
+  .forecast-action-list {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
 }

@@ -55,8 +55,12 @@
 .forecast-bars {
   display: flex;
   align-items: flex-end;
-  gap: 8px;
+  gap: 6px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   height: 84px;
+  overflow: hidden;
 }
 
 .forecast-bars--tall {
@@ -64,8 +68,11 @@
 }
 
 .forecast-bars span {
-  flex: 1;
-  height: var(--h);
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  height: var(--h, 40%);
+  max-height: 100%;
   background: var(--color-active);
   border-radius: 8px 8px 4px 4px;
   opacity: 0.88;
