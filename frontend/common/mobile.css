@@ -1,11 +1,41 @@
-/* Loaded LAST on every page — phone/tablet layout must win over duplicated page CSS. */
+/* Loaded LAST — phone layout must fit without pinch-zoom. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 @media (max-width: 1024px) {
   html,
   body {
-    min-height: auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
     overflow-x: hidden !important;
     background: #f7f7f8 !important;
+    touch-action: manipulation;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* iOS zooms inputs under 16px — keep readable without auto-zoom */
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px !important;
+    max-width: 100% !important;
   }
 
   .sidebar-mobile-open {
@@ -49,8 +79,8 @@
     left: 0 !important;
     z-index: 10045 !important;
     display: flex !important;
-    width: min(310px, 86vw) !important;
-    max-width: 86vw !important;
+    width: 86vw !important;
+    max-width: 320px !important;
     height: 100% !important;
     max-height: 100dvh !important;
     margin: 0 !important;
@@ -93,6 +123,7 @@
     justify-content: flex-start !important;
     width: auto !important;
     flex: 1 !important;
+    min-width: 0 !important;
   }
 
   .brand__content,
@@ -134,10 +165,12 @@
   .page-shell,
   .sidebar-toggle:checked ~ .page-shell {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
     min-height: auto !important;
     padding: calc(58px + env(safe-area-inset-top, 0px)) 0 24px !important;
     margin: 0 !important;
+    overflow-x: hidden !important;
   }
 
   .home-page,
@@ -146,8 +179,10 @@
   .customer-page {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     min-height: auto !important;
     padding: 12px 14px 28px !important;
+    overflow-x: hidden !important;
   }
 
   .customer-header,
@@ -155,47 +190,102 @@
   .customer-card,
   .customer-table-card,
   .purchase-header,
-  .invoice-layout {
+  .purchase-card,
+  .purchase-table-card,
+  .invoice-header,
+  .invoice-layout,
+  .invoice-entry,
+  .invoice-card,
+  .invoice-cart,
+  .invoice-actions {
     max-width: 100% !important;
     width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .customer-header__title {
-    font-size: clamp(28px, 8vw, 40px) !important;
+  .customer-header__title,
+  .invoice-header__title,
+  .purchase-header__title {
+    font-size: clamp(26px, 7vw, 36px) !important;
     line-height: 1.15 !important;
+    overflow-wrap: anywhere;
   }
 
+  /* Break wide desktop grids that force phone zoom */
   .customer-grid,
   .form-grid,
   .form-grid--supplier,
+  .invoice-grid,
   .invoice-grid--customer,
   .invoice-search-row,
   .invoice-grid--items,
+  .invoice-layout,
   .dashboard-grid,
   .inventory-stats,
   .forecast-insight-grid,
   .forecast-panel-grid,
   .forecast-recommend-grid,
   .forecast-entry-grid,
-  .report-grid {
+  .forecast-alert-list,
+  .report-grid,
+  .home-hero__content,
+  .home-stats {
+    display: grid !important;
     grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .inventory-stats {
+  .inventory-stats,
+  .dashboard-kpi-row {
     grid-template-columns: 1fr 1fr !important;
   }
 
+  .invoice-cart {
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .customer-field,
+  .invoice-field,
+  .purchase-field {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Wide tables scroll inside — never stretch the page */
   .customer-table-wrap,
   .purchase-table-wrap,
-  .invoice-table-wrap {
+  .invoice-table-wrap,
+  .invoice-cart .invoice-table-wrap {
+    display: block !important;
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
   }
 
+  .customer-table,
+  .purchase-table,
+  .invoice-table,
+  .sales-table {
+    min-width: 520px !important;
+    max-width: none !important;
+  }
+
   .customer-actions,
+  .invoice-actions,
+  .invoice-cart__controls,
   .home-hero__actions {
+    display: flex !important;
     flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .customer-save-button,
@@ -206,8 +296,12 @@
   .save-items-button,
   .invoice-add-button,
   .invoice-clear-button,
-  .generate-invoice-button {
+  .generate-invoice-button,
+  .invoice-delete-button,
+  .payment-select {
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 
   .sidebar-toggle:checked ~ .sidebar-mobile-open {
@@ -222,7 +316,8 @@
 
   .sidebar-toggle:checked ~ .app-sidebar {
     transform: translateX(0) !important;
-    width: min(310px, 86vw) !important;
+    width: 86vw !important;
+    max-width: 320px !important;
   }
 
   .sidebar-toggle:checked ~ .app-sidebar .brand__content,
