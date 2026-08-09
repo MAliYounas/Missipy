@@ -419,7 +419,6 @@ html {
   .dashboard-kpi-row strong,
   .invoice-summary__row strong,
   .invoice-summary__row--total strong,
-  .forecast-alert__count,
   .customer-table-card__badge,
   .purchase-table-card__badge,
   .invoice-cart__badge {
@@ -489,16 +488,35 @@ html {
   }
 
   .forecast-alert {
-    flex-direction: column !important;
-    align-items: stretch !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+    gap: 12px !important;
+    overflow: visible !important;
   }
 
   .forecast-alert__count {
-    max-width: 100% !important;
-    text-align: left !important;
-    font-size: clamp(14px, 5vw, 20px) !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: start !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: max-content !important;
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    color: #111 !important;
+    background: #fff !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 999px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
   }
 
   .forecast-entry__title,
