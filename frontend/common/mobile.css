@@ -128,13 +128,30 @@ html {
 
   .brand__content,
   .sidebar-nav__text {
-    display: inline-block !important;
+    display: flex !important;
     width: auto !important;
     max-width: none !important;
     height: auto !important;
     opacity: 1 !important;
     visibility: visible !important;
     overflow: visible !important;
+  }
+
+  .brand__content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+  }
+
+  .brand__name,
+  .brand__tagline {
+    display: block !important;
+    width: auto !important;
+    white-space: nowrap !important;
+  }
+
+  .sidebar-nav__text {
+    display: inline-block !important;
     white-space: nowrap !important;
   }
 
@@ -347,10 +364,19 @@ html {
 
   .sidebar-toggle:checked ~ .app-sidebar .brand__content,
   .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__text {
-    display: inline-block !important;
+    display: flex !important;
     width: auto !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .brand__content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__text {
+    display: inline-block !important;
   }
 
   .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link {
