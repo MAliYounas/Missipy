@@ -40,7 +40,11 @@
     }).join("");
 
     return (
-      '<input class="sidebar-toggle" type="checkbox" id="sidebar-toggle" aria-label="Collapse sidebar">' +
+      '<input class="sidebar-toggle" type="checkbox" id="sidebar-toggle" aria-label="Toggle sidebar">' +
+      '<label class="sidebar-mobile-open" for="sidebar-toggle" aria-label="Open menu">' +
+        '<i class="fa-solid fa-bars" aria-hidden="true"></i>' +
+      "</label>" +
+      '<label class="sidebar-backdrop" for="sidebar-toggle" aria-label="Close menu"></label>' +
       '<aside class="app-sidebar" aria-label="Main navigation">' +
         '<div class="sidebar__top">' +
           '<div class="sidebar__header">' +
@@ -54,6 +58,7 @@
             '<label class="sidebar-toggle-button" for="sidebar-toggle" aria-label="Toggle sidebar">' +
               '<i class="fa-solid fa-angles-left sidebar-toggle-button__close" aria-hidden="true"></i>' +
               '<i class="fa-solid fa-angles-right sidebar-toggle-button__open" aria-hidden="true"></i>' +
+              '<i class="fa-solid fa-xmark sidebar-toggle-button__mobile-close" aria-hidden="true"></i>' +
             "</label>" +
           "</div>" +
           '<nav class="sidebar-nav" aria-label="Sidebar menu">' +

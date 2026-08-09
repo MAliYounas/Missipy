@@ -55,6 +55,12 @@ a {
   pointer-events: none;
 }
 
+.sidebar-mobile-open,
+.sidebar-backdrop,
+.sidebar-toggle-button__mobile-close {
+  display: none;
+}
+
 .app-sidebar {
   position: fixed;
   inset: 0 auto 0 0;
@@ -1506,33 +1512,147 @@ a {
 }
 
 @media (max-width: 680px) {
-  .sidebar-toggle {
-    display: none;
+  .sidebar-mobile-open {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sidebar);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: block;
+    background: rgba(17, 17, 17, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
   }
 
   .app-sidebar {
-    position: sticky;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 35;
+    width: min(280px, 86vw);
+    height: 100vh;
+    max-height: 100dvh;
+    padding: var(--space-md);
+    overflow-y: auto;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 0;
+    transform: translateX(-105%);
+    transition: transform var(--transition-base), width var(--transition-base), padding var(--transition-base);
   }
 
   .sidebar-toggle-button {
+    display: inline-flex;
+  }
+
+  .sidebar-toggle-button__close,
+  .sidebar-toggle-button__open {
     display: none;
   }
 
+  .sidebar-toggle-button__mobile-close {
+    display: inline-flex;
+  }
+
   .sidebar-nav__list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-nav__link {
+    min-height: 44px;
   }
 
   .sidebar-nav__link:hover {
-    transform: translateY(-1px);
+    transform: none;
   }
 
   .page-shell {
+    padding-left: 0;
+    padding-top: 64px;
+  }
+
+  .sidebar-toggle:checked ~ .sidebar-mobile-open {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sidebar-toggle:checked ~ .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar {
+    width: min(280px, 86vw);
+    padding: var(--space-md);
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar__header {
+    flex-direction: row;
+    gap: var(--space-sm);
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .brand {
+    justify-content: flex-start;
+    width: auto;
+    padding: 8px 10px;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .brand__logo {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .brand__content,
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__text {
+    width: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button {
+    width: 40px;
+    height: 36px;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__close,
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__open {
+    display: none;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__mobile-close {
+    display: inline-flex;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link::after {
+    display: none;
+  }
+
+  .sidebar-toggle:checked ~ .page-shell {
     padding-left: 0;
   }
 
@@ -1570,20 +1690,11 @@ a {
   .customer-field--wide {
     grid-column: auto;
   }
-
-  .sidebar-toggle:checked ~ .app-sidebar {
-    width: 100%;
-    padding: var(--space-md);
-  }
 }
 
 @media (max-width: 460px) {
   .brand {
     margin-bottom: var(--space-lg);
-  }
-
-  .sidebar-nav__list {
-    grid-template-columns: 1fr;
   }
 
   .sidebar-nav__link {

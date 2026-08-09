@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Missipy Product Forecast</title>
+  <link rel="icon" href="../media/App Logo-svg.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -151,6 +152,55 @@
         </div>
       </section>
 
+      <section class="customer-card" aria-labelledby="single-product-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="single-product-title">Single product deep dive</h2>
+            <p class="customer-card__subtitle">Pick one SKU to see week-by-week sales outlook and stock burn.</p>
+          </div>
+        </div>
+        <div class="customer-grid">
+          <label class="customer-field customer-field--wide">
+            <span>Select Product</span>
+            <input type="search" placeholder="Type product name or barcode">
+          </label>
+        </div>
+        <div class="customer-actions">
+          <button class="customer-save-button" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </button>
+          <button class="customer-clear-button" type="button">
+            <i class="fa-solid fa-eraser"></i>
+            <span>Clear</span>
+          </button>
+        </div>
+        <div class="forecast-insight-grid">
+          <article class="forecast-insight">
+            <h3>Sales outlook</h3>
+            <p>Projected units and revenue for the selected look-ahead window.</p>
+            <div class="forecast-bars forecast-bars--tall" aria-hidden="true">
+              <span style="--h:35%"></span><span style="--h:48%"></span><span style="--h:42%"></span><span style="--h:60%"></span><span style="--h:55%"></span><span style="--h:70%"></span>
+            </div>
+          </article>
+          <article class="forecast-insight">
+            <h3>Stock burn</h3>
+            <p>How quickly current inventory will empty at the forecasted daily rate.</p>
+            <div class="forecast-bars forecast-bars--tall" aria-hidden="true">
+              <span style="--h:80%"></span><span style="--h:65%"></span><span style="--h:50%"></span><span style="--h:35%"></span><span style="--h:20%"></span><span style="--h:8%"></span>
+            </div>
+          </article>
+          <article class="forecast-insight">
+            <h3>Action</h3>
+            <ul class="forecast-action-list">
+              <li>Reorder before the stock-out date</li>
+              <li>Check supplier lead time</li>
+              <li>Protect margin on fast movers</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section class="customer-table-card" aria-labelledby="product-forecast-table">
         <div class="customer-table-card__header">
           <div>
@@ -196,45 +246,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </section>
-
-      <section class="customer-card" aria-labelledby="single-product-title">
-        <div class="customer-card__header">
-          <div>
-            <h2 class="customer-card__title" id="single-product-title">Single product deep dive</h2>
-            <p class="customer-card__subtitle">Pick one SKU to see week-by-week sales outlook and stock burn.</p>
-          </div>
-        </div>
-        <div class="customer-grid">
-          <label class="customer-field customer-field--wide">
-            <span>Select Product</span>
-            <input type="search" placeholder="Type product name or barcode">
-          </label>
-        </div>
-        <div class="forecast-insight-grid">
-          <article class="forecast-insight">
-            <h3>Sales outlook</h3>
-            <p>Projected units and revenue for the selected look-ahead window.</p>
-            <div class="forecast-bars" aria-hidden="true">
-              <span style="--h:35%"></span><span style="--h:48%"></span><span style="--h:42%"></span><span style="--h:60%"></span><span style="--h:55%"></span><span style="--h:70%"></span>
-            </div>
-          </article>
-          <article class="forecast-insight">
-            <h3>Stock burn</h3>
-            <p>How quickly current inventory will empty at the forecasted daily rate.</p>
-            <div class="forecast-bars" aria-hidden="true">
-              <span style="--h:80%"></span><span style="--h:65%"></span><span style="--h:50%"></span><span style="--h:35%"></span><span style="--h:20%"></span><span style="--h:8%"></span>
-            </div>
-          </article>
-          <article class="forecast-insight">
-            <h3>Action</h3>
-            <ul class="forecast-action-list">
-              <li>Reorder before the stock-out date</li>
-              <li>Check supplier lead time</li>
-              <li>Protect margin on fast movers</li>
-            </ul>
-          </article>
         </div>
       </section>
     </section>
