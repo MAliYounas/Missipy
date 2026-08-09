@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Assets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="assets.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Assets"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Assets">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">Asset Register</span>
+          <h1 class="customer-header__title">Business assets</h1>
+          <p class="customer-header__text">Track cash, equipment, vehicles, property, and other assets owned by the business.</p>
+        </div>
+      </header>
+
+      <div class="inventory-stats" aria-label="Assets summary">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-building inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Total Assets</span>
+          <strong class="inventory-stat-card__value">0.00</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-coins inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Current Assets</span>
+          <strong class="inventory-stat-card__value">0.00</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-warehouse inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Fixed Assets</span>
+          <strong class="inventory-stat-card__value">0.00</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-list-check inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Asset Count</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+      </div>
+
+      <form class="customer-form" action="#">
+        <section class="customer-card" aria-labelledby="asset-basic-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="asset-basic-title">Add asset</h2>
+              <p class="customer-card__subtitle">Enter asset name, type, value, purchase date, and related details.</p>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Asset Name</span>
+              <input type="text" placeholder="Example: Delivery van, shop equipment">
+            </label>
+            <label class="customer-field">
+              <span>Asset Type</span>
+              <select>
+                <option>Current Asset</option>
+                <option>Fixed Asset</option>
+                <option>Intangible Asset</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Category</span>
+              <select>
+                <option>Cash</option>
+                <option>Bank Balance</option>
+                <option>Inventory Stock</option>
+                <option>Accounts Receivable</option>
+                <option>Equipment</option>
+                <option>Furniture</option>
+                <option>Vehicle</option>
+                <option>Property / Building</option>
+                <option>Land</option>
+                <option>Software / License</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Current Value</span>
+              <input type="number" placeholder="0.00" step="0.01">
+            </label>
+            <label class="customer-field">
+              <span>Purchase Cost</span>
+              <input type="number" placeholder="0.00" step="0.01">
+            </label>
+            <label class="customer-field">
+              <span>Purchase Date</span>
+              <input type="date">
+            </label>
+            <label class="customer-field">
+              <span>Condition</span>
+              <select>
+                <option>New</option>
+                <option>Good</option>
+                <option>Fair</option>
+                <option>Needs Repair</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Depreciation %</span>
+              <input type="number" placeholder="Optional yearly %" step="0.01">
+            </label>
+            <label class="customer-field">
+              <span>Location</span>
+              <input type="text" placeholder="Shop, warehouse, office">
+            </label>
+            <label class="customer-field">
+              <span>Serial / ID No.</span>
+              <input type="text" placeholder="Optional serial or tag number">
+            </label>
+            <label class="customer-field">
+              <span>Ownership</span>
+              <select>
+                <option>Owned</option>
+                <option>Leased</option>
+                <option>Financed</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Status</span>
+              <select>
+                <option>Active</option>
+                <option>Sold</option>
+                <option>Disposed</option>
+                <option>Under Maintenance</option>
+              </select>
+            </label>
+            <label class="customer-field customer-field--wide">
+              <span>Notes</span>
+              <textarea placeholder="Warranty, supplier, usage notes, or other details"></textarea>
+            </label>
+          </div>
+
+          <div class="customer-actions">
+            <button class="customer-save-button" type="button">
+              <i class="fa-solid fa-plus"></i>
+              <span>Save Asset</span>
+            </button>
+            <button class="customer-clear-button" type="button">
+              <i class="fa-solid fa-eraser"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+        </section>
+      </form>
+
+      <section class="customer-table-card" aria-labelledby="asset-table-title">
+        <div class="customer-table-card__header">
+          <div>
+            <h2 class="customer-card__title" id="asset-table-title">Asset list</h2>
+            <p class="customer-card__subtitle">All recorded business assets will appear here.</p>
+          </div>
+          <div class="customer-table-card__controls">
+            <span class="customer-table-card__badge">0 Assets</span>
+            <button class="table-update-button" type="button">
+              <i class="fa-solid fa-pen"></i>
+              <span>Update</span>
+            </button>
+            <button class="table-delete-button" type="button">
+              <i class="fa-solid fa-trash"></i>
+              <span>Delete</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="expense-filter-bar" aria-label="Asset type filters">
+          <button class="expense-filter-bar__item expense-filter-bar__item--active" type="button">All</button>
+          <button class="expense-filter-bar__item" type="button">Current</button>
+          <button class="expense-filter-bar__item" type="button">Fixed</button>
+          <button class="expense-filter-bar__item" type="button">Intangible</button>
+          <button class="expense-filter-bar__item" type="button">Active</button>
+        </div>
+
+        <div class="customer-table-wrap">
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Value</th>
+                <th>Purchase Date</th>
+                <th>Condition</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="customer-table__empty">
+                <td colspan="8">
+                  <i class="fa-solid fa-building"></i>
+                  <span>No assets added yet.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

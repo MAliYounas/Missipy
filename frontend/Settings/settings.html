@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Settings"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Settings">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">App Settings</span>
+          <h1 class="customer-header__title">Business settings</h1>
+          <p class="customer-header__text">Update your business name, logo, type, contact details, and invoice preferences.</p>
+        </div>
+      </header>
+
+      <form class="customer-form" action="#">
+        <section class="customer-card" aria-labelledby="business-basic-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="business-basic-title">Business details</h2>
+              <p class="customer-card__subtitle">These details appear on invoices, receipts, and reports.</p>
+            </div>
+          </div>
+
+          <div class="logo-upload" aria-label="Business logo">
+            <div class="logo-upload__preview" aria-hidden="true">
+              <i class="fa-solid fa-image"></i>
+            </div>
+            <div class="logo-upload__content">
+              <h3 class="logo-upload__title">Business logo</h3>
+              <p class="logo-upload__text">Upload a square logo (PNG or JPG). It will show on invoices and the sidebar brand.</p>
+              <label class="customer-clear-button logo-upload__button">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span>Upload Logo</span>
+                <input type="file" accept="image/png,image/jpeg,image/webp" hidden>
+              </label>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Business Name</span>
+              <input type="text" placeholder="Your shop or company name">
+            </label>
+            <label class="customer-field">
+              <span>Business Type</span>
+              <select>
+                <option>Retail Store</option>
+                <option>Wholesale</option>
+                <option>Restaurant</option>
+                <option>Pharmacy</option>
+                <option>Grocery</option>
+                <option>Electronics</option>
+                <option>Services</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Owner Name</span>
+              <input type="text" placeholder="Owner / proprietor name">
+            </label>
+            <label class="customer-field">
+              <span>Tax / NTN / GST No.</span>
+              <input type="text" placeholder="Optional tax ID">
+            </label>
+            <label class="customer-field">
+              <span>Phone Number</span>
+              <input type="tel" placeholder="Business phone">
+            </label>
+            <label class="customer-field">
+              <span>Email</span>
+              <input type="email" placeholder="business@email.com">
+            </label>
+            <label class="customer-field">
+              <span>Website</span>
+              <input type="url" placeholder="Optional website">
+            </label>
+            <label class="customer-field">
+              <span>Currency</span>
+              <select>
+                <option>PKR (Rs)</option>
+                <option>USD ($)</option>
+                <option>EUR (€)</option>
+                <option>GBP (£)</option>
+                <option>INR (₹)</option>
+              </select>
+            </label>
+            <label class="customer-field customer-field--wide">
+              <span>Address</span>
+              <input type="text" placeholder="Street, area, landmark">
+            </label>
+            <label class="customer-field">
+              <span>City</span>
+              <input type="text" placeholder="City name">
+            </label>
+            <label class="customer-field">
+              <span>Country</span>
+              <input type="text" placeholder="Country" value="Pakistan">
+            </label>
+          </div>
+        </section>
+
+        <section class="customer-card" aria-labelledby="app-preferences-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="app-preferences-title">App preferences</h2>
+              <p class="customer-card__subtitle">General options for how Missipy works in your business.</p>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Date Format</span>
+              <select>
+                <option>DD/MM/YYYY</option>
+                <option>MM/DD/YYYY</option>
+                <option>YYYY-MM-DD</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Low Stock Alert</span>
+              <input type="number" placeholder="10">
+            </label>
+            <label class="customer-field">
+              <span>Language</span>
+              <select>
+                <option>English</option>
+                <option>Urdu</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Fiscal Year Start</span>
+              <select>
+                <option>January</option>
+                <option>April</option>
+                <option>July</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="settings-toggles" aria-label="Feature toggles">
+            <label class="settings-toggle">
+              <span class="settings-toggle__text">
+                <strong>Show tax on invoices</strong>
+                <small>Display tax lines on printed and digital invoices.</small>
+              </span>
+              <input type="checkbox" checked>
+            </label>
+            <label class="settings-toggle">
+              <span class="settings-toggle__text">
+                <strong>Allow negative stock</strong>
+                <small>Permit sales even when stock quantity is zero.</small>
+              </span>
+              <input type="checkbox">
+            </label>
+            <label class="settings-toggle">
+              <span class="settings-toggle__text">
+                <strong>Require customer on invoice</strong>
+                <small>Force a customer name before completing a sale.</small>
+              </span>
+              <input type="checkbox">
+            </label>
+          </div>
+
+          <div class="customer-actions">
+            <button class="customer-save-button" type="button">
+              <i class="fa-solid fa-floppy-disk"></i>
+              <span>Save Settings</span>
+            </button>
+            <button class="customer-clear-button" type="button">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>Reset</span>
+            </button>
+          </div>
+        </section>
+      </form>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

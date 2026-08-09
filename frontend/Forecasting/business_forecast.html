@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Business Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="forecasting.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Forecasting"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Business Forecasting">
+      <header class="customer-header">
+        <div>
+          <nav class="forecast-breadcrumb" aria-label="Breadcrumb">
+            <a href="../Forecasting/forecasting.html">Forecasting</a>
+            <span>/</span>
+            <span>Full Business Analysis</span>
+          </nav>
+          <span class="customer-header__eyebrow">Complete Outlook</span>
+          <h1 class="customer-header__title">Full business analysis</h1>
+          <p class="customer-header__text">One room for sales, purchases, expenses, cash, profit, debt pressure, and recommended actions — like a manager reviewing the whole shop.</p>
+        </div>
+        <a class="customer-clear-button" href="../Forecasting/forecasting.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to hub</span>
+        </a>
+      </header>
+
+      <div class="inventory-stats" aria-label="Business forecast summary">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-arrow-up inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Projected Inflow</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-arrow-down inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Projected Outflow</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-scale-balanced inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Projected Profit</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-hand-holding-dollar inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Cash After Debts</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+      </div>
+
+      <form class="customer-card" action="#" aria-labelledby="business-forecast-settings">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="business-forecast-settings">Analysis window</h2>
+            <p class="customer-card__subtitle">Build a full outlook across all money moving in and out of the business.</p>
+          </div>
+        </div>
+        <div class="customer-grid">
+          <label class="customer-field">
+            <span>Analysis Period</span>
+            <select>
+              <option>Next 30 Days</option>
+              <option selected>Next 90 Days</option>
+              <option>Next 6 Months</option>
+              <option>Next 12 Months</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Include Debt Payments</span>
+            <select>
+              <option selected>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Include Planned Purchases</span>
+            <select>
+              <option selected>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Scenario</span>
+            <select>
+              <option selected>Base Case</option>
+              <option>Optimistic</option>
+              <option>Conservative</option>
+            </select>
+          </label>
+        </div>
+        <div class="customer-actions">
+          <button class="customer-save-button" type="button">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <span>Run Full Analysis</span>
+          </button>
+          <a class="customer-clear-button" href="../Forecasting/product_forecast.html">
+            <i class="fa-solid fa-box-open"></i>
+            <span>Open Product Room</span>
+          </a>
+          <a class="customer-clear-button" href="../Forecasting/sales_forecast.html">
+            <i class="fa-solid fa-receipt"></i>
+            <span>Open Sales Room</span>
+          </a>
+        </div>
+      </form>
+
+      <section class="customer-card" aria-labelledby="business-panels-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="business-panels-title">Business health panels</h2>
+            <p class="customer-card__subtitle">Every major money area of the business in one analysis.</p>
+          </div>
+        </div>
+        <div class="forecast-panel-grid">
+          <article class="forecast-panel">
+            <header>
+              <i class="fa-solid fa-receipt"></i>
+              <h3>Sales</h3>
+            </header>
+            <p>Projected revenue from invoices and product demand.</p>
+            <ul>
+              <li>Total sales outlook</li>
+              <li>Top product contribution</li>
+              <li>Credit sales risk</li>
+            </ul>
+          </article>
+          <article class="forecast-panel">
+            <header>
+              <i class="fa-solid fa-cart-shopping"></i>
+              <h3>Purchases</h3>
+            </header>
+            <p>What you may need to buy to support forecasted sales.</p>
+            <ul>
+              <li>Restock spend needed</li>
+              <li>Supplier payable pressure</li>
+              <li>Lead-time gaps</li>
+            </ul>
+          </article>
+          <article class="forecast-panel">
+            <header>
+              <i class="fa-solid fa-wallet"></i>
+              <h3>Expenses</h3>
+            </header>
+            <p>Operating costs that will keep running regardless of sales.</p>
+            <ul>
+              <li>Rent / utilities / salaries</li>
+              <li>Variable vs fixed costs</li>
+              <li>Cost reduction flags</li>
+            </ul>
+          </article>
+          <article class="forecast-panel">
+            <header>
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <h3>Cash Flow</h3>
+            </header>
+            <p>Will cash be available when bills and stock orders are due?</p>
+            <ul>
+              <li>Inflow vs outflow</li>
+              <li>Low-cash weeks</li>
+              <li>Collection priorities</li>
+            </ul>
+          </article>
+          <article class="forecast-panel">
+            <header>
+              <i class="fa-solid fa-scale-unbalanced"></i>
+              <h3>Debt &amp; Liabilities</h3>
+            </header>
+            <p>Upcoming loan and payable payments that reduce free cash.</p>
+            <ul>
+              <li>Installments due</li>
+              <li>Overdue risk</li>
+              <li>Interest load</li>
+            </ul>
+          </article>
+          <article class="forecast-panel">
+            <header>
+              <i class="fa-solid fa-chart-pie"></i>
+              <h3>Profit &amp; Margin</h3>
+            </header>
+            <p>Whether the plan is actually profitable after all costs.</p>
+            <ul>
+              <li>Gross margin outlook</li>
+              <li>Net profit outlook</li>
+              <li>Break-even distance</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="customer-card" aria-labelledby="recommendations-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="recommendations-title">Manager recommendations</h2>
+            <p class="customer-card__subtitle">Actions a full business would take after reading the forecast.</p>
+          </div>
+        </div>
+        <div class="forecast-recommend-grid">
+          <article class="forecast-recommend">
+            <span class="forecast-recommend__tag">Stock</span>
+            <h3>Protect fast movers</h3>
+            <p>Reorder products forecasted to stock out before they hit zero.</p>
+          </article>
+          <article class="forecast-recommend">
+            <span class="forecast-recommend__tag">Cash</span>
+            <h3>Collect dues early</h3>
+            <p>Chase customer balances before heavy purchase or debt weeks.</p>
+          </article>
+          <article class="forecast-recommend">
+            <span class="forecast-recommend__tag">Spend</span>
+            <h3>Hold non-essential expenses</h3>
+            <p>Delay optional costs if cash flow outlook is tight.</p>
+          </article>
+          <article class="forecast-recommend">
+            <span class="forecast-recommend__tag">Growth</span>
+            <h3>Push high-margin products</h3>
+            <p>Focus promotions on items with strong forecast demand and healthy margin.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="customer-table-card" aria-labelledby="business-forecast-table">
+        <div class="customer-table-card__header">
+          <div>
+            <h2 class="customer-card__title" id="business-forecast-table">Full analysis summary</h2>
+            <p class="customer-card__subtitle">Line-by-line projected totals for the selected scenario.</p>
+          </div>
+          <div class="customer-table-card__controls">
+            <span class="customer-table-card__badge">0 Lines</span>
+            <button class="table-export-button" type="button">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>Export PDF</span>
+            </button>
+          </div>
+        </div>
+        <div class="customer-table-wrap">
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <th>Area</th>
+                <th>Projected In</th>
+                <th>Projected Out</th>
+                <th>Net</th>
+                <th>Risk Level</th>
+                <th>Recommended Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="customer-table__empty">
+                <td colspan="6">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span>Run full business analysis to populate this summary.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

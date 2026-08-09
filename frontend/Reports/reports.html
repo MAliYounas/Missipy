@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Reports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Reports"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Reports">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">Business Reports</span>
+          <h1 class="customer-header__title">Download reports</h1>
+          <p class="customer-header__text">Generate and download sales, purchase, inventory, expense, and profit reports for any date range.</p>
+        </div>
+      </header>
+
+      <div class="inventory-stats" aria-label="Report summary">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-file-arrow-down inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Available Reports</span>
+          <strong class="inventory-stat-card__value">8 Types</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-calendar-days inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Period</span>
+          <strong class="inventory-stat-card__value">Custom</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-file-pdf inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Formats</span>
+          <strong class="inventory-stat-card__value">PDF / CSV</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-clock-rotate-left inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Last Export</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+      </div>
+
+      <form class="customer-card" action="#" aria-labelledby="report-filter-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="report-filter-title">Report filters</h2>
+            <p class="customer-card__subtitle">Choose the period and export format before downloading a report.</p>
+          </div>
+        </div>
+
+        <div class="customer-grid">
+          <label class="customer-field">
+            <span>Start Date</span>
+            <input type="date">
+          </label>
+          <label class="customer-field">
+            <span>End Date</span>
+            <input type="date">
+          </label>
+          <label class="customer-field">
+            <span>Export Format</span>
+            <select>
+              <option>PDF</option>
+              <option>CSV</option>
+              <option>Excel</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Branch / Store</span>
+            <select>
+              <option>All Stores</option>
+              <option>Main Store</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="expense-filter-bar" aria-label="Quick period filters">
+          <button class="expense-filter-bar__item expense-filter-bar__item--active" type="button">Today</button>
+          <button class="expense-filter-bar__item" type="button">This Week</button>
+          <button class="expense-filter-bar__item" type="button">This Month</button>
+          <button class="expense-filter-bar__item" type="button">This Year</button>
+          <button class="expense-filter-bar__item" type="button">Custom</button>
+        </div>
+      </form>
+
+      <section class="customer-card report-catalog" aria-labelledby="report-list-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="report-list-title">Available reports</h2>
+            <p class="customer-card__subtitle">Select a report type and download it in your chosen format.</p>
+          </div>
+        </div>
+
+        <div class="report-grid">
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Sales Report</h3>
+              <p class="report-card__text">Invoice totals, payment methods, and customer sales for the selected period.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Purchase Report</h3>
+              <p class="report-card__text">Supplier purchases, bill amounts, and stock received over the date range.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Inventory Report</h3>
+              <p class="report-card__text">Stock levels, low stock items, and product valuation snapshot.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Expense Report</h3>
+              <p class="report-card__text">Business expenses by category, payment method, and date.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Profit &amp; Loss</h3>
+              <p class="report-card__text">Sales vs purchases and expenses for a clear profit overview.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Customer Report</h3>
+              <p class="report-card__text">Customer balances, credit limits, and outstanding dues.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Supplier Report</h3>
+              <p class="report-card__text">Supplier payables, purchase history, and contact summary.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="report-card">
+            <div class="report-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <div class="report-card__body">
+              <h3 class="report-card__title">Tax / GST Report</h3>
+              <p class="report-card__text">Tax collected and paid across invoices for compliance records.</p>
+            </div>
+            <div class="report-card__actions">
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF</span>
+              </button>
+              <button class="table-export-button" type="button">
+                <i class="fa-solid fa-file-csv"></i>
+                <span>CSV</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

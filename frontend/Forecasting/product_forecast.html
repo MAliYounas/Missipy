@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Product Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="forecasting.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Forecasting"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Product Forecasting">
+      <header class="customer-header">
+        <div>
+          <nav class="forecast-breadcrumb" aria-label="Breadcrumb">
+            <a href="../Forecasting/forecasting.html">Forecasting</a>
+            <span>/</span>
+            <span>Product Forecasting</span>
+          </nav>
+          <span class="customer-header__eyebrow">Per Product Outlook</span>
+          <h1 class="customer-header__title">Product sales &amp; stock-out</h1>
+          <p class="customer-header__text">Forecast how many units each product will sell, when it will go out of stock, and how much you should reorder.</p>
+        </div>
+        <a class="customer-clear-button" href="../Forecasting/forecasting.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to hub</span>
+        </a>
+      </header>
+
+      <div class="inventory-stats" aria-label="Product forecast summary">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-chart-line inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Projected Units (30d)</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-sack-dollar inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Projected Product Sales</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Stock-Out in 7 Days</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-cart-plus inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Reorder Needed</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+      </div>
+
+      <form class="customer-card" action="#" aria-labelledby="product-forecast-settings">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="product-forecast-settings">Forecast settings</h2>
+            <p class="customer-card__subtitle">Choose one product or run all products using recent sales speed.</p>
+          </div>
+        </div>
+        <div class="customer-grid">
+          <label class="customer-field">
+            <span>Product</span>
+            <select>
+              <option>All Products</option>
+              <option>Search by name / barcode...</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Look Ahead</span>
+            <select>
+              <option>Next 7 Days</option>
+              <option selected>Next 30 Days</option>
+              <option>Next 90 Days</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Based On History</span>
+            <select>
+              <option>Last 14 Days</option>
+              <option selected>Last 30 Days</option>
+              <option>Last 90 Days</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Safety Stock (days)</span>
+            <input type="number" placeholder="7" value="7">
+          </label>
+          <label class="customer-field">
+            <span>Category Filter</span>
+            <select>
+              <option>All Categories</option>
+              <option>Fast Moving</option>
+              <option>Slow Moving</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Include Seasonality</span>
+            <select>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+        </div>
+        <div class="customer-actions">
+          <button class="customer-save-button" type="button">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Run Product Forecast</span>
+          </button>
+          <button class="customer-clear-button" type="button">
+            <i class="fa-solid fa-eraser"></i>
+            <span>Clear</span>
+          </button>
+        </div>
+      </form>
+
+      <section class="customer-card" id="stock-out" aria-labelledby="stock-out-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="stock-out-title">When products go out of stock</h2>
+            <p class="customer-card__subtitle">Timeline based on current qty ÷ average daily sales. Critical items need reorder first.</p>
+          </div>
+        </div>
+        <div class="forecast-alert-list">
+          <article class="forecast-alert forecast-alert--critical">
+            <div>
+              <h3>Critical — within 3 days</h3>
+              <p>Products selling faster than remaining stock. Risk of lost sales and empty shelves.</p>
+            </div>
+            <strong class="forecast-alert__count">0 items</strong>
+          </article>
+          <article class="forecast-alert forecast-alert--warning">
+            <div>
+              <h3>Warning — within 7–14 days</h3>
+              <p>Plan purchase orders this week so stock arrives before you run out.</p>
+            </div>
+            <strong class="forecast-alert__count">0 items</strong>
+          </article>
+          <article class="forecast-alert forecast-alert--ok">
+            <div>
+              <h3>Healthy — 30+ days cover</h3>
+              <p>Stock is enough for the forecast window. Watch for sudden demand spikes.</p>
+            </div>
+            <strong class="forecast-alert__count">0 items</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="customer-table-card" aria-labelledby="product-forecast-table">
+        <div class="customer-table-card__header">
+          <div>
+            <h2 class="customer-card__title" id="product-forecast-table">Product forecast list</h2>
+            <p class="customer-card__subtitle">Each row is one product: projected sales, days to empty, and suggested reorder qty.</p>
+          </div>
+          <div class="customer-table-card__controls">
+            <span class="customer-table-card__badge">0 Products</span>
+            <button class="table-export-button" type="button">
+              <i class="fa-solid fa-file-csv"></i>
+              <span>Export CSV</span>
+            </button>
+          </div>
+        </div>
+        <div class="expense-filter-bar" aria-label="Product risk filters">
+          <button class="expense-filter-bar__item expense-filter-bar__item--active" type="button">All</button>
+          <button class="expense-filter-bar__item" type="button">Critical</button>
+          <button class="expense-filter-bar__item" type="button">Warning</button>
+          <button class="expense-filter-bar__item" type="button">Healthy</button>
+          <button class="expense-filter-bar__item" type="button">Fast Movers</button>
+          <button class="expense-filter-bar__item" type="button">No Sales</button>
+        </div>
+        <div class="customer-table-wrap">
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Current Qty</th>
+                <th>Avg Daily Sales</th>
+                <th>Forecast Qty</th>
+                <th>Forecast Sales</th>
+                <th>Days to Stock-Out</th>
+                <th>Suggested Reorder</th>
+                <th>Risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="customer-table__empty">
+                <td colspan="8">
+                  <i class="fa-solid fa-box-open"></i>
+                  <span>Run a product forecast to see sales and stock-out dates for each item.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="customer-card" aria-labelledby="single-product-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="single-product-title">Single product deep dive</h2>
+            <p class="customer-card__subtitle">Pick one SKU to see week-by-week sales outlook and stock burn.</p>
+          </div>
+        </div>
+        <div class="customer-grid">
+          <label class="customer-field customer-field--wide">
+            <span>Select Product</span>
+            <input type="search" placeholder="Type product name or barcode">
+          </label>
+        </div>
+        <div class="forecast-insight-grid">
+          <article class="forecast-insight">
+            <h3>Sales outlook</h3>
+            <p>Projected units and revenue for the selected look-ahead window.</p>
+            <div class="forecast-bars" aria-hidden="true">
+              <span style="--h:35%"></span><span style="--h:48%"></span><span style="--h:42%"></span><span style="--h:60%"></span><span style="--h:55%"></span><span style="--h:70%"></span>
+            </div>
+          </article>
+          <article class="forecast-insight">
+            <h3>Stock burn</h3>
+            <p>How quickly current inventory will empty at the forecasted daily rate.</p>
+            <div class="forecast-bars" aria-hidden="true">
+              <span style="--h:80%"></span><span style="--h:65%"></span><span style="--h:50%"></span><span style="--h:35%"></span><span style="--h:20%"></span><span style="--h:8%"></span>
+            </div>
+          </article>
+          <article class="forecast-insight">
+            <h3>Action</h3>
+            <ul class="forecast-action-list">
+              <li>Reorder before the stock-out date</li>
+              <li>Check supplier lead time</li>
+              <li>Protect margin on fast movers</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

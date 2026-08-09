@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Debt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="debt.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Debt"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Debt">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">Liabilities Tracking</span>
+          <h1 class="customer-header__title">Debt &amp; liabilities</h1>
+          <p class="customer-header__text">Record business loans, payables, and other liabilities with amounts, due dates, and repayment status.</p>
+        </div>
+      </header>
+
+      <div class="inventory-stats" aria-label="Debt summary">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-hand-holding-dollar inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Total Debt</span>
+          <strong class="inventory-stat-card__value">0.00</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-scale-unbalanced inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Liabilities</span>
+          <strong class="inventory-stat-card__value">0.00</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-clock inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Due Soon</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Overdue</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+      </div>
+
+      <form class="customer-form" action="#">
+        <section class="customer-card" aria-labelledby="debt-basic-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="debt-basic-title">Add debt or liability</h2>
+              <p class="customer-card__subtitle">Enter lender details, amount owed, due date, and repayment information.</p>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Title</span>
+              <input type="text" placeholder="Example: Bank loan, supplier payable">
+            </label>
+            <label class="customer-field">
+              <span>Type</span>
+              <select>
+                <option>Debt</option>
+                <option>Liability</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Category</span>
+              <select>
+                <option>Bank Loan</option>
+                <option>Supplier Payable</option>
+                <option>Credit Card</option>
+                <option>Personal Loan</option>
+                <option>Mortgage</option>
+                <option>Tax Payable</option>
+                <option>Salary Payable</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Creditor / Lender</span>
+              <input type="text" placeholder="Bank, supplier, or person name">
+            </label>
+            <label class="customer-field">
+              <span>Amount</span>
+              <input type="number" placeholder="0.00" step="0.01">
+            </label>
+            <label class="customer-field">
+              <span>Remaining Balance</span>
+              <input type="number" placeholder="0.00" step="0.01">
+            </label>
+            <label class="customer-field">
+              <span>Interest Rate %</span>
+              <input type="number" placeholder="Optional" step="0.01">
+            </label>
+            <label class="customer-field">
+              <span>Payment Frequency</span>
+              <select>
+                <option>One-time</option>
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option>Yearly</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Start Date</span>
+              <input type="date">
+            </label>
+            <label class="customer-field">
+              <span>Due Date</span>
+              <input type="date">
+            </label>
+            <label class="customer-field">
+              <span>Status</span>
+              <select>
+                <option>Active</option>
+                <option>Partially Paid</option>
+                <option>Paid</option>
+                <option>Overdue</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Phone / Contact</span>
+              <input type="tel" placeholder="Optional contact number">
+            </label>
+            <label class="customer-field customer-field--wide">
+              <span>Notes</span>
+              <textarea placeholder="Payment terms, installment notes, or agreement details"></textarea>
+            </label>
+          </div>
+
+          <div class="customer-actions">
+            <button class="customer-save-button" type="button">
+              <i class="fa-solid fa-plus"></i>
+              <span>Save Debt</span>
+            </button>
+            <button class="customer-clear-button" type="button">
+              <i class="fa-solid fa-eraser"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+        </section>
+      </form>
+
+      <section class="customer-table-card" aria-labelledby="debt-table-title">
+        <div class="customer-table-card__header">
+          <div>
+            <h2 class="customer-card__title" id="debt-table-title">Debt &amp; liability list</h2>
+            <p class="customer-card__subtitle">All recorded business debts and liabilities will appear here.</p>
+          </div>
+          <div class="customer-table-card__controls">
+            <span class="customer-table-card__badge">0 Records</span>
+            <button class="table-update-button" type="button">
+              <i class="fa-solid fa-pen"></i>
+              <span>Update</span>
+            </button>
+            <button class="table-delete-button" type="button">
+              <i class="fa-solid fa-trash"></i>
+              <span>Delete</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="expense-filter-bar" aria-label="Debt type filters">
+          <button class="expense-filter-bar__item expense-filter-bar__item--active" type="button">All</button>
+          <button class="expense-filter-bar__item" type="button">Debt</button>
+          <button class="expense-filter-bar__item" type="button">Liability</button>
+          <button class="expense-filter-bar__item" type="button">Active</button>
+          <button class="expense-filter-bar__item" type="button">Overdue</button>
+          <button class="expense-filter-bar__item" type="button">Paid</button>
+        </div>
+
+        <div class="customer-table-wrap">
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Creditor</th>
+                <th>Amount</th>
+                <th>Remaining</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="customer-table__empty">
+                <td colspan="8">
+                  <i class="fa-solid fa-scale-unbalanced"></i>
+                  <span>No debt or liabilities added yet.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

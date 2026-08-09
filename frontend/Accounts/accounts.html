@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Accounts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="accounts.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Accounts"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Accounts">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">User Accounts</span>
+          <h1 class="customer-header__title">Manage accounts</h1>
+          <p class="customer-header__text">Create cashier, manager, and executive accounts with login credentials and role-based access.</p>
+        </div>
+      </header>
+
+      <div class="inventory-stats" aria-label="Account summary">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-user-tie inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Cashier</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-user-gear inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Manager</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-user-shield inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Executive</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-users inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Total Accounts</span>
+          <strong class="inventory-stat-card__value">0</strong>
+        </article>
+      </div>
+
+      <form class="customer-form" action="#">
+        <section class="customer-card" aria-labelledby="account-basic-title">
+          <div class="customer-card__header">
+            <div>
+              <h2 class="customer-card__title" id="account-basic-title">Add account</h2>
+              <p class="customer-card__subtitle">Enter name, login details, and role for the new user.</p>
+            </div>
+          </div>
+
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Full Name</span>
+              <input type="text" placeholder="Enter full name">
+            </label>
+            <label class="customer-field">
+              <span>Username</span>
+              <input type="text" placeholder="Login username">
+            </label>
+            <label class="customer-field">
+              <span>Email</span>
+              <input type="email" placeholder="Optional email">
+            </label>
+            <label class="customer-field">
+              <span>Phone Number</span>
+              <input type="tel" placeholder="03XX-XXXXXXX">
+            </label>
+            <label class="customer-field">
+              <span>Password</span>
+              <input type="password" placeholder="Create password">
+            </label>
+            <label class="customer-field">
+              <span>Confirm Password</span>
+              <input type="password" placeholder="Re-enter password">
+            </label>
+            <label class="customer-field">
+              <span>Account Role</span>
+              <select>
+                <option>Cashier</option>
+                <option>Manager</option>
+                <option>Executive</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Status</span>
+              <select>
+                <option>Active</option>
+                <option>Inactive</option>
+              </select>
+            </label>
+            <label class="customer-field customer-field--wide">
+              <span>Notes</span>
+              <textarea placeholder="Optional notes about access or permissions"></textarea>
+            </label>
+          </div>
+
+          <div class="role-info-grid" aria-label="Role permissions">
+            <article class="role-info-card">
+              <h3 class="role-info-card__title"><i class="fa-solid fa-user-tie"></i> Cashier</h3>
+              <p class="role-info-card__text">Create invoices, view sales, and handle daily counter work.</p>
+            </article>
+            <article class="role-info-card">
+              <h3 class="role-info-card__title"><i class="fa-solid fa-user-gear"></i> Manager</h3>
+              <p class="role-info-card__text">Manage inventory, purchases, expenses, customers, and reports.</p>
+            </article>
+            <article class="role-info-card">
+              <h3 class="role-info-card__title"><i class="fa-solid fa-user-shield"></i> Executive</h3>
+              <p class="role-info-card__text">Full access including accounts, settings, and business controls.</p>
+            </article>
+          </div>
+
+          <div class="customer-actions">
+            <button class="customer-save-button" type="button">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Save Account</span>
+            </button>
+            <button class="customer-clear-button" type="button">
+              <i class="fa-solid fa-eraser"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+        </section>
+      </form>
+
+      <section class="customer-table-card" aria-labelledby="account-table-title">
+        <div class="customer-table-card__header">
+          <div>
+            <h2 class="customer-card__title" id="account-table-title">Account list</h2>
+            <p class="customer-card__subtitle">All cashier, manager, and executive accounts will appear here.</p>
+          </div>
+          <div class="customer-table-card__controls">
+            <span class="customer-table-card__badge">0 Accounts</span>
+            <button class="table-update-button" type="button">
+              <i class="fa-solid fa-pen"></i>
+              <span>Update</span>
+            </button>
+            <button class="table-delete-button" type="button">
+              <i class="fa-solid fa-trash"></i>
+              <span>Delete</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="expense-filter-bar" aria-label="Account role filters">
+          <button class="expense-filter-bar__item expense-filter-bar__item--active" type="button">All</button>
+          <button class="expense-filter-bar__item" type="button">Cashier</button>
+          <button class="expense-filter-bar__item" type="button">Manager</button>
+          <button class="expense-filter-bar__item" type="button">Executive</button>
+        </div>
+
+        <div class="customer-table-wrap">
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="customer-table__empty">
+                <td colspan="7">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span>No accounts added yet.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>

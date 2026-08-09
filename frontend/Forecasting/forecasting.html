@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missipy Forecasting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css">
+  <link rel="stylesheet" href="forecasting.css">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="Forecasting"></div>
+
+  <main class="page-shell">
+    <section class="customer-page" aria-label="Forecasting">
+      <header class="customer-header">
+        <div>
+          <span class="customer-header__eyebrow">Business Predictions</span>
+          <h1 class="customer-header__title">Forecasting hub</h1>
+          <p class="customer-header__text">Open a forecasting room to project product sales, stock-outs, revenue, and full business health before you buy, sell, or spend.</p>
+        </div>
+      </header>
+
+      <div class="inventory-stats" aria-label="Forecast overview">
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-box inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Products Tracked</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">At Risk of Stock-Out</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-receipt inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">30-Day Sales Outlook</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+        <article class="inventory-stat-card">
+          <i class="fa-solid fa-chart-pie inventory-stat-card__icon" aria-hidden="true"></i>
+          <span class="inventory-stat-card__label">Profit Outlook</span>
+          <strong class="inventory-stat-card__value">—</strong>
+        </article>
+      </div>
+
+      <section class="customer-card" aria-labelledby="forecast-open-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="forecast-open-title">Open a forecast room</h2>
+            <p class="customer-card__subtitle">Each button opens a dedicated page built for that business question.</p>
+          </div>
+        </div>
+
+        <div class="forecast-hub-grid">
+          <a class="forecast-entry forecast-entry--primary" href="../Forecasting/product_forecast.html">
+            <span class="forecast-entry__icon"><i class="fa-solid fa-box-open"></i></span>
+            <span class="forecast-entry__eyebrow">Most used</span>
+            <span class="forecast-entry__title">Product Forecasting</span>
+            <span class="forecast-entry__text">Forecast sales for each product and see exactly when stock will run out, with reorder suggestions.</span>
+            <span class="forecast-entry__cta">Open product room <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a class="forecast-entry" href="../Forecasting/sales_forecast.html">
+            <span class="forecast-entry__icon"><i class="fa-solid fa-receipt"></i></span>
+            <span class="forecast-entry__eyebrow">Revenue</span>
+            <span class="forecast-entry__title">Sales Forecasting</span>
+            <span class="forecast-entry__text">Project shop revenue by day, week, and month. Compare outlook vs last period and payment mix.</span>
+            <span class="forecast-entry__cta">Open sales room <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a class="forecast-entry" href="../Forecasting/business_forecast.html">
+            <span class="forecast-entry__icon"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="forecast-entry__eyebrow">Full picture</span>
+            <span class="forecast-entry__title">Full Business Analysis</span>
+            <span class="forecast-entry__text">Sales, purchases, expenses, cash flow, profit, debt pressure, and action recommendations in one place.</span>
+            <span class="forecast-entry__cta">Open business room <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a class="forecast-entry" href="../Forecasting/product_forecast.html#stock-out">
+            <span class="forecast-entry__icon"><i class="fa-solid fa-hourglass-half"></i></span>
+            <span class="forecast-entry__eyebrow">Inventory risk</span>
+            <span class="forecast-entry__title">Stock-Out Timeline</span>
+            <span class="forecast-entry__text">Jump straight to products likely to go empty soon so you can restock before lost sales.</span>
+            <span class="forecast-entry__cta">View stock risks <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+      </section>
+    
+      <section class="customer-card" aria-labelledby="forecast-guide-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="forecast-guide-title">How a full business uses forecasting</h2>
+            <p class="customer-card__subtitle">Use these rooms in order for weekly planning.</p>
+          </div>
+        </div>
+        <ol class="forecast-steps">
+          <li><strong>Products first</strong> — know what will sell and what will finish.</li>
+          <li><strong>Sales next</strong> — set a revenue target for the coming weeks.</li>
+          <li><strong>Business analysis last</strong> — check if cash, purchases, expenses, and debt still work with that plan.</li>
+        </ol>
+      </section>
+    </section>
+  </main>
+  <script src="../common/sidebar.js"></script>
+</body>
+</html>
