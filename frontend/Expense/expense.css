@@ -1391,16 +1391,10 @@ a {
   cursor: pointer;
   transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
-
-.expense-filter-bar__item:hover,
 .expense-filter-bar__item--active {
   color: var(--color-active-text);
   background: var(--color-active);
   border-color: var(--color-active);
-}
-
-.expense-filter-bar__item:hover {
-  transform: translateY(-1px);
 }
 @media (max-width: 900px) {
   :root {

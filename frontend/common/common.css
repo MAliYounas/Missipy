@@ -1876,11 +1876,27 @@ a {
   transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.expense-filter-bar__item:hover,
 .expense-filter-bar__item--active {
   color: var(--color-active-text);
   background: var(--color-active);
   border-color: var(--color-active);
+}
+
+.expense-filter-bar__item:focus {
+  outline: none;
+}
+
+.expense-filter-bar__item:focus-visible {
+  outline: 2px solid var(--color-active);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .expense-filter-bar__item:hover {
+    color: var(--color-active-text);
+    background: var(--color-active);
+    border-color: var(--color-active);
+  }
 }
 
 .customer-table-card__controls {

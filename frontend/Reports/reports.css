@@ -1420,19 +1420,12 @@
     cursor: pointer;
     transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   }
-  
-  .expense-filter-bar__item:hover,
-  .expense-filter-bar__item--active {
-    color: var(--color-active-text);
-    background: var(--color-active);
-    border-color: var(--color-active);
-  }
-  
-  .expense-filter-bar__item:hover {
-    transform: translateY(-1px);
-  }
-  
-  .inventory-stats {
+.expense-filter-bar__item--active {
+  color: var(--color-active-text);
+  background: var(--color-active);
+  border-color: var(--color-active);
+}
+.inventory-stats {
     display: grid;
     max-width: 1180px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1816,8 +1809,6 @@
   cursor: pointer;
   transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
-
-.expense-filter-bar__item:hover,
 .expense-filter-bar__item--active {
   color: var(--color-active-text);
   background: var(--color-active);

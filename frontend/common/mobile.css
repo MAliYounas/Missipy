@@ -358,4 +358,18 @@ html {
     gap: 12px !important;
     padding: 12px 14px !important;
   }
+
+  /* Only the selected filter chip stays black */
+  .expense-filter-bar__item {
+    color: var(--color-muted) !important;
+    background: #fff !important;
+    border-color: var(--color-border) !important;
+    transform: none !important;
+  }
+
+  .expense-filter-bar__item--active {
+    color: #fff !important;
+    background: #111 !important;
+    border-color: #111 !important;
+  }
 }

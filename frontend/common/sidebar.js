@@ -76,9 +76,29 @@
     el.outerHTML = render(active);
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", mount);
-  } else {
+  function wireFilterBars() {
+    var bars = document.querySelectorAll(".expense-filter-bar");
+    bars.forEach(function (bar) {
+      bar.addEventListener("click", function (event) {
+        var btn = event.target.closest(".expense-filter-bar__item");
+        if (!btn || !bar.contains(btn)) return;
+        bar.querySelectorAll(".expense-filter-bar__item").forEach(function (item) {
+          item.classList.remove("expense-filter-bar__item--active");
+          item.blur();
+        });
+        btn.classList.add("expense-filter-bar__item--active");
+      });
+    });
+  }
+
+  function init() {
     mount();
+    wireFilterBars();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
 })();
