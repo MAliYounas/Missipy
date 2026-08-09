@@ -1066,8 +1066,14 @@ a {
 }
 
 .invoice-summary__row strong {
+  max-width: 60%;
+  min-width: 0;
   color: var(--color-text);
   font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .invoice-summary__row--total {
@@ -1080,8 +1086,10 @@ a {
 }
 
 .invoice-summary__row--total strong {
+  max-width: 65%;
   color: var(--color-active-text);
-  font-size: 28px;
+  font-size: clamp(18px, 4vw, 28px);
+  line-height: 1.15;
 }
 
 .generate-invoice-button {
@@ -1808,11 +1816,13 @@ a {
 
 .inventory-stat-card {
   display: flex;
+  min-width: 0;
   min-height: 140px;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
   padding: 22px;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--color-border);
   border-radius: 22px;
@@ -1825,6 +1835,7 @@ a {
   justify-content: center;
   width: 42px;
   height: 42px;
+  flex: 0 0 auto;
   color: var(--color-active-text);
   background: var(--color-active);
   border-radius: 13px;
@@ -1837,14 +1848,20 @@ a {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .inventory-stat-card__value {
+  max-width: 100%;
+  min-width: 0;
   color: var(--color-text);
-  font-size: 24px;
+  font-size: clamp(15px, 2.1vw, 24px);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .expense-filter-bar {

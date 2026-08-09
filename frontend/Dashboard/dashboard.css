@@ -21,7 +21,9 @@
 }
 
 .dashboard-kpi-row article {
+  min-width: 0;
   padding: 14px 16px;
+  overflow: hidden;
   background: #fafafb;
   border: 1px solid var(--color-border);
   border-radius: 14px;
@@ -38,9 +40,16 @@
 }
 
 .dashboard-kpi-row strong {
-  font-size: 22px;
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  font-size: clamp(15px, 3.5vw, 22px);
   font-weight: 800;
   letter-spacing: -0.03em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .forecast-bars {

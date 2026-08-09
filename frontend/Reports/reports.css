@@ -1435,7 +1435,7 @@
   
   .inventory-stat-card {
     display: flex;
-    min-height: 140px;
+    min-width: 0; overflow: hidden; min-height: 140px;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
@@ -1467,12 +1467,17 @@
   }
   
   .inventory-stat-card__value {
-    color: var(--color-text);
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-  }
+  max-width: 100%;
+  min-width: 0;
+  color: var(--color-text);
+  font-size: clamp(15px, 2.1vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
   
   .inventory-search-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1742,7 +1747,7 @@
 
 .inventory-stat-card {
   display: flex;
-  min-height: 140px;
+  min-width: 0; overflow: hidden; min-height: 140px;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
@@ -1774,11 +1779,16 @@
 }
 
 .inventory-stat-card__value {
+  max-width: 100%;
+  min-width: 0;
   color: var(--color-text);
-  font-size: 24px;
+  font-size: clamp(15px, 2.1vw, 24px);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .expense-filter-bar {
