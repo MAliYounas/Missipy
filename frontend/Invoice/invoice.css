@@ -56,21 +56,7 @@ a {
 }
 
 .app-sidebar {
-  position: fixed;
-  inset: 0 auto 0 0;
-  z-index: 20;
-  display: flex;
-  width: var(--sidebar-width);
-  height: 100vh;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
-  overflow-y: auto;
-  background: var(--color-surface);
-  border-right: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sidebar);
-  transition: width var(--transition-base), padding var(--transition-base);
+  /* sidebar layout controlled by common.css + mobile.css */
 }
 
 .app-sidebar::-webkit-scrollbar {
@@ -288,7 +274,7 @@ a {
 
 .page-shell {
   min-height: 100vh;
-  padding-left: var(--sidebar-width);
+  
   transition: padding-left var(--transition-base);
 }
 
@@ -1197,9 +1183,6 @@ a {
 @media (max-width: 900px) {
   :root {
     --sidebar-width: 232px;
-  }
-.page-shell {
-    padding-left: var(--sidebar-width);
   }
 .home-hero__content {
     grid-template-columns: 1fr;
