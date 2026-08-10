@@ -70,9 +70,9 @@ a {
   height: 100vh;
   flex-direction: column;
   justify-content: flex-start;
-  gap: var(--space-lg);
+  gap: 0;
   padding: var(--space-lg);
-  overflow-y: auto;
+  overflow: hidden;
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   box-shadow: var(--shadow-sidebar);
@@ -90,15 +90,36 @@ a {
 
 .sidebar__top {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   flex-direction: column;
   min-width: 0;
   min-height: 0;
+  overflow: hidden;
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #d6d6da;
+  border-radius: 999px;
 }
 
 .sidebar__footer {
-  margin-top: auto;
-  padding-top: var(--space-md);
+  flex: 0 0 auto;
+  z-index: 2;
+  margin-top: 12px;
+  padding-top: 12px;
+  background: var(--color-surface);
   border-top: 1px solid var(--color-border);
 }
 
@@ -110,21 +131,22 @@ a {
   min-height: 48px;
   padding: 12px 14px;
   color: var(--color-text);
-  background: transparent;
-  border: 1px solid transparent;
+  background: #f7f7f8;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   font-family: inherit;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+  pointer-events: auto;
   transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .sidebar-logout:hover,
 .sidebar-logout:focus-visible {
   color: #111;
-  background: #f7f7f8;
-  border-color: var(--color-border);
+  background: #ececee;
+  border-color: #d4d4d8;
 }
 
 .sidebar-logout .sidebar-nav__icon {
@@ -1451,9 +1473,48 @@ a {
   visibility: hidden;
 }
 
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-logout {
+  .sidebar-toggle:checked ~ .app-sidebar .sidebar-logout {
   justify-content: center;
   padding-inline: 0;
+}
+
+/* Desktop: keep Logout pinned under a scrollable nav (not merged with Settings) */
+@media (min-width: 1025px) {
+  .app-sidebar {
+    overflow: hidden !important;
+    gap: 0 !important;
+  }
+
+  .sidebar__top {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .sidebar-nav {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .sidebar__footer {
+    flex: 0 0 auto !important;
+    position: relative !important;
+    z-index: 5 !important;
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    background: var(--color-surface) !important;
+    border-top: 1px solid var(--color-border) !important;
+  }
+
+  .sidebar-logout {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 6 !important;
+  }
 }
 
 .sidebar-toggle:checked ~ .app-sidebar .brand:hover::after {
