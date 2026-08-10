@@ -55,9 +55,7 @@
                 '<span class="brand__tagline">Business Suite</span>' +
               "</span>" +
             "</a>" +
-            '<label class="sidebar-toggle-button" for="sidebar-toggle" aria-label="Toggle sidebar">' +
-              '<i class="fa-solid fa-angles-left sidebar-toggle-button__close" aria-hidden="true"></i>' +
-              '<i class="fa-solid fa-angles-right sidebar-toggle-button__open" aria-hidden="true"></i>' +
+            '<label class="sidebar-toggle-button" for="sidebar-toggle" aria-label="Close menu">' +
               '<i class="fa-solid fa-xmark sidebar-toggle-button__mobile-close" aria-hidden="true"></i>' +
             "</label>" +
           "</div>" +

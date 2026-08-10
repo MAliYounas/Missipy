@@ -55,19 +55,56 @@ a {
   pointer-events: none;
 }
 
-.sidebar-mobile-open,
-.sidebar-backdrop,
-.sidebar-toggle-button__mobile-close {
+.sidebar-mobile-open {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top, 0px));
+  left: max(12px, env(safe-area-inset-left, 0px));
+  z-index: 10050;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  color: #111;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.14);
+  font-size: 18px;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10040;
+  display: block;
+  background: rgba(17, 17, 17, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.sidebar-toggle-button__open,
+.sidebar-toggle-button__close {
   display: none;
+}
+
+.sidebar-toggle-button__mobile-close {
+  display: inline-flex;
 }
 
 .app-sidebar {
   position: fixed;
   inset: 0 auto 0 0;
-  z-index: 20;
+  z-index: 10045;
   display: block;
-  width: var(--sidebar-width);
+  width: min(300px, 86vw);
+  max-width: 320px;
   height: 100vh;
+  max-height: 100dvh;
   padding: var(--space-lg);
   overflow-x: hidden;
   overflow-y: scroll;
@@ -76,7 +113,8 @@ a {
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   box-shadow: var(--shadow-sidebar);
-  transition: width var(--transition-base), padding var(--transition-base);
+  transform: translateX(-110%);
+  transition: transform var(--transition-base);
   scrollbar-width: thin;
   scrollbar-color: #5c5c61 #ececef;
 }
@@ -264,8 +302,13 @@ a {
   transform: translateY(-1px);
 }
 
-.sidebar-toggle-button__open {
-  display: none;
+.sidebar-toggle-button__open,
+.sidebar-toggle-button__close {
+  display: none !important;
+}
+
+.sidebar-toggle-button__mobile-close {
+  display: inline-flex !important;
 }
 
 .sidebar-nav__list {
@@ -349,8 +392,8 @@ a {
 
 .page-shell {
   min-height: 100vh;
-  padding-left: var(--sidebar-width);
-  transition: padding-left var(--transition-base);
+  padding: calc(64px + env(safe-area-inset-top, 0px)) 0 24px;
+  transition: none;
 }
 
 .home-hero {
@@ -1436,51 +1479,62 @@ a {
   font-size: 24px;
 }
 
+.sidebar-toggle:checked ~ .sidebar-mobile-open {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-toggle:checked ~ .sidebar-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .sidebar-toggle:checked ~ .app-sidebar {
-  width: var(--sidebar-collapsed-width);
-  padding-inline: 15px;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar__header {
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .brand {
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .brand:hover {
-  background: transparent;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .brand__logo {
-  width: 48px;
-  height: 48px;
-  flex-basis: 48px;
+  transform: translateX(0);
 }
 
 .sidebar-toggle:checked ~ .app-sidebar .brand__content,
 .sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__text {
-  width: 0;
+  width: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-logout {
+  justify-content: flex-start;
+  padding-inline: 14px;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .brand:hover::after,
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link::after {
+  display: none;
   opacity: 0;
-  visibility: hidden;
 }
 
-  .sidebar-toggle:checked ~ .app-sidebar .sidebar-logout {
-  justify-content: center;
-  padding-inline: 0;
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__close,
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__open {
+  display: none;
 }
 
-/* Desktop: same simple whole-sidebar scroll as phone */
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__mobile-close {
+  display: inline-flex;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link {
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+}
+
+.sidebar-toggle:checked ~ .page-shell {
+  padding-left: 0;
+}
+
+/* Desktop drawer sizing */
 @media (min-width: 1025px) {
   .app-sidebar {
-    display: block !important;
-    overflow-x: hidden !important;
-    overflow-y: scroll !important;
-    overscroll-behavior: contain !important;
+    width: 300px;
+    max-width: 300px;
   }
 
   .sidebar__top,
@@ -1497,74 +1551,9 @@ a {
     position: static !important;
   }
 
-  .sidebar__footer {
-    margin-top: 16px !important;
-    padding-top: 12px !important;
-    background: var(--color-surface) !important;
-    border-top: 1px solid var(--color-border) !important;
-  }
-
   .sidebar-logout {
     pointer-events: auto !important;
   }
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .brand:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button {
-  width: 46px;
-  height: 36px;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__close {
-  display: none;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-toggle-button__open {
-  display: inline-block;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link {
-  justify-content: center;
-  min-height: 48px;
-  padding: 12px;
-  gap: 0;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link:hover {
-  transform: translateY(-1px);
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link::after {
-  position: absolute;
-  left: calc(100% + 12px);
-  top: 50%;
-  z-index: 40;
-  padding: 8px 10px;
-  color: var(--color-active-text);
-  background: var(--color-active);
-  border-radius: 10px;
-  box-shadow: var(--shadow-card);
-  content: attr(data-label);
-  font-size: 12px;
-  font-weight: 700;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) translateX(-6px);
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  white-space: nowrap;
-}
-
-.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-}
-
-.sidebar-toggle:checked ~ .page-shell {
-  padding-left: var(--sidebar-collapsed-width);
 }
 
 @media (max-width: 900px) {
@@ -1577,11 +1566,11 @@ a {
   }
 
   .page-shell {
-    padding-left: var(--sidebar-width);
+    padding-left: 0;
   }
 
   .sidebar-toggle:checked ~ .page-shell {
-    padding-left: var(--sidebar-collapsed-width);
+    padding-left: 0;
   }
 
   .home-hero__content {
@@ -2116,4 +2105,72 @@ a {
 
 @media (max-width: 980px) {
   .inventory-stats, .report-grid { grid-template-columns: 1fr; }
+}
+
+/* Final drawer override — laptop + phone: hidden until toggled open */
+.sidebar-mobile-open {
+  display: inline-flex !important;
+}
+
+.sidebar-backdrop {
+  display: block !important;
+}
+
+.app-sidebar {
+  transform: translateX(-110%) !important;
+  transition: transform var(--transition-base) !important;
+}
+
+.page-shell,
+.sidebar-toggle:checked ~ .page-shell {
+  padding-left: 0 !important;
+}
+
+.sidebar-toggle:checked ~ .sidebar-mobile-open {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.sidebar-toggle:checked ~ .sidebar-backdrop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar {
+  transform: translateX(0) !important;
+  width: min(300px, 86vw) !important;
+  max-width: 320px !important;
+  padding-inline: var(--space-lg) !important;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .brand__content,
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__text,
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-logout .sidebar-nav__text {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .brand__content {
+  display: flex !important;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link {
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  padding: 12px 14px !important;
+}
+
+.sidebar-toggle:checked ~ .app-sidebar .sidebar-nav__link::after,
+.sidebar-toggle:checked ~ .app-sidebar .brand::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+html.sidebar-is-open,
+html.sidebar-is-open body {
+  overflow: hidden !important;
 }
