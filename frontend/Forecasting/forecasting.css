@@ -67,6 +67,32 @@
 .forecast-recommend h3 { margin:0 0 8px; font-size:clamp(14px, 2vw, 16px); overflow-wrap:anywhere; }
 .forecast-recommend p { margin:0; color:var(--color-muted); font-size:13px; line-height:1.5; overflow-wrap:anywhere; }
 .forecast-recommend__tag { display:inline-flex; margin-bottom:10px; padding:5px 10px; border:1px solid var(--color-border); border-radius:999px; font-size:11px; font-weight:800; text-transform:uppercase; }
+
+.forecast-form__section {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+}
+.forecast-form__section:first-of-type {
+  margin-top: 4px;
+  padding-top: 0;
+  border-top: 0;
+}
+.forecast-form__label {
+  margin: 0 0 12px;
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.forecast-form__reveal[hidden] {
+  display: none !important;
+}
+.forecast-form .customer-actions {
+  margin-top: 20px;
+}
+
 .customer-page[aria-label="Forecasting"] .customer-card,
 .customer-page[aria-label="Product Forecasting"] .customer-card,
 .customer-page[aria-label="Sales Forecasting"] .customer-card,

@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=33">
-  <link rel="stylesheet" href="forecasting.css?v=33">
-  <link rel="stylesheet" href="../common/mobile.css?v=33">
+  <link rel="stylesheet" href="../common/common.css?v=34">
+  <link rel="stylesheet" href="forecasting.css?v=34">
+  <link rel="stylesheet" href="../common/mobile.css?v=34">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Forecasting"></div>
@@ -58,65 +58,104 @@
         </article>
       </div>
 
-      <form class="customer-card" action="#" aria-labelledby="product-forecast-settings">
+      <form class="customer-card forecast-form" action="#" aria-labelledby="product-forecast-settings" data-forecast-form>
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="product-forecast-settings">Forecast settings</h2>
-            <p class="customer-card__subtitle">Choose one product or run all products using recent sales speed.</p>
+            <p class="customer-card__subtitle">Run all products, or look up one by name. Use presets or pick custom dates.</p>
           </div>
         </div>
-        <div class="customer-grid">
-          <label class="customer-field">
-            <span>Product</span>
-            <select>
-              <option>All Products</option>
-              <option>Search by name / barcode...</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Look Ahead</span>
-            <select>
-              <option>Next 7 Days</option>
-              <option selected>Next 30 Days</option>
-              <option>Next 90 Days</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Based On History</span>
-            <select>
-              <option>Last 14 Days</option>
-              <option selected>Last 30 Days</option>
-              <option>Last 90 Days</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Safety Stock (days)</span>
-            <input type="number" placeholder="7" value="7">
-          </label>
-          <label class="customer-field">
-            <span>Category Filter</span>
-            <select>
-              <option>All Categories</option>
-              <option>Fast Moving</option>
-              <option>Slow Moving</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Include Seasonality</span>
-            <select>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </label>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">What to forecast</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Product scope</span>
+              <select name="product-scope" data-toggle-target="product-name-row">
+                <option value="all" selected>All products</option>
+                <option value="name">By product name</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Category</span>
+              <select name="category">
+                <option value="all" selected>All categories</option>
+                <option value="fast">Fast moving</option>
+                <option value="slow">Slow moving</option>
+              </select>
+            </label>
+            <label class="customer-field customer-field--wide forecast-form__reveal" data-reveal="product-name-row" hidden>
+              <span>Product name</span>
+              <input type="search" name="product-name" placeholder="Type product name or barcode" autocomplete="off">
+            </label>
+          </div>
         </div>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">Look-ahead window</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Look ahead</span>
+              <select name="look-ahead" data-toggle-target="look-ahead-dates">
+                <option value="7">Next 7 days</option>
+                <option value="30" selected>Next 30 days</option>
+                <option value="90">Next 90 days</option>
+                <option value="custom">Custom dates</option>
+              </select>
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="look-ahead-dates" hidden>
+              <span>From</span>
+              <input type="date" name="look-ahead-from">
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="look-ahead-dates" hidden>
+              <span>To</span>
+              <input type="date" name="look-ahead-to">
+            </label>
+          </div>
+        </div>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">History &amp; buffers</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Based on history</span>
+              <select name="history" data-toggle-target="history-dates">
+                <option value="14">Last 14 days</option>
+                <option value="30" selected>Last 30 days</option>
+                <option value="90">Last 90 days</option>
+                <option value="custom">Custom dates</option>
+              </select>
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="history-dates" hidden>
+              <span>History from</span>
+              <input type="date" name="history-from">
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="history-dates" hidden>
+              <span>History to</span>
+              <input type="date" name="history-to">
+            </label>
+            <label class="customer-field">
+              <span>Safety stock (days)</span>
+              <input type="number" name="safety-stock" min="0" step="1" value="7" placeholder="7">
+            </label>
+            <label class="customer-field">
+              <span>Seasonality</span>
+              <select name="seasonality">
+                <option value="yes" selected>Include</option>
+                <option value="no">Ignore</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
         <div class="customer-actions">
           <button class="customer-save-button" type="button">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
             <span>Run Product Forecast</span>
           </button>
-          <button class="customer-clear-button" type="button">
+          <button class="customer-clear-button" type="reset">
             <i class="fa-solid fa-eraser"></i>
-            <span>Clear</span>
+            <span>Reset</span>
           </button>
         </div>
       </form>
@@ -150,31 +189,6 @@
             </div>
             <strong class="forecast-alert__count">0 items</strong>
           </article>
-        </div>
-      </section>
-
-      <section class="customer-card" aria-labelledby="single-product-title">
-        <div class="customer-card__header">
-          <div>
-            <h2 class="customer-card__title" id="single-product-title">Single product deep dive</h2>
-            <p class="customer-card__subtitle">Pick one SKU to see week-by-week sales outlook and stock burn.</p>
-          </div>
-        </div>
-        <div class="customer-grid">
-          <label class="customer-field customer-field--wide">
-            <span>Select Product</span>
-            <input type="search" placeholder="Type product name or barcode">
-          </label>
-        </div>
-        <div class="customer-actions">
-          <button class="customer-save-button" type="button">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <span>Search</span>
-          </button>
-          <button class="customer-clear-button" type="button">
-            <i class="fa-solid fa-eraser"></i>
-            <span>Clear</span>
-          </button>
         </div>
       </section>
 
@@ -269,6 +283,6 @@
       </section>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=33"></script>
+  <script src="../common/sidebar.js?v=34"></script>
 </body>
 </html>

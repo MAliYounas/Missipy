@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=33">
-  <link rel="stylesheet" href="forecasting.css?v=33">
-  <link rel="stylesheet" href="../common/mobile.css?v=33">
+  <link rel="stylesheet" href="../common/common.css?v=34">
+  <link rel="stylesheet" href="forecasting.css?v=34">
+  <link rel="stylesheet" href="../common/mobile.css?v=34">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Forecasting"></div>
@@ -58,49 +58,78 @@
         </article>
       </div>
 
-      <form class="customer-card" action="#" aria-labelledby="sales-forecast-settings">
+      <form class="customer-card forecast-form" action="#" aria-labelledby="sales-forecast-settings" data-forecast-form>
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="sales-forecast-settings">Sales forecast settings</h2>
-            <p class="customer-card__subtitle">Tune the outlook using history, seasonality, and target growth.</p>
+            <p class="customer-card__subtitle">Pick a look-ahead window, history range, and growth assumptions. Custom dates when you need them.</p>
           </div>
         </div>
-        <div class="customer-grid">
-          <label class="customer-field">
-            <span>Look Ahead</span>
-            <select>
-              <option>Next 7 Days</option>
-              <option selected>Next 30 Days</option>
-              <option>Next 90 Days</option>
-              <option>Next 12 Months</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>History Window</span>
-            <select>
-              <option>Last 30 Days</option>
-              <option selected>Last 90 Days</option>
-              <option>Last 12 Months</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Growth Adjustment %</span>
-            <input type="number" placeholder="0" step="0.1">
-          </label>
-          <label class="customer-field">
-            <span>Include Seasonality</span>
-            <select>
-              <option selected>Yes</option>
-              <option>No</option>
-            </select>
-          </label>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">Look-ahead window</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Look ahead</span>
+              <select name="look-ahead" data-toggle-target="sales-look-ahead-dates">
+                <option value="7">Next 7 days</option>
+                <option value="30" selected>Next 30 days</option>
+                <option value="90">Next 90 days</option>
+                <option value="365">Next 12 months</option>
+                <option value="custom">Custom dates</option>
+              </select>
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="sales-look-ahead-dates" hidden>
+              <span>From</span>
+              <input type="date" name="look-ahead-from">
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="sales-look-ahead-dates" hidden>
+              <span>To</span>
+              <input type="date" name="look-ahead-to">
+            </label>
+          </div>
         </div>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">History &amp; adjustments</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>History window</span>
+              <select name="history" data-toggle-target="sales-history-dates">
+                <option value="30">Last 30 days</option>
+                <option value="90" selected>Last 90 days</option>
+                <option value="365">Last 12 months</option>
+                <option value="custom">Custom dates</option>
+              </select>
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="sales-history-dates" hidden>
+              <span>History from</span>
+              <input type="date" name="history-from">
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="sales-history-dates" hidden>
+              <span>History to</span>
+              <input type="date" name="history-to">
+            </label>
+            <label class="customer-field">
+              <span>Growth adjustment %</span>
+              <input type="number" name="growth" placeholder="0" step="0.1" value="0">
+            </label>
+            <label class="customer-field">
+              <span>Seasonality</span>
+              <select name="seasonality">
+                <option value="yes" selected>Include</option>
+                <option value="no">Ignore</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
         <div class="customer-actions">
           <button class="customer-save-button" type="button">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
             <span>Generate Sales Forecast</span>
           </button>
-          <button class="customer-clear-button" type="button">
+          <button class="customer-clear-button" type="reset">
             <i class="fa-solid fa-eraser"></i>
             <span>Reset</span>
           </button>
@@ -191,6 +220,6 @@
       </section>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=33"></script>
+  <script src="../common/sidebar.js?v=34"></script>
 </body>
 </html>

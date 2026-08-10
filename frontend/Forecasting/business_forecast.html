@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=33">
-  <link rel="stylesheet" href="forecasting.css?v=33">
-  <link rel="stylesheet" href="../common/mobile.css?v=33">
+  <link rel="stylesheet" href="../common/common.css?v=34">
+  <link rel="stylesheet" href="forecasting.css?v=34">
+  <link rel="stylesheet" href="../common/mobile.css?v=34">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Forecasting"></div>
@@ -58,58 +58,89 @@
         </article>
       </div>
 
-      <form class="customer-card" action="#" aria-labelledby="business-forecast-settings">
+      <form class="customer-card forecast-form" action="#" aria-labelledby="business-forecast-settings" data-forecast-form>
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="business-forecast-settings">Analysis window</h2>
-            <p class="customer-card__subtitle">Build a full outlook across all money moving in and out of the business.</p>
+            <p class="customer-card__subtitle">Set the period and what money flows to include. Use custom dates when presets are not enough.</p>
           </div>
         </div>
-        <div class="customer-grid">
-          <label class="customer-field">
-            <span>Analysis Period</span>
-            <select>
-              <option>Next 30 Days</option>
-              <option selected>Next 90 Days</option>
-              <option>Next 6 Months</option>
-              <option>Next 12 Months</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Include Debt Payments</span>
-            <select>
-              <option selected>Yes</option>
-              <option>No</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Include Planned Purchases</span>
-            <select>
-              <option selected>Yes</option>
-              <option>No</option>
-            </select>
-          </label>
-          <label class="customer-field">
-            <span>Scenario</span>
-            <select>
-              <option selected>Base Case</option>
-              <option>Optimistic</option>
-              <option>Conservative</option>
-            </select>
-          </label>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">Analysis period</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Period</span>
+              <select name="analysis-period" data-toggle-target="business-period-dates">
+                <option value="30">Next 30 days</option>
+                <option value="90" selected>Next 90 days</option>
+                <option value="180">Next 6 months</option>
+                <option value="365">Next 12 months</option>
+                <option value="custom">Custom dates</option>
+              </select>
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="business-period-dates" hidden>
+              <span>From</span>
+              <input type="date" name="period-from">
+            </label>
+            <label class="customer-field forecast-form__reveal" data-reveal="business-period-dates" hidden>
+              <span>To</span>
+              <input type="date" name="period-to">
+            </label>
+            <label class="customer-field">
+              <span>Scenario</span>
+              <select name="scenario">
+                <option value="base" selected>Base case</option>
+                <option value="optimistic">Optimistic</option>
+                <option value="conservative">Conservative</option>
+              </select>
+            </label>
+          </div>
         </div>
+
+        <div class="forecast-form__section">
+          <h3 class="forecast-form__label">Include in analysis</h3>
+          <div class="customer-grid">
+            <label class="customer-field">
+              <span>Debt payments</span>
+              <select name="include-debt">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Planned purchases</span>
+              <select name="include-purchases">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label class="customer-field">
+              <span>Operating expenses</span>
+              <select name="include-expenses">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
         <div class="customer-actions">
           <button class="customer-save-button" type="button">
             <i class="fa-solid fa-magnifying-glass-chart"></i>
             <span>Run Full Analysis</span>
           </button>
+          <button class="customer-clear-button" type="reset">
+            <i class="fa-solid fa-eraser"></i>
+            <span>Reset</span>
+          </button>
           <a class="customer-clear-button" href="../Forecasting/product_forecast.html">
             <i class="fa-solid fa-box-open"></i>
-            <span>Open Product Room</span>
+            <span>Product room</span>
           </a>
           <a class="customer-clear-button" href="../Forecasting/sales_forecast.html">
             <i class="fa-solid fa-receipt"></i>
-            <span>Open Sales Room</span>
+            <span>Sales room</span>
           </a>
         </div>
       </form>
@@ -271,6 +302,6 @@
       </section>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=33"></script>
+  <script src="../common/sidebar.js?v=34"></script>
 </body>
 </html>

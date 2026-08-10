@@ -271,12 +271,46 @@
     apply(active ? active.getAttribute("data-period") : "30");
   }
 
+  function syncForecastReveal(select) {
+    var target = select.getAttribute("data-toggle-target");
+    if (!target) return;
+    var form = select.closest("[data-forecast-form]") || document;
+    var show =
+      select.value === "custom" ||
+      select.value === "name";
+    form.querySelectorAll('[data-reveal="' + target + '"]').forEach(function (field) {
+      if (show) field.removeAttribute("hidden");
+      else field.setAttribute("hidden", "");
+    });
+  }
+
+  function wireForecastForms() {
+    var forms = document.querySelectorAll("[data-forecast-form]");
+    if (!forms.length) return;
+
+    forms.forEach(function (form) {
+      form.querySelectorAll("select[data-toggle-target]").forEach(function (select) {
+        syncForecastReveal(select);
+        select.addEventListener("change", function () {
+          syncForecastReveal(select);
+        });
+      });
+
+      form.addEventListener("reset", function () {
+        window.setTimeout(function () {
+          form.querySelectorAll("select[data-toggle-target]").forEach(syncForecastReveal);
+        }, 0);
+      });
+    });
+  }
+
   function init() {
     mount();
     wireSidebarMobileScroll();
     wireFilterBars();
     wireDashboardPeriod();
     wireAiComposer();
+    wireForecastForms();
   }
 
   if (document.readyState === "loading") {
