@@ -99,6 +99,26 @@ html {
     box-shadow: 0 18px 45px rgba(17, 17, 17, 0.18) !important;
     transform: translateX(-110%) !important;
     transition: transform 0.22s ease !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #5c5c61 #ececef !important;
+  }
+
+  .app-sidebar::-webkit-scrollbar {
+    width: 8px !important;
+  }
+
+  .app-sidebar::-webkit-scrollbar-track {
+    background: #ececef !important;
+    border-radius: 999px !important;
+  }
+
+  .app-sidebar::-webkit-scrollbar-thumb {
+    background: #5c5c61 !important;
+    border-radius: 999px !important;
+  }
+
+  .app-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #3f3f44 !important;
   }
 
   /* Phone: plain document flow so the drawer always scrolls */

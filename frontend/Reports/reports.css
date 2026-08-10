@@ -69,13 +69,11 @@
   }
   
   .sidebar__top {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 0;
-    overflow: hidden;
-  }
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
   
   .sidebar__header {
     display: flex;
