@@ -439,10 +439,24 @@ html {
   }
 
   .customer-table td,
-  .purchase-table td,
-  .invoice-table td {
+  .purchase-table td {
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  /* Taller rows on all tables except Invoice */
+  .customer-table th,
+  .customer-table td,
+  .purchase-table th,
+  .purchase-table td {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+    vertical-align: middle !important;
+  }
+
+  .customer-table__empty td,
+  .purchase-table__empty td {
+    height: 180px !important;
   }
 
   input[type="number"],
