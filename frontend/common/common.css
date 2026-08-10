@@ -1001,9 +1001,22 @@ a {
 
 .invoice-table-wrap {
   flex: 1;
-  overflow-x: auto;
+  max-height: min(420px, 48vh);
+  min-height: 180px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--color-border);
   border-radius: 16px;
+}
+
+.invoice-table-wrap::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.invoice-table-wrap::-webkit-scrollbar-thumb {
+  background: #d6d6da;
+  border-radius: 999px;
 }
 
 .invoice-table {
@@ -1011,6 +1024,12 @@ a {
   min-width: 330px;
   border-collapse: collapse;
   background: var(--color-surface);
+}
+
+.invoice-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .invoice-table th,

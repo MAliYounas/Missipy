@@ -1054,9 +1054,10 @@ a {
 
 .invoice-table-wrap {
   flex: 1;
-  max-height: 360px;
-  min-height: 0;
+  max-height: min(420px, 48vh);
+  min-height: 180px;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--color-border);
   border-radius: 16px;
 }
@@ -1076,6 +1077,12 @@ a {
   min-width: 460px;
   border-collapse: collapse;
   background: var(--color-surface);
+}
+
+.invoice-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .invoice-table th,
