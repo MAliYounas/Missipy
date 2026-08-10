@@ -4,136 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <title>Missipy Dashboard</title>
-  <link rel="icon" href="../media/App Logo-svg.svg" type="image/svg+xml">
+  <link rel="icon" href="../media/App%20Logo-svg.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=27">
-  <link rel="stylesheet" href="dashboard.css">
-  <link rel="stylesheet" href="../common/mobile.css?v=27">
+  <link rel="stylesheet" href="../common/common.css?v=28">
+  <link rel="stylesheet" href="dashboard.css?v=28">
+  <link rel="stylesheet" href="../common/mobile.css?v=28">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Dashboard"></div>
 
   <main class="page-shell">
-    <section class="customer-page" aria-label="Dashboard">
-      <header class="customer-header">
+    <section class="customer-page dash-page" aria-label="Dashboard">
+      <header class="dash-header">
         <div>
-          <span class="customer-header__eyebrow">Business Overview</span>
+          <span class="customer-header__eyebrow">Overview</span>
           <h1 class="customer-header__title">Dashboard</h1>
-          <p class="customer-header__text">Overview layout for sales, expenses, stock risk, cash position, and debt pressure.</p>
+          <p class="customer-header__text">Sales, revenue, expenses, and debt at a glance.</p>
+        </div>
+        <div class="expense-filter-bar dash-period" role="group" aria-label="Time period">
+          <button class="expense-filter-bar__item expense-filter-bar__item--active" type="button" data-period="30">Last 30 days</button>
+          <button class="expense-filter-bar__item" type="button" data-period="180">6 months</button>
+          <button class="expense-filter-bar__item" type="button" data-period="365">Year</button>
         </div>
       </header>
 
-      <div class="inventory-stats" aria-label="Key metrics">
-        <article class="inventory-stat-card">
-          <i class="fa-solid fa-receipt inventory-stat-card__icon" aria-hidden="true"></i>
-          <span class="inventory-stat-card__label">Sales (saved)</span>
-          <strong class="inventory-stat-card__value" id="dash_sales">0.00</strong>
+      <div class="dash-kpis" aria-label="Key totals">
+        <article class="dash-kpi">
+          <span class="dash-kpi__label">Total sales</span>
+          <strong class="dash-kpi__value" data-metric="sales">Rs 428,500</strong>
+          <span class="dash-kpi__hint" data-metric-hint="sales">+12% vs prior period</span>
         </article>
-        <article class="inventory-stat-card">
-          <i class="fa-solid fa-wallet inventory-stat-card__icon" aria-hidden="true"></i>
-          <span class="inventory-stat-card__label">Expenses</span>
-          <strong class="inventory-stat-card__value" id="dash_expenses">0.00</strong>
+        <article class="dash-kpi">
+          <span class="dash-kpi__label">Revenue</span>
+          <strong class="dash-kpi__value" data-metric="revenue">Rs 392,100</strong>
+          <span class="dash-kpi__hint" data-metric-hint="revenue">Collected payments</span>
         </article>
-        <article class="inventory-stat-card">
-          <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
-          <span class="inventory-stat-card__label">Stock Risk Items</span>
-          <strong class="inventory-stat-card__value" id="dash_stock_risk">0</strong>
+        <article class="dash-kpi">
+          <span class="dash-kpi__label">Expenses</span>
+          <strong class="dash-kpi__value" data-metric="expenses">Rs 146,800</strong>
+          <span class="dash-kpi__hint" data-metric-hint="expenses">Operating costs</span>
         </article>
-        <article class="inventory-stat-card">
-          <i class="fa-solid fa-scale-unbalanced inventory-stat-card__icon" aria-hidden="true"></i>
-          <span class="inventory-stat-card__label">Open Debt</span>
-          <strong class="inventory-stat-card__value" id="dash_debt">0.00</strong>
+        <article class="dash-kpi">
+          <span class="dash-kpi__label">Open debt</span>
+          <strong class="dash-kpi__value" data-metric="debt">Rs 87,250</strong>
+          <span class="dash-kpi__hint" data-metric-hint="debt">Receivables due</span>
+        </article>
+        <article class="dash-kpi">
+          <span class="dash-kpi__label">Net cash</span>
+          <strong class="dash-kpi__value" data-metric="cash">Rs 245,300</strong>
+          <span class="dash-kpi__hint" data-metric-hint="cash">After expenses &amp; debt</span>
         </article>
       </div>
 
-      <div class="dashboard-grid">
-        <section class="customer-card" aria-labelledby="cash-title">
-          <div class="customer-card__header">
-            <div>
-              <h2 class="customer-card__title" id="cash-title">Cash position</h2>
-              <p class="customer-card__subtitle">Assets cash/bank vs remaining debt balances.</p>
-            </div>
+      <div class="dash-charts">
+        <section class="dash-panel" aria-labelledby="sales-trend-title">
+          <div class="dash-panel__head">
+            <h2 class="dash-panel__title" id="sales-trend-title">Sales trend</h2>
+            <p class="dash-panel__sub" data-chart-label>Last 30 days</p>
           </div>
-          <div class="dashboard-kpi-row">
-            <article>
-              <span>Cash &amp; bank assets</span>
-              <strong id="dash_cash">0.00</strong>
-            </article>
-            <article>
-              <span>Net after debt</span>
-              <strong id="dash_net">0.00</strong>
-            </article>
-          </div>
-          <div class="forecast-bars forecast-bars--tall" aria-hidden="true">
-            <span style="--h:45%"></span><span style="--h:58%"></span><span style="--h:50%"></span><span style="--h:72%"></span><span style="--h:64%"></span><span style="--h:80%"></span>
+          <div class="dash-bars" id="dash-sales-bars" aria-hidden="true">
+            <div class="dash-bars__col"><span style="--h:42%"></span><em>W1</em></div>
+            <div class="dash-bars__col"><span style="--h:58%"></span><em>W2</em></div>
+            <div class="dash-bars__col"><span style="--h:51%"></span><em>W3</em></div>
+            <div class="dash-bars__col"><span style="--h:74%"></span><em>W4</em></div>
           </div>
         </section>
 
-        <section class="customer-card" aria-labelledby="alerts-title">
-          <div class="customer-card__header">
-            <div>
-              <h2 class="customer-card__title" id="alerts-title">Business alerts</h2>
-              <p class="customer-card__subtitle">Things that need attention this week.</p>
+        <section class="dash-panel" aria-labelledby="mix-title">
+          <div class="dash-panel__head">
+            <h2 class="dash-panel__title" id="mix-title">Revenue vs expenses</h2>
+            <p class="dash-panel__sub">Share of money in / out</p>
+          </div>
+          <div class="dash-stack" id="dash-mix">
+            <div class="dash-stack__row">
+              <div class="dash-stack__meta"><span>Revenue</span><strong data-mix="revenue">Rs 392,100</strong></div>
+              <div class="dash-stack__track"><i style="--w:73%"></i></div>
+            </div>
+            <div class="dash-stack__row">
+              <div class="dash-stack__meta"><span>Expenses</span><strong data-mix="expenses">Rs 146,800</strong></div>
+              <div class="dash-stack__track dash-stack__track--muted"><i style="--w:27%"></i></div>
+            </div>
+            <div class="dash-stack__row">
+              <div class="dash-stack__meta"><span>Open debt</span><strong data-mix="debt">Rs 87,250</strong></div>
+              <div class="dash-stack__track dash-stack__track--debt"><i style="--w:16%"></i></div>
             </div>
           </div>
-          <ul class="dashboard-alerts" id="dash_alerts">
-            <li>No critical alerts yet. Add expenses, debt, and assets to populate this panel.</li>
+        </section>
+      </div>
+
+      <div class="dash-bottom">
+        <section class="dash-panel" aria-labelledby="attention-title">
+          <div class="dash-panel__head">
+            <h2 class="dash-panel__title" id="attention-title">Needs attention</h2>
+          </div>
+          <ul class="dash-attention">
+            <li><i class="fa-solid fa-box-open" aria-hidden="true"></i><span>8 products below reorder level</span></li>
+            <li><i class="fa-solid fa-clock" aria-hidden="true"></i><span>3 debts overdue this week</span></li>
+            <li><i class="fa-solid fa-arrow-trend-down" aria-hidden="true"></i><span>Expense spike in utilities (+18%)</span></li>
           </ul>
         </section>
+
+        <section class="dash-panel" aria-labelledby="jump-title">
+          <div class="dash-panel__head">
+            <h2 class="dash-panel__title" id="jump-title">Go to</h2>
+          </div>
+          <div class="dash-links">
+            <a href="../Invoice/invoice.html"><i class="fa-solid fa-file-invoice"></i><span>Invoice</span></a>
+            <a href="../Sales/sales.html"><i class="fa-solid fa-receipt"></i><span>Sales</span></a>
+            <a href="../Expense/expense.html"><i class="fa-solid fa-wallet"></i><span>Expenses</span></a>
+            <a href="../Debt/debt.html"><i class="fa-solid fa-scale-unbalanced"></i><span>Debt</span></a>
+            <a href="../Reports/reports.html"><i class="fa-solid fa-chart-line"></i><span>Reports</span></a>
+          </div>
+        </section>
       </div>
-
-      <section class="customer-card" aria-labelledby="quick-title">
-        <div class="customer-card__header">
-          <div>
-            <h2 class="customer-card__title" id="quick-title">Quick actions</h2>
-            <p class="customer-card__subtitle">Jump into the areas that move the business daily.</p>
-          </div>
-        </div>
-        <div class="dashboard-actions">
-          <a class="customer-save-button" href="../Invoice/invoice.html"><i class="fa-solid fa-file-invoice"></i><span>New Invoice</span></a>
-          <a class="customer-clear-button" href="../Expense/expense.html"><i class="fa-solid fa-wallet"></i><span>Add Expense</span></a>
-          <a class="customer-clear-button" href="../Debt/debt.html"><i class="fa-solid fa-scale-unbalanced"></i><span>Record Debt</span></a>
-          <a class="customer-clear-button" href="../Forecasting/product_forecast.html"><i class="fa-solid fa-box-open"></i><span>Stock Forecast</span></a>
-          <a class="customer-clear-button" href="../Reports/reports.html"><i class="fa-solid fa-chart-line"></i><span>Reports</span></a>
-        </div>
-      </section>
-
-      <section class="customer-table-card" aria-labelledby="dash-table-title">
-        <div class="customer-table-card__header">
-          <div>
-            <h2 class="customer-card__title" id="dash-table-title">Module snapshot</h2>
-            <p class="customer-card__subtitle">Counts placeholder totals for layout only.</p>
-          </div>
-          <div class="customer-table-card__controls">
-            <button class="table-export-button" type="button">
-              <i class="fa-solid fa-file-csv"></i>
-              <span>Export CSV</span>
-            </button>
-          </div>
-        </div>
-        <div class="customer-table-wrap">
-          <table class="customer-table">
-            <thead>
-              <tr>
-                <th>Module</th>
-                <th>Records</th>
-                <th>Key total</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="dash_table_body">
-              <tr class="customer-table__empty">
-                <td colspan="4"><i class="fa-solid fa-chart-pie"></i><span>Connect data later to fill this snapshot.</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=26"></script>
+  <script src="../common/sidebar.js?v=28"></script>
 </body>
 </html>

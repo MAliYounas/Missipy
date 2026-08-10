@@ -798,4 +798,23 @@ html {
   .ai-composer__field textarea {
     font-size: 16px !important;
   }
+
+  .dash-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .dash-kpis,
+  .dash-charts,
+  .dash-bottom {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dash-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .dash-period {
+    width: 100% !important;
+  }
 }

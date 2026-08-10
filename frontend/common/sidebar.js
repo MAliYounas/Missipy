@@ -203,10 +203,120 @@
     });
   }
 
+  function wireDashboardPeriod() {
+    var bar = document.querySelector(".dash-period");
+    if (!bar) return;
+
+    var data = {
+      "30": {
+        label: "Last 30 days",
+        sales: "Rs 428,500",
+        revenue: "Rs 392,100",
+        expenses: "Rs 146,800",
+        debt: "Rs 87,250",
+        cash: "Rs 245,300",
+        salesHint: "+12% vs prior period",
+        revenueHint: "Collected payments",
+        expensesHint: "Operating costs",
+        debtHint: "Receivables due",
+        cashHint: "After expenses & debt",
+        bars: [42, 58, 51, 74],
+        barLabels: ["W1", "W2", "W3", "W4"],
+        mix: { revenue: 73, expenses: 27, debt: 16 }
+      },
+      "180": {
+        label: "Last 6 months",
+        sales: "Rs 2.41M",
+        revenue: "Rs 2.18M",
+        expenses: "Rs 812,400",
+        debt: "Rs 214,900",
+        cash: "Rs 1.37M",
+        salesHint: "+8% vs prior 6 months",
+        revenueHint: "Collected payments",
+        expensesHint: "Operating costs",
+        debtHint: "Receivables due",
+        cashHint: "After expenses & debt",
+        bars: [48, 55, 62, 58, 70, 76],
+        barLabels: ["M1", "M2", "M3", "M4", "M5", "M6"],
+        mix: { revenue: 73, expenses: 27, debt: 10 }
+      },
+      "365": {
+        label: "This year",
+        sales: "Rs 4.86M",
+        revenue: "Rs 4.41M",
+        expenses: "Rs 1.62M",
+        debt: "Rs 318,500",
+        cash: "Rs 2.79M",
+        salesHint: "+15% vs last year",
+        revenueHint: "Collected payments",
+        expensesHint: "Operating costs",
+        debtHint: "Receivables due",
+        cashHint: "After expenses & debt",
+        bars: [40, 46, 52, 49, 61, 68, 64, 72, 70, 78, 81, 86],
+        barLabels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
+        mix: { revenue: 73, expenses: 27, debt: 7 }
+      }
+    };
+
+    function apply(period) {
+      var set = data[period] || data["30"];
+      var map = {
+        sales: set.sales,
+        revenue: set.revenue,
+        expenses: set.expenses,
+        debt: set.debt,
+        cash: set.cash
+      };
+      Object.keys(map).forEach(function (key) {
+        var el = document.querySelector('[data-metric="' + key + '"]');
+        if (el) el.textContent = map[key];
+      });
+      ["sales", "revenue", "expenses", "debt", "cash"].forEach(function (key) {
+        var hint = document.querySelector('[data-metric-hint="' + key + '"]');
+        if (hint) hint.textContent = set[key + "Hint"];
+      });
+      var label = document.querySelector("[data-chart-label]");
+      if (label) label.textContent = set.label;
+
+      var mixKeys = ["revenue", "expenses", "debt"];
+      mixKeys.forEach(function (key) {
+        var val = document.querySelector('[data-mix="' + key + '"]');
+        if (val) val.textContent = set[key];
+        var track = document.querySelector("#dash-mix .dash-stack__row:nth-child(" + (mixKeys.indexOf(key) + 1) + ") i");
+        if (track) track.style.setProperty("--w", set.mix[key] + "%");
+      });
+
+      var bars = document.getElementById("dash-sales-bars");
+      if (!bars) return;
+      bars.innerHTML = set.bars
+        .map(function (h, i) {
+          return (
+            '<div class="dash-bars__col"><span style="--h:' +
+            h +
+            '%"></span><em>' +
+            (set.barLabels[i] || "") +
+            "</em></div>"
+          );
+        })
+        .join("");
+      bars.style.gridTemplateColumns = "repeat(" + set.bars.length + ", minmax(0, 1fr))";
+    }
+
+    bar.addEventListener("click", function (event) {
+      var btn = event.target.closest("[data-period]");
+      if (!btn || !bar.contains(btn)) return;
+      apply(btn.getAttribute("data-period"));
+    });
+
+    var active = bar.querySelector(".expense-filter-bar__item--active[data-period]");
+    apply(active ? active.getAttribute("data-period") : "30");
+  }
+
   function init() {
     mount();
     wireSidebarMobileScroll();
     wireFilterBars();
+    wireDashboardPeriod();
     wireAiComposer();
   }
 
