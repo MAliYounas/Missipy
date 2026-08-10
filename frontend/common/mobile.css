@@ -265,7 +265,6 @@ html {
     overflow-x: clip !important;
   }
 
-  .home-page,
   .purchase-page,
   .invoice-page,
   .customer-page {
@@ -304,7 +303,6 @@ html {
   }
 
   .customer-header__title,
-  .invoice-header__title,
   .purchase-header__title {
     font-size: clamp(26px, 7vw, 36px) !important;
     line-height: 1.15 !important;
@@ -320,12 +318,10 @@ html {
   .invoice-search-row,
   .invoice-grid--items,
   .invoice-layout,
-  .dashboard-grid,
   .inventory-stats,
   .forecast-insight-grid,
   .forecast-panel-grid,
   .forecast-recommend-grid,
-  .forecast-entry-grid,
   .forecast-alert-list,
   .report-grid,
   .home-hero__content,
@@ -337,8 +333,7 @@ html {
     min-width: 0 !important;
   }
 
-  .inventory-stats,
-  .dashboard-kpi-row {
+  .inventory-stats {
     grid-template-columns: 1fr 1fr !important;
   }
 
@@ -350,8 +345,7 @@ html {
   }
 
   .customer-field,
-  .invoice-field,
-  .purchase-field {
+  .invoice-field {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
@@ -398,7 +392,6 @@ html {
   .customer-table,
   .purchase-table,
   .invoice-table,
-  .sales-table,
   .print-table,
   table.customer-table,
   table.purchase-table,
@@ -494,23 +487,19 @@ html {
   }
 
   /* Big numbers must not blow out KPI / summary cards */
-  .inventory-stats,
-  .dashboard-kpi-row,
-  .dashboard-grid {
+  .inventory-stats {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
   }
 
-  .inventory-stat-card,
-  .dashboard-kpi-row article {
+  .inventory-stat-card {
     min-width: 0 !important;
     max-width: 100% !important;
     overflow: hidden !important;
   }
 
   .inventory-stat-card__value,
-  .dashboard-kpi-row strong,
   .invoice-summary__row strong,
   .invoice-summary__row--total strong,
   .customer-table-card__badge,

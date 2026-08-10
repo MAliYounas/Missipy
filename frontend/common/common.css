@@ -845,15 +845,6 @@ a {
   text-transform: uppercase;
 }
 
-.invoice-header__title {
-  margin: 12px 0 8px;
-  color: var(--color-text);
-  font-size: clamp(36px, 4.4vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1;
-}
-
 .invoice-header__text {
   max-width: 720px;
   margin: 14px 0 0;
@@ -1031,29 +1022,6 @@ a {
   flex-wrap: wrap;
 }
 
-.debt-checkbox {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 36px;
-  padding: 8px 12px;
-  color: var(--color-text);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 800;
-  cursor: pointer;
-  user-select: none;
-}
-
-.debt-checkbox input {
-  width: 15px;
-  height: 15px;
-  margin: 0;
-  accent-color: var(--color-active);
-  cursor: pointer;
-}
 
 .invoice-cart__badge {
   display: inline-flex;
@@ -1555,7 +1523,6 @@ a {
     background: var(--color-bg);
   }
 
-  .home-page,
   .purchase-page,
   .invoice-page,
   .customer-page {

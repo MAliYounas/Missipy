@@ -160,11 +160,6 @@
   align-self: flex-start;
 }
 
-.ai-msg--user {
-  align-self: flex-end;
-  flex-direction: row-reverse;
-}
-
 .ai-msg__avatar {
   display: inline-flex;
   align-items: center;
@@ -183,11 +178,6 @@
   padding: 14px 16px;
   background: #f4f4f5;
   border-radius: 18px;
-}
-
-.ai-msg--user .ai-msg__body {
-  color: #fff;
-  background: #111;
 }
 
 .ai-msg__body p {
