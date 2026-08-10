@@ -459,6 +459,83 @@ html {
     height: 180px !important;
   }
 
+  /* Table top controls: clean phone alignment */
+  .customer-table-card__header,
+  .purchase-table-card__header,
+  .invoice-cart__header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .customer-table-card__header > div:first-child,
+  .purchase-table-card__header > div:first-child,
+  .invoice-cart__header > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .customer-table-card__controls,
+  .purchase-table-card__controls,
+  .invoice-cart__controls {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    justify-content: stretch !important;
+    align-items: stretch !important;
+  }
+
+  .customer-table-card__badge,
+  .purchase-table-card__badge,
+  .invoice-cart__badge {
+    grid-column: 1 / -1 !important;
+    justify-self: start !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .customer-table-card__controls .table-export-button,
+  .customer-table-card__controls .table-update-button,
+  .customer-table-card__controls .table-delete-button,
+  .purchase-table-card__controls .table-export-button,
+  .purchase-table-card__controls .table-update-button,
+  .purchase-table-card__controls .table-delete-button,
+  .purchase-table-card__controls .save-items-button,
+  .invoice-cart__controls .invoice-delete-button,
+  .invoice-cart__controls .payment-select {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 42px !important;
+    margin: 0 !important;
+    justify-content: center !important;
+  }
+
+  .expense-filter-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .expense-filter-bar__item {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    justify-content: center !important;
+  }
+
   input[type="number"],
   input[type="text"],
   input[type="tel"],
