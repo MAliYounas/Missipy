@@ -31,7 +31,7 @@
       var aria = active ? ' aria-current="page"' : "";
       return (
         '<li class="sidebar-nav__item">' +
-          '<a class="' + cls + '" href="' + resolveHref(item.href) + '"' + aria + ' data-label="' + item.label + '">' +
+          '<a class="' + cls + '" href="' + resolveHref(item.href) + '"' + aria + '>' +
             '<i class="fa-solid ' + item.icon + ' sidebar-nav__icon"></i>' +
             '<span class="sidebar-nav__text">' + item.label + "</span>" +
           "</a>" +
@@ -48,7 +48,7 @@
       '<aside class="app-sidebar" aria-label="Main navigation">' +
         '<div class="sidebar__top">' +
           '<div class="sidebar__header">' +
-            '<a class="brand" href="' + resolveHref("../Home%20Page/home_page.html") + '" aria-label="Missipy home" data-label="Missipy">' +
+            '<a class="brand" href="' + resolveHref("../Home%20Page/home_page.html") + '" aria-label="Missipy home">' +
               '<span class="brand__logo" aria-hidden="true"><i class="fa-solid fa-file-invoice-dollar"></i></span>' +
               '<span class="brand__content">' +
                 '<span class="brand__name">Missipy</span>' +
@@ -64,7 +64,7 @@
           "</nav>" +
         "</div>" +
         '<div class="sidebar__footer">' +
-          '<a class="sidebar-logout" href="' + resolveHref("../Login/login.html") + '" data-label="Logout">' +
+          '<a class="sidebar-logout" href="' + resolveHref("../Login/login.html") + '">' +
             '<i class="fa-solid fa-right-from-bracket sidebar-nav__icon" aria-hidden="true"></i>' +
             '<span class="sidebar-nav__text">Logout</span>' +
           "</a>" +

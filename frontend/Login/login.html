@@ -9,15 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=25">
-  <link rel="stylesheet" href="../Signup/signup.css?v=21">
-  <link rel="stylesheet" href="login.css?v=21">
-  <link rel="stylesheet" href="../common/mobile.css?v=25">
+  <link rel="stylesheet" href="../common/common.css?v=26">
+  <link rel="stylesheet" href="../Signup/signup.css?v=26">
+  <link rel="stylesheet" href="../common/mobile.css?v=26">
 </head>
-<body class="auth-body login-body">
-  <main class="auth-shell login-shell" aria-label="Login">
-    <section class="auth-card login-card">
-      <div class="auth-card__brand login-card__brand">
+<body class="auth-body">
+  <main class="auth-shell" aria-label="Login">
+    <section class="auth-card">
+      <div class="auth-card__brand">
         <span class="brand__logo" aria-hidden="true"><i class="fa-solid fa-file-invoice-dollar"></i></span>
         <div>
           <h1>Missipy</h1>
@@ -25,7 +24,7 @@
         </div>
       </div>
 
-      <form class="auth-form login-form" action="../Dashboard/dashboard.html" method="get">
+      <form class="auth-form" action="../Dashboard/dashboard.html" method="get">
         <label class="customer-field">
           <span>Username</span>
           <input type="text" name="username" placeholder="Enter username" autocomplete="username">
@@ -34,7 +33,7 @@
           <span>Password</span>
           <input type="password" name="password" placeholder="Enter password" autocomplete="current-password">
         </label>
-        <button class="customer-save-button auth-submit login-submit" type="submit">
+        <button class="customer-save-button auth-submit" type="submit">
           <i class="fa-solid fa-right-to-bracket"></i>
           <span>Sign In</span>
         </button>

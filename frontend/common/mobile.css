@@ -165,11 +165,6 @@ html {
     display: inline-flex !important;
   }
 
-  .sidebar-toggle-button__close,
-  .sidebar-toggle-button__open {
-    display: none !important;
-  }
-
   .sidebar-toggle-button__mobile-close {
     display: inline-flex !important;
   }
@@ -257,12 +252,6 @@ html {
     opacity: 1 !important;
     visibility: visible !important;
     width: auto !important;
-  }
-
-  .sidebar-nav__link::after,
-  .brand::after {
-    display: none !important;
-    content: none !important;
   }
 
   .page-shell,
