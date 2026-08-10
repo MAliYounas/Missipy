@@ -11,119 +11,68 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../common/common.css">
   <link rel="stylesheet" href="ai_assistant.css">
-  <link rel="stylesheet" href="../common/mobile.css?v=15">
+  <link rel="stylesheet" href="../common/mobile.css?v=16">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="AI Assistant"></div>
 
   <main class="page-shell">
-    <section class="customer-page" aria-label="AI Assistant">
-      <header class="customer-header ai-header">
-        <div>
-          <span class="customer-header__eyebrow">Smart Business Help</span>
-          <h1 class="customer-header__title">AI Assistant</h1>
-          <p class="customer-header__text">Ask questions, prepare tax returns, generate final statements, and get business insights.</p>
+    <section class="customer-page ai-page" aria-label="AI Assistant">
+      <header class="ai-topbar">
+        <div class="ai-topbar__copy">
+          <span class="ai-topbar__eyebrow">Missipy AI</span>
+          <h1 class="ai-topbar__title">Business assistant</h1>
         </div>
+        <button class="ai-topbar__clear" type="button">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>New chat</span>
+        </button>
       </header>
 
-      <section class="customer-card ai-tools-card" aria-labelledby="ai-tools-title">
-        <div class="customer-card__header">
-          <div>
-            <h2 class="customer-card__title" id="ai-tools-title">Quick actions</h2>
-            <p class="customer-card__subtitle">Start a focused task. These tools use your sales, purchases, expenses, and accounts data.</p>
-          </div>
+      <div class="ai-shell">
+        <div class="ai-tools" aria-label="Quick actions">
+          <button class="ai-chip" type="button"><i class="fa-solid fa-file-invoice-dollar"></i><span>Tax Returns</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-file-lines"></i><span>Final Statement</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-chart-pie"></i><span>Profit Analysis</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-scale-balanced"></i><span>Balance Sheet</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-arrow-trend-up"></i><span>Cash Flow</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-clipboard-check"></i><span>Compliance</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-lightbulb"></i><span>Insights</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-handshake"></i><span>Debt Summary</span></button>
         </div>
 
-        <div class="ai-tools-grid">
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-            <span class="ai-tool-card__title">Tax Returns</span>
-            <span class="ai-tool-card__text">Prepare business tax return summaries from your records.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></span>
-            <span class="ai-tool-card__title">Final Statement</span>
-            <span class="ai-tool-card__text">Generate year-end or period closing financial statements.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-chart-pie"></i></span>
-            <span class="ai-tool-card__title">Profit Analysis</span>
-            <span class="ai-tool-card__text">Break down profit by product, period, and cost drivers.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
-            <span class="ai-tool-card__title">Balance Sheet</span>
-            <span class="ai-tool-card__text">Build assets, liabilities, and equity overview.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-arrow-trend-up"></i></span>
-            <span class="ai-tool-card__title">Cash Flow Forecast</span>
-            <span class="ai-tool-card__text">Estimate upcoming cash in and out for planning.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-clipboard-check"></i></span>
-            <span class="ai-tool-card__title">Compliance Check</span>
-            <span class="ai-tool-card__text">Review GST, NTN, and record completeness for audits.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></span>
-            <span class="ai-tool-card__title">Business Insights</span>
-            <span class="ai-tool-card__text">Get AI tips on sales trends, stock, and expenses.</span>
-          </button>
-          <button class="ai-tool-card" type="button">
-            <span class="ai-tool-card__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span>
-            <span class="ai-tool-card__title">Debt Summary</span>
-            <span class="ai-tool-card__text">Summarize customer dues and supplier payables.</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="customer-card ai-chat-card" aria-labelledby="ai-chat-title">
-        <div class="customer-card__header ai-chat-card__header">
-          <div>
-            <h2 class="customer-card__title" id="ai-chat-title">Chat with Missipy AI</h2>
-            <p class="customer-card__subtitle">Ask in plain language about taxes, statements, profits, or business decisions.</p>
-          </div>
-          <button class="customer-clear-button" type="button">
-            <i class="fa-solid fa-broom"></i>
-            <span>Clear chat</span>
-          </button>
-        </div>
-
-        <div class="ai-chat" aria-label="AI chatbot">
+        <section class="ai-chat" aria-label="AI chatbot">
           <div class="ai-chat__messages" role="log" aria-live="polite">
-            <article class="ai-message ai-message--bot">
-              <div class="ai-message__avatar" aria-hidden="true">
-                <i class="fa-solid fa-robot"></i>
-              </div>
-              <div class="ai-message__bubble">
-                <p>Hello. I am your Missipy AI assistant for your business.</p>
-                <p>I can help with tax returns, final statements, profit analysis, cash flow, and compliance. Choose a quick action above or type your question below.</p>
+            <article class="ai-msg ai-msg--bot">
+              <div class="ai-msg__avatar" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
+              <div class="ai-msg__body">
+                <p>Hello. I’m your Missipy business assistant.</p>
+                <p>I can help with tax returns, statements, profit analysis, cash flow, and compliance. Pick a quick action or ask anything below.</p>
               </div>
             </article>
 
-            <article class="ai-message ai-message--suggestion">
-              <span class="ai-message__label">Try asking</span>
-              <div class="ai-suggestion-row">
-                <button class="ai-suggestion" type="button">Prepare this month’s tax return summary</button>
-                <button class="ai-suggestion" type="button">Generate a final statement for this year</button>
-                <button class="ai-suggestion" type="button">Which expenses are higher than last month?</button>
+            <div class="ai-prompts">
+              <p class="ai-prompts__label">Suggested prompts</p>
+              <div class="ai-prompts__list">
+                <button class="ai-prompt" type="button">Prepare this month’s tax return summary</button>
+                <button class="ai-prompt" type="button">Generate a final statement for this year</button>
+                <button class="ai-prompt" type="button">Which expenses are higher than last month?</button>
               </div>
-            </article>
+            </div>
           </div>
 
-          <form class="ai-chat__composer" action="#">
-            <label class="ai-chat__input-wrap">
+          <form class="ai-composer" action="#">
+            <label class="ai-composer__field">
               <span class="visually-hidden">Message</span>
-              <textarea rows="1" placeholder="Ask about tax returns, statements, profits, cash flow..."></textarea>
+              <textarea rows="1" placeholder="Message Missipy AI…"></textarea>
             </label>
-            <button class="customer-save-button ai-chat__send" type="button">
-              <i class="fa-solid fa-paper-plane"></i>
-              <span>Send</span>
+            <button class="ai-composer__send" type="button" aria-label="Send message">
+              <i class="fa-solid fa-arrow-up"></i>
             </button>
           </form>
-        </div>
-      </section>
+          <p class="ai-composer__note">Missipy AI can make mistakes. Verify important financial decisions.</p>
+        </section>
+      </div>
     </section>
   </main>
   <script src="../common/sidebar.js?v=12"></script>

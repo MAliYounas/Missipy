@@ -647,4 +647,41 @@ html {
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
   }
+
+  /* AI Assistant phone shell */
+  .ai-page {
+    max-width: 100% !important;
+    min-height: auto !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .ai-shell,
+  .ai-chat,
+  .ai-tools,
+  .ai-topbar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .ai-chat {
+    min-height: min(620px, calc(100dvh - 190px)) !important;
+    height: min(620px, calc(100dvh - 190px)) !important;
+  }
+
+  .ai-composer {
+    align-items: flex-end !important;
+    flex-direction: row !important;
+  }
+
+  .ai-composer__send {
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+    height: 46px !important;
+  }
+
+  .ai-composer__field textarea {
+    font-size: 16px !important;
+  }
 }
