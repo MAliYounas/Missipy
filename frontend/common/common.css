@@ -357,8 +357,16 @@ a {
 
 .page-shell {
   min-height: 100vh;
-  padding: calc(64px + env(safe-area-inset-top, 0px)) 0 24px;
+  padding: 0 0 24px;
   transition: none;
+}
+
+/* Laptop: no empty top strip — menu button floats over content */
+@media (min-width: 1025px) {
+  .page-shell,
+  .sidebar-toggle:checked ~ .page-shell {
+    padding-top: 0 !important;
+  }
 }
 
 .home-hero {
@@ -1869,6 +1877,13 @@ a {
 .page-shell,
 .sidebar-toggle:checked ~ .page-shell {
   padding-left: 0 !important;
+}
+
+@media (min-width: 1025px) {
+  .page-shell,
+  .sidebar-toggle:checked ~ .page-shell {
+    padding-top: 0 !important;
+  }
 }
 
 .sidebar-toggle:checked ~ .sidebar-mobile-open {
