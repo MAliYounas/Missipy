@@ -656,7 +656,8 @@ html {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    min-height: 180px !important;
+    min-height: 300px !important;
+    height: min(48vh, 420px) !important;
   }
 
   .forecast-alert {

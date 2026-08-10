@@ -114,7 +114,8 @@
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 280px;
+  min-height: 420px;
+  height: min(52vh, 520px);
   overflow: hidden;
   background: #fafafb;
   border: 1px dashed #d4d4d8;
