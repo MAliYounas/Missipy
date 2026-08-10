@@ -78,17 +78,21 @@ html {
     bottom: 0 !important;
     left: 0 !important;
     z-index: 10045 !important;
-    display: flex !important;
-    flex-direction: column !important;
+    display: block !important;
     width: 86vw !important;
     max-width: 320px !important;
     height: 100% !important;
+    height: 100dvh !important;
+    max-height: 100% !important;
     max-height: 100dvh !important;
     margin: 0 !important;
     padding: 16px !important;
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 0px)) !important;
     overflow-x: hidden !important;
-    overflow-y: auto !important;
+    overflow-y: scroll !important;
+    overscroll-behavior: contain !important;
     -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
     border-right: 1px solid #e4e4e7 !important;
     border-bottom: 0 !important;
     background: #fff !important;
@@ -97,29 +101,40 @@ html {
     transition: transform 0.22s ease !important;
   }
 
-  /* Phone: one scroll for the whole drawer (don't nest nav + pin logout) */
-  .sidebar__top {
+  /* Phone: plain document flow so the drawer always scrolls */
+  .sidebar__top,
+  .sidebar-nav,
+  .sidebar-nav__list,
+  .sidebar__footer {
     display: block !important;
-    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
     min-height: 0 !important;
-    overflow: visible !important;
-  }
-
-  .sidebar-nav {
     flex: none !important;
-    min-height: 0 !important;
     overflow: visible !important;
+    position: static !important;
   }
 
   .sidebar__footer {
-    position: sticky !important;
-    bottom: 0 !important;
-    z-index: 2 !important;
     margin-top: 16px !important;
     padding-top: 12px !important;
-    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px)) !important;
     background: #fff !important;
     border-top: 1px solid #e4e4e7 !important;
+  }
+
+  html.sidebar-is-open,
+  html.sidebar-is-open body {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    touch-action: none !important;
+  }
+
+  html.sidebar-is-open .app-sidebar {
+    touch-action: pan-y !important;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .sidebar-toggle {

@@ -82,6 +82,42 @@
     el.outerHTML = render(active);
   }
 
+  function wireSidebarMobileScroll() {
+    var toggle = document.getElementById("sidebar-toggle");
+    var sidebar = document.querySelector(".app-sidebar");
+    if (!toggle || !sidebar) return;
+
+    function setOpen(open) {
+      document.documentElement.classList.toggle("sidebar-is-open", open);
+      document.body.classList.toggle("sidebar-is-open", open);
+      if (!open) return;
+
+      // Re-enable touch scrolling after the open transition (iOS / Android quirk)
+      sidebar.scrollTop = 0;
+      requestAnimationFrame(function () {
+        sidebar.style.overflowY = "scroll";
+        sidebar.style.webkitOverflowScrolling = "touch";
+      });
+    }
+
+    toggle.addEventListener("change", function () {
+      setOpen(toggle.checked);
+    });
+
+    sidebar.addEventListener(
+      "touchstart",
+      function () {
+        if (!toggle.checked) return;
+        // Nudge scroll layer awake if it got stuck
+        if (sidebar.scrollHeight <= sidebar.clientHeight + 1) return;
+        sidebar.style.overflowY = "scroll";
+      },
+      { passive: true }
+    );
+
+    setOpen(toggle.checked);
+  }
+
   function wireFilterBars() {
     var bars = document.querySelectorAll(".expense-filter-bar");
     bars.forEach(function (bar) {
@@ -171,6 +207,7 @@
 
   function init() {
     mount();
+    wireSidebarMobileScroll();
     wireFilterBars();
     wireAiComposer();
   }
