@@ -8,7 +8,7 @@ Start here:
 
 `frontend/Login/login.html`
 
-Then use the sidebar to move through pages. This is HTML/CSS only (no JavaScript, no API, no database).
+Then use the sidebar to move through pages. Shared UI behavior lives in `frontend/common/sidebar.js`. There is no API or database yet.
 
 ## Project structure
 
