@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=32">
-  <link rel="stylesheet" href="forecasting.css?v=32">
-  <link rel="stylesheet" href="../common/mobile.css?v=32">
+  <link rel="stylesheet" href="../common/common.css?v=33">
+  <link rel="stylesheet" href="forecasting.css?v=33">
+  <link rel="stylesheet" href="../common/mobile.css?v=33">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Forecasting"></div>
@@ -107,6 +107,19 @@
         </div>
       </form>
 
+      <section class="customer-card" aria-labelledby="sales-chart-title">
+        <div class="customer-card__header">
+          <div>
+            <h2 class="customer-card__title" id="sales-chart-title">Daily / weekly trend</h2>
+            <p class="customer-card__subtitle">Expected sales pattern across the forecast window.</p>
+          </div>
+        </div>
+        <div class="chart-empty" role="img" aria-label="No chart right now">
+          <canvas width="960" height="480" aria-hidden="true"></canvas>
+          <p class="chart-empty__text">No chart right now</p>
+        </div>
+      </section>
+
       <section class="customer-card" aria-labelledby="sales-breakdown-title">
         <div class="customer-card__header">
           <div>
@@ -114,15 +127,7 @@
             <p class="customer-card__subtitle">How projected sales may split across channels and payment types.</p>
           </div>
         </div>
-        <div class="forecast-insight-grid">
-          <article class="forecast-insight">
-            <h3>Daily / weekly trend</h3>
-            <p>Expected sales pattern across the forecast window.</p>
-            <div class="chart-empty" role="img" aria-label="No chart right now">
-              <canvas width="960" height="480" aria-hidden="true"></canvas>
-              <p class="chart-empty__text">No chart right now</p>
-            </div>
-          </article>
+        <div class="forecast-insight-grid forecast-insight-grid--two">
           <article class="forecast-insight">
             <h3>Payment mix outlook</h3>
             <ul class="forecast-action-list">
@@ -186,6 +191,6 @@
       </section>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=32"></script>
+  <script src="../common/sidebar.js?v=33"></script>
 </body>
 </html>
