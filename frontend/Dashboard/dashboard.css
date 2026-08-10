@@ -74,9 +74,13 @@
 .dash-charts,
 .dash-bottom {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr;
   gap: 14px;
   margin-bottom: 14px;
+}
+
+.dash-bottom {
+  grid-template-columns: 1.2fr 1fr;
 }
 
 .dash-panel {
@@ -106,90 +110,33 @@
   font-weight: 500;
 }
 
-.dash-bars {
+.dash-chart-empty {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: end;
-  gap: 12px;
-  min-height: 180px;
-}
-
-.dash-bars__col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  min-width: 0;
-  height: 180px;
-}
-
-.dash-bars__col span {
-  display: block;
-  width: 100%;
-  max-width: 42px;
-  height: var(--h, 40%);
-  background: #111;
-  border-radius: 10px 10px 6px 6px;
-}
-
-.dash-bars__col em {
-  color: var(--color-muted);
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.dash-stack {
-  display: grid;
-  gap: 16px;
-}
-
-.dash-stack__meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.dash-stack__meta span {
-  color: var(--color-muted);
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.dash-stack__meta strong {
-  font-size: 14px;
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-}
-
-.dash-stack__track {
-  height: 12px;
+  place-items: center;
+  min-height: 280px;
   overflow: hidden;
-  background: #f1f1f2;
-  border-radius: 999px;
+  background: #fafafb;
+  border: 1px dashed #d4d4d8;
+  border-radius: 16px;
 }
 
-.dash-stack__track i {
-  display: block;
-  width: var(--w, 40%);
+.dash-chart-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  background: #111;
-  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.dash-stack__track--muted i {
-  background: #6d6d72;
-}
-
-.dash-stack__track--debt i {
-  background: #9a9aa0;
+.dash-chart-empty__text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .dash-attention {

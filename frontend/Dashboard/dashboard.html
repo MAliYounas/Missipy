@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=29">
-  <link rel="stylesheet" href="dashboard.css?v=29">
-  <link rel="stylesheet" href="../common/mobile.css?v=29">
+  <link rel="stylesheet" href="../common/common.css?v=30">
+  <link rel="stylesheet" href="dashboard.css?v=30">
+  <link rel="stylesheet" href="../common/mobile.css?v=30">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Dashboard"></div>
@@ -60,37 +60,14 @@
       </div>
 
       <div class="dash-charts">
-        <section class="dash-panel" aria-labelledby="sales-trend-title">
+        <section class="dash-panel dash-panel--chart" aria-labelledby="chart-title">
           <div class="dash-panel__head">
-            <h2 class="dash-panel__title" id="sales-trend-title">Sales trend</h2>
+            <h2 class="dash-panel__title" id="chart-title">Chart</h2>
             <p class="dash-panel__sub" data-chart-label>Last 30 days</p>
           </div>
-          <div class="dash-bars" id="dash-sales-bars" aria-hidden="true">
-            <div class="dash-bars__col"><span style="--h:42%"></span><em>W1</em></div>
-            <div class="dash-bars__col"><span style="--h:58%"></span><em>W2</em></div>
-            <div class="dash-bars__col"><span style="--h:51%"></span><em>W3</em></div>
-            <div class="dash-bars__col"><span style="--h:74%"></span><em>W4</em></div>
-          </div>
-        </section>
-
-        <section class="dash-panel" aria-labelledby="mix-title">
-          <div class="dash-panel__head">
-            <h2 class="dash-panel__title" id="mix-title">Revenue vs expenses</h2>
-            <p class="dash-panel__sub">Share of money in / out</p>
-          </div>
-          <div class="dash-stack" id="dash-mix">
-            <div class="dash-stack__row">
-              <div class="dash-stack__meta"><span>Revenue</span><strong data-mix="revenue">Rs 392,100</strong></div>
-              <div class="dash-stack__track"><i style="--w:73%"></i></div>
-            </div>
-            <div class="dash-stack__row">
-              <div class="dash-stack__meta"><span>Expenses</span><strong data-mix="expenses">Rs 146,800</strong></div>
-              <div class="dash-stack__track dash-stack__track--muted"><i style="--w:27%"></i></div>
-            </div>
-            <div class="dash-stack__row">
-              <div class="dash-stack__meta"><span>Open debt</span><strong data-mix="debt">Rs 87,250</strong></div>
-              <div class="dash-stack__track dash-stack__track--debt"><i style="--w:16%"></i></div>
-            </div>
+          <div class="dash-chart-empty" role="img" aria-label="No chart right now">
+            <canvas class="dash-chart-canvas" width="960" height="320" aria-hidden="true"></canvas>
+            <p class="dash-chart-empty__text">No chart right now</p>
           </div>
         </section>
       </div>
@@ -122,6 +99,6 @@
       </div>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=29"></script>
+  <script src="../common/sidebar.js?v=30"></script>
 </body>
 </html>
