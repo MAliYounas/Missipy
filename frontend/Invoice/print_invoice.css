@@ -293,7 +293,11 @@ body {
   margin-top: 16px;
 }
 
-.print-actions button {
+.print-actions button,
+.print-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 40px;
   padding: 9px 16px;
   color: var(--white);
@@ -303,10 +307,11 @@ body {
   font: inherit;
   font-size: 12px;
   font-weight: 800;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.print-actions button:last-child {
+.print-actions a {
   color: var(--black);
   background: var(--white);
 }
