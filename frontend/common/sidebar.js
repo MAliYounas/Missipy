@@ -12,9 +12,9 @@
     { label: "Debt", icon: "fa-scale-unbalanced", href: "../Debt/debt.html" },
     { label: "Assets", icon: "fa-building", href: "../Assets/assets.html" },
     { label: "Reports", icon: "fa-chart-line", href: "../Reports/reports.html" },
-    { label: "Accounts", icon: "fa-building-columns", href: "../Accounts/accounts.html" },
     { label: "Forecasting", icon: "fa-chart-area", href: "../Forecasting/forecasting.html" },
     { label: "AI Assistant", icon: "fa-robot", href: "../AI Assistant/ai_assistant.html" },
+    { label: "Accounts", icon: "fa-building-columns", href: "../Accounts/accounts.html" },
     { label: "Settings", icon: "fa-gear", href: "../Settings/settings.html" }
   ];
 
