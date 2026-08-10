@@ -86,7 +86,9 @@ html {
     max-height: 100dvh !important;
     margin: 0 !important;
     padding: 16px !important;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
     border-right: 1px solid #e4e4e7 !important;
     border-bottom: 0 !important;
     background: #fff !important;
@@ -95,20 +97,29 @@ html {
     transition: transform 0.22s ease !important;
   }
 
+  /* Phone: one scroll for the whole drawer (don't nest nav + pin logout) */
   .sidebar__top {
-    display: flex !important;
-    flex: 1 1 auto !important;
-    flex-direction: column !important;
+    display: block !important;
+    flex: 0 0 auto !important;
     min-height: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .sidebar-nav {
-    flex: 1 1 auto !important;
+    flex: none !important;
     min-height: 0 !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
+    overflow: visible !important;
+  }
+
+  .sidebar__footer {
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 2 !important;
+    margin-top: 16px !important;
+    padding-top: 12px !important;
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px)) !important;
+    background: #fff !important;
+    border-top: 1px solid #e4e4e7 !important;
   }
 
   .sidebar-toggle {
@@ -187,12 +198,6 @@ html {
     padding: 12px 14px !important;
     overflow: visible !important;
     transform: none !important;
-  }
-
-  .sidebar__footer {
-    margin-top: auto !important;
-    padding-top: 12px !important;
-    border-top: 1px solid #e4e4e7 !important;
   }
 
   .sidebar-logout {
