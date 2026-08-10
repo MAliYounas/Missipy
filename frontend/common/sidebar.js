@@ -65,6 +65,12 @@
             '<ul class="sidebar-nav__list">' + items + "</ul>" +
           "</nav>" +
         "</div>" +
+        '<div class="sidebar__footer">' +
+          '<a class="sidebar-logout" href="' + resolveHref("../Login/login.html") + '" data-label="Logout">' +
+            '<i class="fa-solid fa-right-from-bracket sidebar-nav__icon" aria-hidden="true"></i>' +
+            '<span class="sidebar-nav__text">Logout</span>' +
+          "</a>" +
+        "</div>" +
       "</aside>"
     );
   }

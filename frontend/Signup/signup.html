@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>Missipy Sign Up</title>
+  <link rel="icon" href="../media/App%20Logo-svg.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css?v=20">
+  <link rel="stylesheet" href="signup.css?v=20">
+  <link rel="stylesheet" href="../common/mobile.css?v=20">
+</head>
+<body class="auth-body">
+  <main class="auth-shell" aria-label="Executive sign up">
+    <section class="auth-card auth-card--signup">
+      <div class="auth-card__brand">
+        <span class="brand__logo" aria-hidden="true"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+        <div>
+          <p class="auth-card__eyebrow">Executive access</p>
+          <h1>Create your Missipy account</h1>
+          <p class="auth-card__lead">First-time setup for owners and executives. Full workspace control is granted after signup.</p>
+        </div>
+      </div>
+
+      <div class="auth-access" role="note">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        <div>
+          <strong>Executive privileges</strong>
+          <p>Billing, inventory, reports, forecasting, accounts, and team workspace access.</p>
+        </div>
+      </div>
+
+      <form class="auth-form" action="../Dashboard/dashboard.html" method="get">
+        <div class="auth-grid">
+          <label class="customer-field">
+            <span>Full name</span>
+            <input type="text" name="full_name" placeholder="Your full name" autocomplete="name" required>
+          </label>
+          <label class="customer-field">
+            <span>Work email</span>
+            <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+          </label>
+          <label class="customer-field">
+            <span>Business name</span>
+            <input type="text" name="business" placeholder="Company or store name" autocomplete="organization" required>
+          </label>
+          <label class="customer-field">
+            <span>Role</span>
+            <select name="role" required>
+              <option value="Executive" selected>Executive</option>
+              <option value="Owner">Owner</option>
+              <option value="Director">Director</option>
+              <option value="Manager">Manager</option>
+            </select>
+          </label>
+          <label class="customer-field">
+            <span>Username</span>
+            <input type="text" name="username" placeholder="Choose a username" autocomplete="username" required>
+          </label>
+          <label class="customer-field">
+            <span>Phone</span>
+            <input type="tel" name="phone" placeholder="03XX-XXXXXXX" autocomplete="tel">
+          </label>
+          <label class="customer-field">
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
+          </label>
+          <label class="customer-field">
+            <span>Confirm password</span>
+            <input type="password" name="confirm_password" placeholder="Re-enter password" autocomplete="new-password" required>
+          </label>
+        </div>
+
+        <label class="auth-check">
+          <input type="checkbox" name="terms" required>
+          <span>I confirm I am authorized to manage this business on Missipy.</span>
+        </label>
+
+        <button class="customer-save-button auth-submit" type="submit">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Create executive account</span>
+        </button>
+      </form>
+
+      <p class="auth-switch">
+        Already have an account?
+        <a href="../Login/login.html">Sign in</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>
