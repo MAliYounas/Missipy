@@ -1,6 +1,6 @@
 (function () {
   var NAV = [
-    { label: "Home", icon: "fa-house", href: "../Home Page/home_page.html" },
+    { label: "Home", icon: "fa-house", href: "../Home%20Page/home_page.html" },
     { label: "Dashboard", icon: "fa-chart-pie", href: "../Dashboard/dashboard.html" },
     { label: "Invoice", icon: "fa-file-invoice", href: "../Invoice/invoice.html" },
     { label: "Sales", icon: "fa-receipt", href: "../Sales/sales.html" },
@@ -13,7 +13,7 @@
     { label: "Assets", icon: "fa-building", href: "../Assets/assets.html" },
     { label: "Reports", icon: "fa-chart-line", href: "../Reports/reports.html" },
     { label: "Forecasting", icon: "fa-chart-area", href: "../Forecasting/forecasting.html" },
-    { label: "AI Assistant", icon: "fa-robot", href: "../AI Assistant/ai_assistant.html" },
+    { label: "AI Assistant", icon: "fa-robot", href: "../AI-Assistant/ai_assistant.html" },
     { label: "Accounts", icon: "fa-building-columns", href: "../Accounts/accounts.html" },
     { label: "Settings", icon: "fa-gear", href: "../Settings/settings.html" }
   ];
@@ -48,7 +48,7 @@
       '<aside class="app-sidebar" aria-label="Main navigation">' +
         '<div class="sidebar__top">' +
           '<div class="sidebar__header">' +
-            '<a class="brand" href="' + resolveHref("../Home Page/home_page.html") + '" aria-label="Missipy home" data-label="Missipy">' +
+            '<a class="brand" href="' + resolveHref("../Home%20Page/home_page.html") + '" aria-label="Missipy home" data-label="Missipy">' +
               '<span class="brand__logo" aria-hidden="true"><i class="fa-solid fa-file-invoice-dollar"></i></span>' +
               '<span class="brand__content">' +
                 '<span class="brand__name">Missipy</span>' +

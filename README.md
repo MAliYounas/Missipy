@@ -32,7 +32,7 @@ Missipy/
 │   ├── Reports/
 │   ├── Accounts/
 │   ├── Forecasting/
-│   ├── AI Assistant/
+│   ├── AI-Assistant/
 │   └── Settings/
 ├── backend/                  # Empty modules — add APIs here later
 │   ├── Auth/

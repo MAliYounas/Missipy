@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>Missipy AI Assistant</title>
+  <link rel="icon" href="../media/App%20Logo-svg.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../common/common.css?v=17">
+  <link rel="stylesheet" href="ai_assistant.css?v=17">
+  <link rel="stylesheet" href="../common/mobile.css?v=17">
+</head>
+<body>
+  <div id="missipy-sidebar" data-active="AI Assistant"></div>
+
+  <main class="page-shell">
+    <section class="customer-page ai-page" aria-label="AI Assistant">
+      <header class="ai-topbar">
+        <div class="ai-topbar__copy">
+          <span class="ai-topbar__eyebrow">Missipy AI</span>
+          <h1 class="ai-topbar__title">Business assistant</h1>
+        </div>
+        <button class="ai-topbar__clear" type="button">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>New chat</span>
+        </button>
+      </header>
+
+      <div class="ai-shell">
+        <div class="ai-tools" aria-label="Quick actions">
+          <button class="ai-chip" type="button"><i class="fa-solid fa-file-invoice-dollar"></i><span>Tax Returns</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-file-lines"></i><span>Final Statement</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-chart-pie"></i><span>Profit Analysis</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-scale-balanced"></i><span>Balance Sheet</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-arrow-trend-up"></i><span>Cash Flow</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-clipboard-check"></i><span>Compliance</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-lightbulb"></i><span>Insights</span></button>
+          <button class="ai-chip" type="button"><i class="fa-solid fa-handshake"></i><span>Debt Summary</span></button>
+        </div>
+
+        <section class="ai-chat" aria-label="AI chatbot">
+          <div class="ai-chat__messages" role="log" aria-live="polite">
+            <article class="ai-msg ai-msg--bot">
+              <div class="ai-msg__avatar" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
+              <div class="ai-msg__body">
+                <p>Hello. I’m your Missipy business assistant.</p>
+                <p>I can help with tax returns, statements, profit analysis, cash flow, and compliance. Pick a quick action or ask anything below.</p>
+              </div>
+            </article>
+
+            <div class="ai-prompts">
+              <p class="ai-prompts__label">Suggested prompts</p>
+              <div class="ai-prompts__list">
+                <button class="ai-prompt" type="button">Prepare this month’s tax return summary</button>
+                <button class="ai-prompt" type="button">Generate a final statement for this year</button>
+                <button class="ai-prompt" type="button">Which expenses are higher than last month?</button>
+              </div>
+            </div>
+          </div>
+
+          <form class="ai-composer" action="#">
+            <label class="ai-composer__field">
+              <span class="visually-hidden">Message</span>
+              <textarea rows="1" placeholder="Message Missipy AI…"></textarea>
+            </label>
+            <button class="ai-composer__send" type="button" aria-label="Send message">
+              <i class="fa-solid fa-arrow-up"></i>
+            </button>
+          </form>
+          <p class="ai-composer__note">Missipy AI can make mistakes. Verify important financial decisions.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="../common/sidebar.js?v=17"></script>
+</body>
+</html>

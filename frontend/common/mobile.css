@@ -650,28 +650,44 @@ html {
 
   /* AI Assistant phone shell */
   .ai-page {
+    width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     min-height: auto !important;
     padding-left: 12px !important;
     padding-right: 12px !important;
+    box-sizing: border-box !important;
   }
 
   .ai-shell,
   .ai-chat,
   .ai-tools,
-  .ai-topbar {
+  .ai-topbar,
+  .ai-prompts,
+  .ai-msg {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .ai-chat {
-    min-height: min(620px, calc(100dvh - 190px)) !important;
-    height: min(620px, calc(100dvh - 190px)) !important;
+    min-height: 520px !important;
+    height: calc(100vh - 210px) !important;
+    height: calc(100dvh - 210px) !important;
   }
 
   .ai-composer {
+    display: flex !important;
     align-items: flex-end !important;
     flex-direction: row !important;
+    width: 100% !important;
+  }
+
+  .ai-composer__field {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: auto !important;
   }
 
   .ai-composer__send {
@@ -679,6 +695,7 @@ html {
     min-width: 46px !important;
     max-width: 46px !important;
     height: 46px !important;
+    flex: 0 0 46px !important;
   }
 
   .ai-composer__field textarea {

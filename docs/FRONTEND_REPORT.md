@@ -32,7 +32,7 @@ Every app page (except Login and Print Invoice) mounts the same sidebar:
 | Reports | `Reports/reports.html` |
 | Accounts | `Accounts/accounts.html` |
 | Forecasting | `Forecasting/forecasting.html` |
-| AI Assistant | `AI Assistant/ai_assistant.html` |
+| AI Assistant | `AI-Assistant/ai_assistant.html` |
 | Settings | `Settings/settings.html` |
 
 **Not in sidebar:** Login, Print Invoice, and the three Forecasting “rooms” (they keep Forecasting highlighted).
@@ -577,7 +577,7 @@ Run Full Analysis, Export PDF, Open Product Room, Open Sales Room, Back to hub
 
 ## 20. AI Assistant
 
-**File:** `frontend/AI Assistant/ai_assistant.html`  
+**File:** `frontend/AI-Assistant/ai_assistant.html`  
 **Purpose:** Chat workspace plus quick tools for tax, statements, profit, balance sheet, cash flow, compliance, insights, debt.
 
 ### Inputs
