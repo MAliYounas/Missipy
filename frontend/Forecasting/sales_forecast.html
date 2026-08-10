@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../common/common.css?v=29">
-  <link rel="stylesheet" href="forecasting.css">
-  <link rel="stylesheet" href="../common/mobile.css?v=29">
+  <link rel="stylesheet" href="../common/common.css?v=31">
+  <link rel="stylesheet" href="forecasting.css?v=31">
+  <link rel="stylesheet" href="../common/mobile.css?v=31">
 </head>
 <body>
   <div id="missipy-sidebar" data-active="Forecasting"></div>
@@ -118,8 +118,9 @@
           <article class="forecast-insight">
             <h3>Daily / weekly trend</h3>
             <p>Expected sales pattern across the forecast window.</p>
-            <div class="forecast-bars forecast-bars--tall" aria-hidden="true">
-              <span style="--h:40%"></span><span style="--h:55%"></span><span style="--h:48%"></span><span style="--h:70%"></span><span style="--h:62%"></span><span style="--h:78%"></span><span style="--h:66%"></span><span style="--h:84%"></span>
+            <div class="chart-empty" role="img" aria-label="No chart right now">
+              <canvas width="640" height="220" aria-hidden="true"></canvas>
+              <p class="chart-empty__text">No chart right now</p>
             </div>
           </article>
           <article class="forecast-insight">
@@ -185,6 +186,6 @@
       </section>
     </section>
   </main>
-  <script src="../common/sidebar.js?v=29"></script>
+  <script src="../common/sidebar.js?v=31"></script>
 </body>
 </html>

@@ -25,9 +25,32 @@
 .forecast-insight { min-width:0; padding:18px; overflow:hidden; background:#fafafb; border:1px solid var(--color-border); border-radius:16px; }
 .forecast-insight h3 { margin:0 0 8px; font-size:clamp(14px, 2vw, 16px); overflow-wrap:anywhere; }
 .forecast-insight p { margin:0 0 14px; color:var(--color-muted); font-size:13px; line-height:1.5; overflow-wrap:anywhere; }
-.forecast-bars { display:flex; align-items:flex-end; gap:6px; width:100%; max-width:100%; min-width:0; height:84px; overflow:hidden; }
-.forecast-bars--tall { height:120px; }
-.forecast-bars span { flex:1 1 0; min-width:0; max-width:100%; height:var(--h, 40%); max-height:100%; background:var(--color-active); border-radius:8px 8px 4px 4px; }
+.chart-empty {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  overflow: hidden;
+  background: #fafafb;
+  border: 1px dashed #d4d4d8;
+  border-radius: 16px;
+}
+.chart-empty canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.chart-empty__text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  font-weight: 700;
+}
 .forecast-action-list { margin:0; padding-left:18px; color:var(--color-muted); font-size:13px; line-height:1.6; overflow-wrap:anywhere; }
 .forecast-panel-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-md); min-width:0; }
 .forecast-panel { min-width:0; padding:18px; overflow:hidden; background:#fafafb; border:1px solid var(--color-border); border-radius:16px; }

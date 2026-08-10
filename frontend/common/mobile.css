@@ -651,18 +651,12 @@ html {
     overflow: hidden !important;
   }
 
-  .forecast-bars,
-  .forecast-bars--tall {
+  .chart-empty,
+  .dash-chart-empty {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .forecast-bars span {
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-    max-height: 100% !important;
+    min-height: 180px !important;
   }
 
   .forecast-alert {
