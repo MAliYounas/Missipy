@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --color-bg: #f7f7f8;
     --color-surface: #ffffff;
     --color-text: #111111;
@@ -70,8 +70,11 @@
   
   .sidebar__top {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     min-width: 0;
+    min-height: 0;
+    overflow: hidden;
   }
   
   .sidebar__header {
