@@ -91,9 +91,82 @@
     });
   }
 
+  function formatFileSize(bytes) {
+    if (!bytes && bytes !== 0) return "";
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+  }
+
+  function fileIconClass(name) {
+    var ext = (name.split(".").pop() || "").toLowerCase();
+    if (["png", "jpg", "jpeg", "webp", "gif"].indexOf(ext) !== -1) return "fa-image";
+    if (["xls", "xlsx", "csv"].indexOf(ext) !== -1) return "fa-file-excel";
+    if (["doc", "docx"].indexOf(ext) !== -1) return "fa-file-word";
+    if (ext === "pdf") return "fa-file-pdf";
+    return "fa-file-lines";
+  }
+
+  function wireAiComposer() {
+    var attachBtn = document.getElementById("ai-attach-btn");
+    var fileInput = document.getElementById("ai-file-input");
+    var list = document.getElementById("ai-attachments");
+    if (!attachBtn || !fileInput || !list) return;
+
+    var files = [];
+
+    function renderFiles() {
+      list.innerHTML = "";
+      if (!files.length) {
+        list.hidden = true;
+        return;
+      }
+      list.hidden = false;
+      files.forEach(function (file, index) {
+        var chip = document.createElement("div");
+        chip.className = "ai-file";
+        chip.innerHTML =
+          '<span class="ai-file__icon" aria-hidden="true"><i class="fa-solid ' +
+          fileIconClass(file.name) +
+          '"></i></span>' +
+          '<span class="ai-file__meta">' +
+          '<span class="ai-file__name"></span>' +
+          '<span class="ai-file__size"></span>' +
+          "</span>" +
+          '<button class="ai-file__remove" type="button" aria-label="Remove file">' +
+          '<i class="fa-solid fa-xmark" aria-hidden="true"></i>' +
+          "</button>";
+        chip.querySelector(".ai-file__name").textContent = file.name;
+        chip.querySelector(".ai-file__size").textContent = formatFileSize(file.size);
+        chip.querySelector(".ai-file__remove").addEventListener("click", function () {
+          files.splice(index, 1);
+          renderFiles();
+        });
+        list.appendChild(chip);
+      });
+    }
+
+    attachBtn.addEventListener("click", function () {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener("change", function () {
+      var selected = Array.prototype.slice.call(fileInput.files || []);
+      selected.forEach(function (file) {
+        var exists = files.some(function (f) {
+          return f.name === file.name && f.size === file.size && f.lastModified === file.lastModified;
+        });
+        if (!exists) files.push(file);
+      });
+      fileInput.value = "";
+      renderFiles();
+    });
+  }
+
   function init() {
     mount();
     wireFilterBars();
+    wireAiComposer();
   }
 
   if (document.readyState === "loading") {
