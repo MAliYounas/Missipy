@@ -663,12 +663,15 @@ html {
   .ai-chat,
   .ai-tools,
   .ai-topbar,
-  .ai-prompts,
   .ai-msg {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
     box-sizing: border-box !important;
+  }
+
+  .ai-prompts {
+    display: none !important;
   }
 
   .ai-chat {

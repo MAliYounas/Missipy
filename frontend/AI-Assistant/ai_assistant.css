@@ -448,6 +448,10 @@
     padding-bottom: 8px;
   }
 
+  .ai-prompts {
+    display: none;
+  }
+
   .ai-topbar {
     padding-right: 4px;
   }
