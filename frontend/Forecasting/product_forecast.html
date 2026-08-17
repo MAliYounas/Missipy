@@ -39,26 +39,26 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-chart-line inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Units (30d)</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_units_30d">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-sack-dollar inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Product Sales</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_product_sales">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Stock-Out in 7 Days</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="stock_out_7_days">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-cart-plus inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Reorder Needed</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="reorder_needed">—</strong>
         </article>
       </div>
 
-      <form class="customer-card forecast-form" action="#" aria-labelledby="product-forecast-settings" data-forecast-form>
+      <form id="product_forecast_form" class="customer-card forecast-form" action="#" aria-labelledby="product-forecast-settings" data-forecast-form>
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="product-forecast-settings">Forecast settings</h2>
@@ -71,14 +71,14 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Product scope</span>
-              <select name="product-scope" data-toggle-target="product-name-row">
+              <select id="product_scope" name="product-scope" data-toggle-target="product-name-row">
                 <option value="all" selected>All products</option>
                 <option value="name">By product name</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Category</span>
-              <select name="category">
+              <select id="category" name="category">
                 <option value="all" selected>All categories</option>
                 <option value="fast">Fast moving</option>
                 <option value="slow">Slow moving</option>
@@ -86,7 +86,7 @@
             </label>
             <label class="customer-field customer-field--wide forecast-form__reveal" data-reveal="product-name-row" hidden>
               <span>Product name</span>
-              <input type="search" name="product-name" placeholder="Type product name or barcode" autocomplete="off">
+              <input id="product_name" type="search" name="product-name" placeholder="Type product name or barcode" autocomplete="off">
             </label>
           </div>
         </div>
@@ -96,7 +96,7 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Look ahead</span>
-              <select name="look-ahead" data-toggle-target="look-ahead-dates">
+              <select id="look_ahead" name="look-ahead" data-toggle-target="look-ahead-dates">
                 <option value="7">Next 7 days</option>
                 <option value="30" selected>Next 30 days</option>
                 <option value="90">Next 90 days</option>
@@ -105,11 +105,11 @@
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="look-ahead-dates" hidden>
               <span>From</span>
-              <input type="date" name="look-ahead-from">
+              <input id="look_ahead_from" type="date" name="look-ahead-from">
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="look-ahead-dates" hidden>
               <span>To</span>
-              <input type="date" name="look-ahead-to">
+              <input id="look_ahead_to" type="date" name="look-ahead-to">
             </label>
           </div>
         </div>
@@ -119,7 +119,7 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Based on history</span>
-              <select name="history" data-toggle-target="history-dates">
+              <select id="history" name="history" data-toggle-target="history-dates">
                 <option value="14">Last 14 days</option>
                 <option value="30" selected>Last 30 days</option>
                 <option value="90">Last 90 days</option>
@@ -128,19 +128,19 @@
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="history-dates" hidden>
               <span>History from</span>
-              <input type="date" name="history-from">
+              <input id="history_from" type="date" name="history-from">
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="history-dates" hidden>
               <span>History to</span>
-              <input type="date" name="history-to">
+              <input id="history_to" type="date" name="history-to">
             </label>
             <label class="customer-field">
               <span>Safety stock (days)</span>
-              <input type="number" name="safety-stock" min="0" step="1" value="7" placeholder="7">
+              <input id="safety_stock" type="number" name="safety-stock" min="0" step="1" value="7" placeholder="7">
             </label>
             <label class="customer-field">
               <span>Seasonality</span>
-              <select name="seasonality">
+              <select id="seasonality" name="seasonality">
                 <option value="yes" selected>Include</option>
                 <option value="no">Ignore</option>
               </select>
@@ -149,11 +149,11 @@
         </div>
 
         <div class="customer-actions">
-          <button class="customer-save-button" type="button">
+          <button id="run_product_forecast_button" class="customer-save-button" type="button">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
             <span>Run Product Forecast</span>
           </button>
-          <button class="customer-clear-button" type="reset">
+          <button id="reset_product_forecast_button" class="customer-clear-button" type="reset">
             <i class="fa-solid fa-eraser"></i>
             <span>Reset</span>
           </button>
@@ -173,21 +173,21 @@
               <h3>Critical — within 3 days</h3>
               <p>Products selling faster than remaining stock. Risk of lost sales and empty shelves.</p>
             </div>
-            <strong class="forecast-alert__count">0 items</strong>
+            <strong class="forecast-alert__count" id="critical_count">0 items</strong>
           </article>
           <article class="forecast-alert forecast-alert--warning">
             <div>
               <h3>Warning — within 7–14 days</h3>
               <p>Plan purchase orders this week so stock arrives before you run out.</p>
             </div>
-            <strong class="forecast-alert__count">0 items</strong>
+            <strong class="forecast-alert__count" id="warning_count">0 items</strong>
           </article>
           <article class="forecast-alert forecast-alert--ok">
             <div>
               <h3>Healthy — 30+ days cover</h3>
               <p>Stock is enough for the forecast window. Watch for sudden demand spikes.</p>
             </div>
-            <strong class="forecast-alert__count">0 items</strong>
+            <strong class="forecast-alert__count" id="healthy_count">0 items</strong>
           </article>
         </div>
       </section>
@@ -200,7 +200,7 @@
           </div>
         </div>
         <div class="chart-empty" role="img" aria-label="No chart right now">
-          <canvas width="960" height="480" aria-hidden="true"></canvas>
+          <canvas id="sales_outlook_canvas" width="960" height="480" aria-hidden="true"></canvas>
           <p class="chart-empty__text">No chart right now</p>
         </div>
       </section>
@@ -213,7 +213,7 @@
           </div>
         </div>
         <div class="chart-empty" role="img" aria-label="No chart right now">
-          <canvas width="960" height="480" aria-hidden="true"></canvas>
+          <canvas id="stock_burn_canvas" width="960" height="480" aria-hidden="true"></canvas>
           <p class="chart-empty__text">No chart right now</p>
         </div>
       </section>
@@ -241,8 +241,8 @@
             <p class="customer-card__subtitle">Each row is one product: projected sales, days to empty, and suggested reorder qty.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Products</span>
-            <button class="table-export-button" type="button">
+            <span class="customer-table-card__badge" id="product_forecast_badge">0 Products</span>
+            <button id="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
@@ -257,7 +257,7 @@
           <button class="expense-filter-bar__item" type="button">No Sales</button>
         </div>
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="product_forecast_table" class="customer-table">
             <thead>
               <tr>
                 <th>Product</th>
@@ -270,7 +270,7 @@
                 <th>Risk</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="product_forecast_table_body">
               <tr class="customer-table__empty">
                 <td colspan="8">
                   <i class="fa-solid fa-box-open"></i>

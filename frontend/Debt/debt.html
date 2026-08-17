@@ -29,26 +29,26 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-hand-holding-dollar inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Total Debt</span>
-          <strong class="inventory-stat-card__value">0.00</strong>
+          <strong id="total_debt" class="inventory-stat-card__value">0.00</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-scale-unbalanced inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Liabilities</span>
-          <strong class="inventory-stat-card__value">0.00</strong>
+          <strong id="liabilities" class="inventory-stat-card__value">0.00</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-clock inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Due Soon</span>
-          <strong class="inventory-stat-card__value">0</strong>
+          <strong id="due_soon" class="inventory-stat-card__value">0</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Overdue</span>
-          <strong class="inventory-stat-card__value">0</strong>
+          <strong id="overdue" class="inventory-stat-card__value">0</strong>
         </article>
       </div>
 
-      <form class="customer-form" action="#">
+      <form id="debt_form" name="debt_form" class="customer-form" action="#">
         <section class="customer-card" aria-labelledby="debt-basic-title">
           <div class="customer-card__header">
             <div>
@@ -60,86 +60,86 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Title</span>
-              <input type="text" placeholder="Example: Bank loan, supplier payable">
+              <input type="text" id="title" name="title" placeholder="Example: Bank loan, supplier payable">
             </label>
             <label class="customer-field">
               <span>Type</span>
-              <select>
-                <option>Debt</option>
-                <option>Liability</option>
+              <select id="type" name="type">
+                <option value="Debt">Debt</option>
+                <option value="Liability">Liability</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Category</span>
-              <select>
-                <option>Bank Loan</option>
-                <option>Supplier Payable</option>
-                <option>Credit Card</option>
-                <option>Personal Loan</option>
-                <option>Mortgage</option>
-                <option>Tax Payable</option>
-                <option>Salary Payable</option>
-                <option>Other</option>
+              <select id="category" name="category">
+                <option value="Bank Loan">Bank Loan</option>
+                <option value="Supplier Payable">Supplier Payable</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Personal Loan">Personal Loan</option>
+                <option value="Mortgage">Mortgage</option>
+                <option value="Tax Payable">Tax Payable</option>
+                <option value="Salary Payable">Salary Payable</option>
+                <option value="Other">Other</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Creditor / Lender</span>
-              <input type="text" placeholder="Bank, supplier, or person name">
+              <input type="text" id="creditor_lender" name="creditor_lender" placeholder="Bank, supplier, or person name">
             </label>
             <label class="customer-field">
               <span>Amount</span>
-              <input type="number" placeholder="0.00" step="0.01">
+              <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01">
             </label>
             <label class="customer-field">
               <span>Remaining Balance</span>
-              <input type="number" placeholder="0.00" step="0.01">
+              <input type="number" id="remaining_balance" name="remaining_balance" placeholder="0.00" step="0.01">
             </label>
             <label class="customer-field">
               <span>Interest Rate %</span>
-              <input type="number" placeholder="Optional" step="0.01">
+              <input type="number" id="interest_rate" name="interest_rate" placeholder="Optional" step="0.01">
             </label>
             <label class="customer-field">
               <span>Payment Frequency</span>
-              <select>
-                <option>One-time</option>
-                <option>Monthly</option>
-                <option>Quarterly</option>
-                <option>Yearly</option>
+              <select id="payment_frequency" name="payment_frequency">
+                <option value="One-time">One-time</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Quarterly">Quarterly</option>
+                <option value="Yearly">Yearly</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Start Date</span>
-              <input type="date">
+              <input type="date" id="start_date" name="start_date">
             </label>
             <label class="customer-field">
               <span>Due Date</span>
-              <input type="date">
+              <input type="date" id="due_date" name="due_date">
             </label>
             <label class="customer-field">
               <span>Status</span>
-              <select>
-                <option>Active</option>
-                <option>Partially Paid</option>
-                <option>Paid</option>
-                <option>Overdue</option>
+              <select id="status" name="status">
+                <option value="Active">Active</option>
+                <option value="Partially Paid">Partially Paid</option>
+                <option value="Paid">Paid</option>
+                <option value="Overdue">Overdue</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Phone / Contact</span>
-              <input type="tel" placeholder="Optional contact number">
+              <input type="tel" id="phone_contact" name="phone_contact" placeholder="Optional contact number">
             </label>
             <label class="customer-field customer-field--wide">
               <span>Notes</span>
-              <textarea placeholder="Payment terms, installment notes, or agreement details"></textarea>
+              <textarea id="notes" name="notes" placeholder="Payment terms, installment notes, or agreement details"></textarea>
             </label>
           </div>
 
           <div class="customer-actions">
-            <button class="customer-save-button" type="button">
+            <button id="save_debt_button" name="save_debt_button" class="customer-save-button" type="button">
               <i class="fa-solid fa-plus"></i>
               <span>Save Debt</span>
             </button>
-            <button class="customer-clear-button" type="button">
+            <button id="clear_debt_button" name="clear_debt_button" class="customer-clear-button" type="button">
               <i class="fa-solid fa-eraser"></i>
               <span>Clear</span>
             </button>
@@ -154,16 +154,16 @@
             <p class="customer-card__subtitle">All recorded business debts and liabilities will appear here.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Records</span>
-            <button class="table-export-button" type="button">
+            <span id="debt_count_badge" class="customer-table-card__badge">0 Records</span>
+            <button id="export_csv_button" name="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-update-button" type="button">
+            <button id="update_button" name="update_button" class="table-update-button" type="button">
               <i class="fa-solid fa-pen"></i>
               <span>Update</span>
             </button>
-            <button class="table-delete-button" type="button">
+            <button id="delete_button" name="delete_button" class="table-delete-button" type="button">
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
@@ -180,7 +180,7 @@
         </div>
 
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="debt_table" class="customer-table">
             <thead>
               <tr>
                 <th>Title</th>
@@ -193,7 +193,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="debt_table_body">
               <tr class="customer-table__empty">
                 <td colspan="8">
                   <i class="fa-solid fa-scale-unbalanced"></i>

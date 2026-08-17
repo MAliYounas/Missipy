@@ -25,7 +25,7 @@
       </header>
 
       <div class="invoice-layout">
-        <form class="invoice-entry" action="#">
+        <form class="invoice-entry" id="invoice_form" action="#">
           <section class="invoice-card" aria-labelledby="customer-title">
             <div class="invoice-card__header">
               <div>
@@ -37,15 +37,15 @@
             <div class="invoice-grid invoice-grid--customer">
               <label class="invoice-field">
                 <span>Customer Name</span>
-                <input type="text" placeholder="Walk-in customer" id="customer_name">
+                <input type="text" id="customer_name" name="customer_name" placeholder="Walk-in customer">
               </label>
               <label class="invoice-field">
                 <span>Phone Number</span>
-                <input type="tel" id="phone_no" placeholder="Optional">
+                <input type="tel" id="phone_no" name="phone_no" placeholder="Optional">
               </label>
               <label class="invoice-field">
                 <span>Invoice Date</span>
-                <input type="date" id="invoice_date">
+                <input type="date" id="invoice_date" name="invoice_date">
               </label>
             </div>
           </section>
@@ -61,39 +61,39 @@
             <div class="invoice-search-row">
               <label class="invoice-field invoice-field--barcode">
                 <span>Barcode / QR Code</span>
-                <input type="text" id="qr_code" placeholder="Scan barcode or enter code">
+                <input type="text" id="qr_code" name="qr_code" placeholder="Scan barcode or enter code">
               </label>
               <label class="invoice-field invoice-field--search">
                 <span>Product Search</span>
-                <input type="search" id="product_name" placeholder="Search product name" required autocomplete="off">
+                <input type="search" id="product_name" name="product_name" placeholder="Search product name" required autocomplete="off">
               </label>
             </div>
 
             <div class="invoice-grid invoice-grid--items">
               <label class="invoice-field">
                 <span>Price</span>
-                <input type="number" id="price" placeholder="0.00" required>
+                <input type="number" id="price" name="price" placeholder="0.00" required>
               </label>
               <label class="invoice-field">
                 <span>Quantity</span>
-                <input type="number" id="quantity" placeholder="0" required>
+                <input type="number" id="quantity" name="quantity" placeholder="0" required>
               </label>
               <label class="invoice-field">
                 <span>Discount (%)</span>
-                <input type="number" id="discount" placeholder="Optional">
+                <input type="number" id="discount" name="discount" placeholder="Optional">
               </label>
               <label class="invoice-field">
                 <span>Additional GST (%)</span>
-                <input type="number" id="gst" placeholder="Optional">
+                <input type="number" id="gst" name="gst" placeholder="Optional">
               </label>
             </div>
 
             <div class="invoice-actions">
-              <button class="invoice-add-button" type="submit">
+              <button class="invoice-add-button" id="add_product_button" type="button">
                 <i class="fa-solid fa-plus"></i>
                 <span>Add Product</span>
               </button>
-              <button class="invoice-clear-button" type="button">
+              <button class="invoice-clear-button" id="clear_product_button" type="button">
                 <i class="fa-solid fa-eraser"></i>
                 <span>Clear</span>
               </button>
@@ -110,26 +110,26 @@
             <div class="invoice-cart__controls">
               <label class="payment-select">
                 <span>Payment</span>
-                <select>
+                <select id="payment_method" name="payment_method">
                   <option selected>Cash</option>
                   <option>Card</option>
                   <option>Debt</option>
                 </select>
               </label>
-              <button class="invoice-delete-button invoice-delete-item-button" type="button">
+              <button class="invoice-delete-button invoice-delete-item-button" id="delete_item_button" type="button">
                 <i class="fa-solid fa-trash"></i>
                 <span>Delete Item</span>
               </button>
-              <button class="invoice-delete-button invoice-delete-all-button" type="button">
+              <button class="invoice-delete-button invoice-delete-all-button" id="delete_all_button" type="button">
                 <i class="fa-solid fa-trash-can"></i>
                 <span>Delete All</span>
               </button>
-              <span class="invoice-cart__badge">0 Items</span>
+              <span class="invoice-cart__badge" id="invoice_item_count">0 Items</span>
             </div>
           </div>
 
           <div class="invoice-table-wrap">
-            <table class="invoice-table">
+            <table class="invoice-table" id="invoice_table">
               <thead>
                 <tr>
                   <th>Barcode</th>
@@ -141,7 +141,7 @@
                   <th>Total</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="invoice_table_body">
                 <tr class="invoice-table__empty">
                   <td colspan="7">
                     <i class="fa-solid fa-barcode"></i>
@@ -155,23 +155,23 @@
           <div class="invoice-summary" aria-label="Invoice totals">
             <div class="invoice-summary__row">
               <span>Subtotal</span>
-              <strong>0.00</strong>
+              <strong id="invoice_subtotal">0.00</strong>
             </div>
             <div class="invoice-summary__row">
               <span>Discount</span>
-              <strong>0.00</strong>
+              <strong id="invoice_discount_total">0.00</strong>
             </div>
             <div class="invoice-summary__row">
               <span>GST</span>
-              <strong>0.00</strong>
+              <strong id="invoice_gst_total">0.00</strong>
             </div>
             <div class="invoice-summary__row invoice-summary__row--total">
               <span>Total</span>
-              <strong>0.00</strong>
+              <strong id="invoice_total">0.00</strong>
             </div>
           </div>
 
-          <button class="generate-invoice-button" type="button">
+          <button class="generate-invoice-button" id="generate_invoice_button" type="button">
             <i class="fa-solid fa-file-invoice-dollar"></i>
             <span>Generate Invoice</span>
           </button>

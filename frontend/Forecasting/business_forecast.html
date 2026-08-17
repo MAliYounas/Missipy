@@ -39,26 +39,26 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-arrow-up inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Inflow</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_inflow">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-arrow-down inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Outflow</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_outflow">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-scale-balanced inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Profit</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_profit">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-hand-holding-dollar inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Cash After Debts</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="cash_after_debts">—</strong>
         </article>
       </div>
 
-      <form class="customer-card forecast-form" action="#" aria-labelledby="business-forecast-settings" data-forecast-form>
+      <form id="business_forecast_form" class="customer-card forecast-form" action="#" aria-labelledby="business-forecast-settings" data-forecast-form>
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="business-forecast-settings">Analysis window</h2>
@@ -71,7 +71,7 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Period</span>
-              <select name="analysis-period" data-toggle-target="business-period-dates">
+              <select id="analysis_period" name="analysis-period" data-toggle-target="business-period-dates">
                 <option value="30">Next 30 days</option>
                 <option value="90" selected>Next 90 days</option>
                 <option value="180">Next 6 months</option>
@@ -81,15 +81,15 @@
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="business-period-dates" hidden>
               <span>From</span>
-              <input type="date" name="period-from">
+              <input id="period_from" type="date" name="period-from">
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="business-period-dates" hidden>
               <span>To</span>
-              <input type="date" name="period-to">
+              <input id="period_to" type="date" name="period-to">
             </label>
             <label class="customer-field">
               <span>Scenario</span>
-              <select name="scenario">
+              <select id="scenario" name="scenario">
                 <option value="base" selected>Base case</option>
                 <option value="optimistic">Optimistic</option>
                 <option value="conservative">Conservative</option>
@@ -103,21 +103,21 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Debt payments</span>
-              <select name="include-debt">
+              <select id="include_debt" name="include-debt">
                 <option value="yes" selected>Yes</option>
                 <option value="no">No</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Planned purchases</span>
-              <select name="include-purchases">
+              <select id="include_purchases" name="include-purchases">
                 <option value="yes" selected>Yes</option>
                 <option value="no">No</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Operating expenses</span>
-              <select name="include-expenses">
+              <select id="include_expenses" name="include-expenses">
                 <option value="yes" selected>Yes</option>
                 <option value="no">No</option>
               </select>
@@ -126,11 +126,11 @@
         </div>
 
         <div class="customer-actions">
-          <button class="customer-save-button" type="button">
+          <button id="run_full_analysis_button" class="customer-save-button" type="button">
             <i class="fa-solid fa-magnifying-glass-chart"></i>
             <span>Run Full Analysis</span>
           </button>
-          <button class="customer-clear-button" type="reset">
+          <button id="reset_business_forecast_button" class="customer-clear-button" type="reset">
             <i class="fa-solid fa-eraser"></i>
             <span>Reset</span>
           </button>
@@ -266,19 +266,19 @@
             <p class="customer-card__subtitle">Line-by-line projected totals for the selected scenario.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Lines</span>
-            <button class="table-export-button" type="button">
+            <span class="customer-table-card__badge" id="business_forecast_badge">0 Lines</span>
+            <button id="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-export-button" type="button">
+            <button id="export_pdf_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-pdf"></i>
               <span>Export PDF</span>
             </button>
           </div>
         </div>
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="business_forecast_table" class="customer-table">
             <thead>
               <tr>
                 <th>Area</th>
@@ -289,7 +289,7 @@
                 <th>Recommended Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="business_forecast_table_body">
               <tr class="customer-table__empty">
                 <td colspan="6">
                   <i class="fa-solid fa-building-columns"></i>

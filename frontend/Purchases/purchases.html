@@ -26,7 +26,7 @@
         </div>
       </header>
 
-      <form class="purchase-form" action="#">
+      <form class="purchase-form" id="purchase_form" action="#">
         <section class="purchase-card purchase-card--supplier" aria-labelledby="supplier-title">
           <div class="purchase-card__header">
             <div>
@@ -42,11 +42,11 @@
           <div class="form-grid form-grid--supplier">
             <label class="form-field">
               <span>Supplier Name</span>
-              <input type="text" id="supplier_name" placeholder="Enter supplier name">
+              <input type="text" id="supplier_name" name="supplier_name" placeholder="Enter supplier name">
             </label>
             <label class="form-field">
               <span>Purchase Date</span>
-              <input type="date" id="purchase_date">
+              <input type="date" id="purchase_date" name="purchase_date">
             </label>
           </div>
         </section>
@@ -62,17 +62,17 @@
           <div class="form-grid">
             <label class="form-field">
               <span>QR / Barcode Number</span>
-              <input type="text" placeholder="Scan or enter code number" id="qr_code" required>
+              <input type="text" id="qr_code" name="qr_code" placeholder="Scan or enter code number" required>
             </label>
             <label class="form-field">
               <span>Product Name</span>
-              <input type="text" id="product_name" placeholder="Enter product name" required>
+              <input type="text" id="product_name" name="product_name" placeholder="Enter product name" required>
             </label>
             <label class="form-field">
               <span>Quantity</span>
               <div class="quantity-unit-control">
-                <input type="number" id=quantity placeholder="0" required>
-                <select aria-label="Quantity unit" id="unit_type" >
+                <input type="number" id="quantity" name="quantity" placeholder="0" required>
+                <select aria-label="Quantity unit" id="unit_type" name="unit_type">
                   <option>Pieces</option>
                   <option>Kg</option>
                   <option>Grams</option>
@@ -87,30 +87,30 @@
             </label>
             <label class="form-field">
               <span>Minimum Stock Alert</span>
-              <input type="number" id="min_stock" placeholder="Remind when stock reaches" >
+              <input type="number" id="min_stock" name="min_stock" placeholder="Remind when stock reaches">
             </label>
             <label class="form-field">
               <span>Buying Price</span>
-              <input type="number" id="buying_price" placeholder="0.00" required>
+              <input type="number" id="buying_price" name="buying_price" placeholder="0.00" required>
             </label>
             <label class="form-field">
               <span>Selling Price</span>
-              <input type="number" id="selling_price" placeholder="0.00" required>
+              <input type="number" id="selling_price" name="selling_price" placeholder="0.00" required>
             </label>
             <label class="form-field">
               <span>GST (%)</span>
-              <input type="number" id="gst" placeholder="Optional" >
+              <input type="number" id="gst" name="gst" placeholder="Optional">
             </label>
             <label class="form-field">
               <span>Discount (%)</span>
-              <input type="number" id="discount" placeholder="Optional">
+              <input type="number" id="discount" name="discount" placeholder="Optional">
             </label>
             <br>
             
           </div>
 
           <div class="purchase-actions">
-            <button class="add-item-button" type="submit">
+            <button class="add-item-button" id="add_item_button" type="button">
               <i class="fa-solid fa-cart-plus"></i>
               <span>Add Item</span>
             </button>
@@ -125,8 +125,8 @@
             <p class="purchase-card__subtitle">Added products will appear here before saving the purchase.</p>
           </div>
           <div class="purchase-table-card__controls">
-            <span class="purchase-table-card__badge">0 Items</span>
-            <button class="table-export-button" type="button">
+            <span class="purchase-table-card__badge" id="purchase_item_count">0 Items</span>
+            <button class="table-export-button" id="export_csv_button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
@@ -138,7 +138,7 @@
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
-            <button class="save-items-button" id='save_all_items' type="button">
+            <button class="save-items-button" id="save_all_items" type="button">
               <i class="fa-solid fa-floppy-disk"></i>
               <span>Save All Items</span>
             </button>
@@ -162,7 +162,7 @@
                 <th>Net Total</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="purchase_table_body">
               <tr class="purchase-table__empty">
                 <td colspan="12">
                   <i class="fa-solid fa-box-open"></i>

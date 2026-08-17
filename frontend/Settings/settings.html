@@ -26,7 +26,7 @@
         </div>
       </header>
 
-      <form class="customer-form" action="#">
+      <form id="settings_form" name="settings_form" class="customer-form" action="#">
         <section class="customer-card" aria-labelledby="business-basic-title">
           <div class="customer-card__header">
             <div>
@@ -45,7 +45,7 @@
               <label class="customer-clear-button logo-upload__button">
                 <i class="fa-solid fa-cloud-arrow-up"></i>
                 <span>Upload Logo</span>
-                <input type="file" accept="image/png,image/jpeg,image/webp" hidden>
+                <input type="file" id="business_logo" name="business_logo" accept="image/png,image/jpeg,image/webp" hidden>
               </label>
             </div>
           </div>
@@ -53,62 +53,62 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Business Name</span>
-              <input type="text" placeholder="Your shop or company name">
+              <input type="text" id="business_name" name="business_name" placeholder="Your shop or company name">
             </label>
             <label class="customer-field">
               <span>Business Type</span>
-              <select>
-                <option>Retail Store</option>
-                <option>Wholesale</option>
-                <option>Restaurant</option>
-                <option>Pharmacy</option>
-                <option>Grocery</option>
-                <option>Electronics</option>
-                <option>Services</option>
-                <option>Other</option>
+              <select id="business_type" name="business_type">
+                <option value="Retail Store">Retail Store</option>
+                <option value="Wholesale">Wholesale</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Pharmacy">Pharmacy</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Services">Services</option>
+                <option value="Other">Other</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Owner Name</span>
-              <input type="text" placeholder="Owner / proprietor name">
+              <input type="text" id="owner_name" name="owner_name" placeholder="Owner / proprietor name">
             </label>
             <label class="customer-field">
               <span>Tax / NTN / GST No.</span>
-              <input type="text" placeholder="Optional tax ID">
+              <input type="text" id="tax_ntn_gst_no" name="tax_ntn_gst_no" placeholder="Optional tax ID">
             </label>
             <label class="customer-field">
               <span>Phone Number</span>
-              <input type="tel" placeholder="Business phone">
+              <input type="tel" id="phone_number" name="phone_number" placeholder="Business phone">
             </label>
             <label class="customer-field">
               <span>Email</span>
-              <input type="email" placeholder="business@email.com">
+              <input type="email" id="email" name="email" placeholder="business@email.com">
             </label>
             <label class="customer-field">
               <span>Website</span>
-              <input type="url" placeholder="Optional website">
+              <input type="url" id="website" name="website" placeholder="Optional website">
             </label>
             <label class="customer-field">
               <span>Currency</span>
-              <select>
-                <option>PKR (Rs)</option>
-                <option>USD ($)</option>
-                <option>EUR (€)</option>
-                <option>GBP (£)</option>
-                <option>INR (₹)</option>
+              <select id="currency" name="currency">
+                <option value="PKR (Rs)">PKR (Rs)</option>
+                <option value="USD ($)">USD ($)</option>
+                <option value="EUR (€)">EUR (€)</option>
+                <option value="GBP (£)">GBP (£)</option>
+                <option value="INR (₹)">INR (₹)</option>
               </select>
             </label>
             <label class="customer-field customer-field--wide">
               <span>Address</span>
-              <input type="text" placeholder="Street, area, landmark">
+              <input type="text" id="address" name="address" placeholder="Street, area, landmark">
             </label>
             <label class="customer-field">
               <span>City</span>
-              <input type="text" placeholder="City name">
+              <input type="text" id="city" name="city" placeholder="City name">
             </label>
             <label class="customer-field">
               <span>Country</span>
-              <input type="text" placeholder="Country" value="Pakistan">
+              <input type="text" id="country" name="country" placeholder="Country" value="Pakistan">
             </label>
           </div>
         </section>
@@ -124,29 +124,29 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Date Format</span>
-              <select>
-                <option>DD/MM/YYYY</option>
-                <option>MM/DD/YYYY</option>
-                <option>YYYY-MM-DD</option>
+              <select id="date_format" name="date_format">
+                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Low Stock Alert</span>
-              <input type="number" placeholder="10">
+              <input type="number" id="low_stock_alert" name="low_stock_alert" placeholder="10">
             </label>
             <label class="customer-field">
               <span>Language</span>
-              <select>
-                <option>English</option>
-                <option>Urdu</option>
+              <select id="language" name="language">
+                <option value="English">English</option>
+                <option value="Urdu">Urdu</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Fiscal Year Start</span>
-              <select>
-                <option>January</option>
-                <option>April</option>
-                <option>July</option>
+              <select id="fiscal_year_start" name="fiscal_year_start">
+                <option value="January">January</option>
+                <option value="April">April</option>
+                <option value="July">July</option>
               </select>
             </label>
           </div>
@@ -157,30 +157,30 @@
                 <strong>Show tax on invoices</strong>
                 <small>Display tax lines on printed and digital invoices.</small>
               </span>
-              <input type="checkbox" checked>
+              <input type="checkbox" id="show_tax_on_invoices" name="show_tax_on_invoices" checked>
             </label>
             <label class="settings-toggle">
               <span class="settings-toggle__text">
                 <strong>Allow negative stock</strong>
                 <small>Permit sales even when stock quantity is zero.</small>
               </span>
-              <input type="checkbox">
+              <input type="checkbox" id="allow_negative_stock" name="allow_negative_stock">
             </label>
             <label class="settings-toggle">
               <span class="settings-toggle__text">
                 <strong>Require customer on invoice</strong>
                 <small>Force a customer name before completing a sale.</small>
               </span>
-              <input type="checkbox">
+              <input type="checkbox" id="require_customer_on_invoice" name="require_customer_on_invoice">
             </label>
           </div>
 
           <div class="customer-actions">
-            <button class="customer-save-button" type="button">
+            <button id="save_settings_button" name="save_settings_button" class="customer-save-button" type="button">
               <i class="fa-solid fa-floppy-disk"></i>
               <span>Save Settings</span>
             </button>
-            <button class="customer-clear-button" type="button">
+            <button id="reset_settings_button" name="reset_settings_button" class="customer-clear-button" type="button">
               <i class="fa-solid fa-rotate-left"></i>
               <span>Reset</span>
             </button>

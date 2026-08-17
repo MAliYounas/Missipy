@@ -25,7 +25,7 @@
         </div>
       </header>
 
-      <form class="customer-form" action="#">
+      <form id="supplier_form" name="supplier_form" class="customer-form" action="#">
         <section class="customer-card" aria-labelledby="supplier-basic-title">
           <div class="customer-card__header">
             <div>
@@ -37,19 +37,19 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Supplier Name</span>
-              <input type="text" placeholder="Enter supplier or company name">
+              <input type="text" id="supplier_name" name="supplier_name" placeholder="Enter supplier or company name">
             </label>
             <label class="customer-field">
               <span>Phone Number</span>
-              <input type="tel" placeholder="03XX-XXXXXXX">
+              <input type="tel" id="phone_number" name="phone_number" placeholder="03XX-XXXXXXX">
             </label>
             <label class="customer-field">
               <span>Email</span>
-              <input type="email" placeholder="Optional">
+              <input type="email" id="email" name="email" placeholder="Optional">
             </label>
             <label class="customer-field">
               <span>NTN / Tax ID</span>
-              <input type="text" placeholder="Optional tax number">
+              <input type="text" id="ntn_tax_id" name="ntn_tax_id" placeholder="Optional tax number">
             </label>
           </div>
         </section>
@@ -65,38 +65,38 @@
           <div class="customer-grid">
             <label class="customer-field customer-field--wide">
               <span>Address</span>
-              <input type="text" placeholder="House, street, area">
+              <input type="text" id="address" name="address" placeholder="House, street, area">
             </label>
             <label class="customer-field">
               <span>City</span>
-              <input type="text" placeholder="City name">
+              <input type="text" id="city" name="city" placeholder="City name">
             </label>
             <label class="customer-field">
               <span>Supplier Type</span>
-              <select>
-                <option>Regular</option>
-                <option>Manufacturer</option>
-                <option>Distributor</option>
-                <option>Wholesaler</option>
-                <option>Credit Supplier</option>
+              <select id="supplier_type" name="supplier_type">
+                <option value="Regular">Regular</option>
+                <option value="Manufacturer">Manufacturer</option>
+                <option value="Distributor">Distributor</option>
+                <option value="Wholesaler">Wholesaler</option>
+                <option value="Credit Supplier">Credit Supplier</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Contact Person</span>
-              <input type="text" placeholder="Manager or sales person">
+              <input type="text" id="contact_person" name="contact_person" placeholder="Manager or sales person">
             </label>
             <label class="customer-field customer-field--wide">
               <span>Notes</span>
-              <textarea placeholder="Delivery schedule, purchase notes, or supplier terms"></textarea>
+              <textarea id="notes" name="notes" placeholder="Delivery schedule, purchase notes, or supplier terms"></textarea>
             </label>
           </div>
 
           <div class="customer-actions">
-            <button class="customer-save-button" type="button">
+            <button id="save_supplier_button" name="save_supplier_button" class="customer-save-button" type="button">
               <i class="fa-solid fa-truck-fast"></i>
               <span>Save Supplier</span>
             </button>
-            <button class="customer-clear-button" type="button">
+            <button id="clear_supplier_button" name="clear_supplier_button" class="customer-clear-button" type="button">
               <i class="fa-solid fa-eraser"></i>
               <span>Clear</span>
             </button>
@@ -111,16 +111,16 @@
             <p class="customer-card__subtitle">Saved suppliers will appear here for quick purchase and payment records.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Suppliers</span>
-            <button class="table-export-button" type="button">
+            <span id="supplier_count_badge" class="customer-table-card__badge">0 Suppliers</span>
+            <button id="export_csv_button" name="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-update-button" type="button">
+            <button id="update_button" name="update_button" class="table-update-button" type="button">
               <i class="fa-solid fa-pen"></i>
               <span>Update</span>
             </button>
-            <button class="table-delete-button" type="button">
+            <button id="delete_button" name="delete_button" class="table-delete-button" type="button">
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
@@ -128,7 +128,7 @@
         </div>
 
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="supplier_table" class="customer-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -138,7 +138,7 @@
                 <th>City</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="supplier_table_body">
               <tr class="customer-table__empty">
                 <td colspan="5">
                   <i class="fa-solid fa-truck-fast"></i>

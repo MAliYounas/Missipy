@@ -30,22 +30,22 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-boxes-stacked inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Total Stock</span>
-          <strong class="inventory-stat-card__value">0 Items</strong>
+          <strong id="total_stock" class="inventory-stat-card__value">0 Items</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-scale-balanced inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Average Cost</span>
-          <strong class="inventory-stat-card__value">0.00</strong>
+          <strong id="average_cost" class="inventory-stat-card__value">0.00</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-triangle-exclamation inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Low Stock</span>
-          <strong class="inventory-stat-card__value">0 Products</strong>
+          <strong id="low_stock" class="inventory-stat-card__value">0 Products</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-coins inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Stock Value</span>
-          <strong class="inventory-stat-card__value">0.00</strong>
+          <strong id="stock_value" class="inventory-stat-card__value">0.00</strong>
         </article>
       </div>
 
@@ -57,25 +57,25 @@
           </div>
         </div>
 
-        <div class="customer-grid">
+        <form id="inventory_search_form" name="inventory_search_form" class="customer-grid" action="#">
           <label class="customer-field">
             <span>Barcode</span>
-            <input type="search" placeholder="Enter barcode">
+            <input type="search" id="barcode" name="barcode" placeholder="Enter barcode">
           </label>
           <label class="customer-field">
             <span>Product Name</span>
-            <input type="search" placeholder="Enter product name">
+            <input type="search" id="product_name" name="product_name" placeholder="Enter product name">
           </label>
           <label class="customer-field">
             <span>Stock Status</span>
-            <select>
-              <option>All Stock</option>
-              <option>In Stock</option>
-              <option>Low Stock</option>
-              <option>Out of Stock</option>
+            <select id="stock_status" name="stock_status">
+              <option value="All Stock">All Stock</option>
+              <option value="In Stock">In Stock</option>
+              <option value="Low Stock">Low Stock</option>
+              <option value="Out of Stock">Out of Stock</option>
             </select>
           </label>
-        </div>
+        </form>
       </section>
 
       <section class="customer-table-card" aria-labelledby="inventory-table-title">
@@ -85,16 +85,16 @@
             <p class="customer-card__subtitle">Available products, quantities, average cost, and stock value will appear here.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Products</span>
-            <button class="table-export-button" type="button">
+            <span id="inventory_count_badge" class="customer-table-card__badge">0 Products</span>
+            <button id="export_csv_button" name="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-update-button" type="button">
+            <button id="update_button" name="update_button" class="table-update-button" type="button">
               <i class="fa-solid fa-pen"></i>
               <span>Update</span>
             </button>
-            <button class="table-delete-button" type="button">
+            <button id="delete_button" name="delete_button" class="table-delete-button" type="button">
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
@@ -109,7 +109,7 @@
         </div>
 
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="inventory_table" class="customer-table">
             <thead>
               <tr>
                 <th>Barcode</th>
@@ -121,7 +121,7 @@
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="inventory_table_body">
               <tr class="customer-table__empty">
                 <td colspan="7">
                   <i class="fa-solid fa-boxes-stacked"></i>

@@ -34,28 +34,28 @@
       <div class="dash-kpis" aria-label="Key totals">
         <article class="dash-kpi">
           <span class="dash-kpi__label">Total sales</span>
-          <strong class="dash-kpi__value" data-metric="sales">Rs 428,500</strong>
-          <span class="dash-kpi__hint" data-metric-hint="sales">+12% vs prior period</span>
+          <strong class="dash-kpi__value" id="kpi_sales" data-metric="sales">Rs 428,500</strong>
+          <span class="dash-kpi__hint" id="kpi_sales_hint" data-metric-hint="sales">+12% vs prior period</span>
         </article>
         <article class="dash-kpi">
           <span class="dash-kpi__label">Revenue</span>
-          <strong class="dash-kpi__value" data-metric="revenue">Rs 392,100</strong>
-          <span class="dash-kpi__hint" data-metric-hint="revenue">Collected payments</span>
+          <strong class="dash-kpi__value" id="kpi_revenue" data-metric="revenue">Rs 392,100</strong>
+          <span class="dash-kpi__hint" id="kpi_revenue_hint" data-metric-hint="revenue">Collected payments</span>
         </article>
         <article class="dash-kpi">
           <span class="dash-kpi__label">Expenses</span>
-          <strong class="dash-kpi__value" data-metric="expenses">Rs 146,800</strong>
-          <span class="dash-kpi__hint" data-metric-hint="expenses">Operating costs</span>
+          <strong class="dash-kpi__value" id="kpi_expenses" data-metric="expenses">Rs 146,800</strong>
+          <span class="dash-kpi__hint" id="kpi_expenses_hint" data-metric-hint="expenses">Operating costs</span>
         </article>
         <article class="dash-kpi">
           <span class="dash-kpi__label">Open debt</span>
-          <strong class="dash-kpi__value" data-metric="debt">Rs 87,250</strong>
-          <span class="dash-kpi__hint" data-metric-hint="debt">Receivables due</span>
+          <strong class="dash-kpi__value" id="kpi_debt" data-metric="debt">Rs 87,250</strong>
+          <span class="dash-kpi__hint" id="kpi_debt_hint" data-metric-hint="debt">Receivables due</span>
         </article>
         <article class="dash-kpi">
           <span class="dash-kpi__label">Net cash</span>
-          <strong class="dash-kpi__value" data-metric="cash">Rs 245,300</strong>
-          <span class="dash-kpi__hint" data-metric-hint="cash">After expenses &amp; debt</span>
+          <strong class="dash-kpi__value" id="kpi_cash" data-metric="cash">Rs 245,300</strong>
+          <span class="dash-kpi__hint" id="kpi_cash_hint" data-metric-hint="cash">After expenses &amp; debt</span>
         </article>
       </div>
 
@@ -63,10 +63,10 @@
         <section class="dash-panel dash-panel--chart" aria-labelledby="chart-title">
           <div class="dash-panel__head">
             <h2 class="dash-panel__title" id="chart-title">Chart</h2>
-            <p class="dash-panel__sub" data-chart-label>Last 30 days</p>
+            <p class="dash-panel__sub" id="chart_period_label" data-chart-label>Last 30 days</p>
           </div>
           <div class="dash-chart-empty" role="img" aria-label="No chart right now">
-            <canvas class="dash-chart-canvas" width="960" height="480" aria-hidden="true"></canvas>
+            <canvas class="dash-chart-canvas" id="dash_chart_canvas" width="960" height="480" aria-hidden="true"></canvas>
             <p class="dash-chart-empty__text">No chart right now</p>
           </div>
         </section>
@@ -77,7 +77,7 @@
           <div class="dash-panel__head">
             <h2 class="dash-panel__title" id="attention-title">Needs attention</h2>
           </div>
-          <ul class="dash-attention">
+          <ul class="dash-attention" id="dash_attention_list">
             <li><i class="fa-solid fa-box-open" aria-hidden="true"></i><span>8 products below reorder level</span></li>
             <li><i class="fa-solid fa-clock" aria-hidden="true"></i><span>3 debts overdue this week</span></li>
             <li><i class="fa-solid fa-arrow-trend-down" aria-hidden="true"></i><span>Expense spike in utilities (+18%)</span></li>

@@ -23,7 +23,7 @@
           <span class="ai-topbar__eyebrow">Missipy AI</span>
           <h1 class="ai-topbar__title">Business assistant</h1>
         </div>
-        <button class="ai-topbar__clear" type="button">
+        <button class="ai-topbar__clear" id="new_chat_button" type="button">
           <i class="fa-solid fa-rotate-right"></i>
           <span>New chat</span>
         </button>
@@ -42,7 +42,7 @@
         </div>
 
         <section class="ai-chat" aria-label="AI chatbot">
-          <div class="ai-chat__messages" role="log" aria-live="polite">
+          <div class="ai-chat__messages" id="ai_chat_messages" role="log" aria-live="polite">
             <article class="ai-msg ai-msg--bot">
               <div class="ai-msg__avatar" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
               <div class="ai-msg__body">
@@ -76,9 +76,9 @@
               </button>
               <label class="ai-composer__field">
                 <span class="visually-hidden">Message</span>
-                <textarea rows="1" placeholder="Message Missipy AI…"></textarea>
+                <textarea id="ai_message" name="ai_message" rows="1" placeholder="Message Missipy AI…"></textarea>
               </label>
-              <button class="ai-composer__send" type="button" aria-label="Send message">
+              <button class="ai-composer__send" id="ai_send_button" type="button" aria-label="Send message">
                 <i class="fa-solid fa-arrow-up"></i>
               </button>
             </div>

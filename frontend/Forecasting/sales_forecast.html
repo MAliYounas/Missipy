@@ -39,26 +39,26 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-chart-line inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Sales</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_sales">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-file-invoice-dollar inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Projected Bills</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="projected_bills">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-arrow-trend-up inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">vs Last Period</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="vs_last_period">—</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-calendar-day inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Best Day Outlook</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="best_day_outlook">—</strong>
         </article>
       </div>
 
-      <form class="customer-card forecast-form" action="#" aria-labelledby="sales-forecast-settings" data-forecast-form>
+      <form id="sales_forecast_form" class="customer-card forecast-form" action="#" aria-labelledby="sales-forecast-settings" data-forecast-form>
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="sales-forecast-settings">Sales forecast settings</h2>
@@ -71,7 +71,7 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Look ahead</span>
-              <select name="look-ahead" data-toggle-target="sales-look-ahead-dates">
+              <select id="look_ahead" name="look-ahead" data-toggle-target="sales-look-ahead-dates">
                 <option value="7">Next 7 days</option>
                 <option value="30" selected>Next 30 days</option>
                 <option value="90">Next 90 days</option>
@@ -81,11 +81,11 @@
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="sales-look-ahead-dates" hidden>
               <span>From</span>
-              <input type="date" name="look-ahead-from">
+              <input id="look_ahead_from" type="date" name="look-ahead-from">
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="sales-look-ahead-dates" hidden>
               <span>To</span>
-              <input type="date" name="look-ahead-to">
+              <input id="look_ahead_to" type="date" name="look-ahead-to">
             </label>
           </div>
         </div>
@@ -95,7 +95,7 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>History window</span>
-              <select name="history" data-toggle-target="sales-history-dates">
+              <select id="history" name="history" data-toggle-target="sales-history-dates">
                 <option value="30">Last 30 days</option>
                 <option value="90" selected>Last 90 days</option>
                 <option value="365">Last 12 months</option>
@@ -104,19 +104,19 @@
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="sales-history-dates" hidden>
               <span>History from</span>
-              <input type="date" name="history-from">
+              <input id="history_from" type="date" name="history-from">
             </label>
             <label class="customer-field forecast-form__reveal" data-reveal="sales-history-dates" hidden>
               <span>History to</span>
-              <input type="date" name="history-to">
+              <input id="history_to" type="date" name="history-to">
             </label>
             <label class="customer-field">
               <span>Growth adjustment %</span>
-              <input type="number" name="growth" placeholder="0" step="0.1" value="0">
+              <input id="growth" type="number" name="growth" placeholder="0" step="0.1" value="0">
             </label>
             <label class="customer-field">
               <span>Seasonality</span>
-              <select name="seasonality">
+              <select id="seasonality" name="seasonality">
                 <option value="yes" selected>Include</option>
                 <option value="no">Ignore</option>
               </select>
@@ -125,11 +125,11 @@
         </div>
 
         <div class="customer-actions">
-          <button class="customer-save-button" type="button">
+          <button id="generate_sales_forecast_button" class="customer-save-button" type="button">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
             <span>Generate Sales Forecast</span>
           </button>
-          <button class="customer-clear-button" type="reset">
+          <button id="reset_sales_forecast_button" class="customer-clear-button" type="reset">
             <i class="fa-solid fa-eraser"></i>
             <span>Reset</span>
           </button>
@@ -144,7 +144,7 @@
           </div>
         </div>
         <div class="chart-empty" role="img" aria-label="No chart right now">
-          <canvas width="960" height="480" aria-hidden="true"></canvas>
+          <canvas id="sales_trend_canvas" width="960" height="480" aria-hidden="true"></canvas>
           <p class="chart-empty__text">No chart right now</p>
         </div>
       </section>
@@ -183,8 +183,8 @@
             <p class="customer-card__subtitle">Projected sales by period with confidence and comparison.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Periods</span>
-            <button class="table-export-button" type="button">
+            <span class="customer-table-card__badge" id="sales_forecast_badge">0 Periods</span>
+            <button id="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
@@ -196,7 +196,7 @@
           <button class="expense-filter-bar__item" type="button">Monthly</button>
         </div>
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="sales_forecast_table" class="customer-table">
             <thead>
               <tr>
                 <th>Period</th>
@@ -207,7 +207,7 @@
                 <th>Notes</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="sales_forecast_table_body">
               <tr class="customer-table__empty">
                 <td colspan="6">
                   <i class="fa-solid fa-receipt"></i>

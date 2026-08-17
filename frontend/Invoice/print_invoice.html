@@ -67,14 +67,9 @@
     </section>
 
     <div class="print-actions">
-      <button id="print_button" type="button">Print Invoice</button>
+      <button id="print_button" type="button" onclick="window.print()">Print Invoice</button>
       <a id="back_button" href="invoice.html">Back to Invoice</a>
     </div>
   </main>
-  <script>
-    document.getElementById("print_button").addEventListener("click", function () {
-      window.print();
-    });
-  </script>
 </body>
 </html>

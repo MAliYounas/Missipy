@@ -25,7 +25,7 @@
         </div>
       </header>
 
-      <form class="customer-form" action="#">
+      <form id="customer_form" name="customer_form" class="customer-form" action="#">
         <section class="customer-card" aria-labelledby="customer-basic-title">
           <div class="customer-card__header">
             <div>
@@ -37,19 +37,19 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Customer Name</span>
-              <input type="text" placeholder="Enter full name">
+              <input type="text" id="customer_name" name="customer_name" placeholder="Enter full name">
             </label>
             <label class="customer-field">
               <span>Phone Number</span>
-              <input type="tel" placeholder="03XX-XXXXXXX">
+              <input type="tel" id="phone_number" name="phone_number" placeholder="03XX-XXXXXXX">
             </label>
             <label class="customer-field">
               <span>Email</span>
-              <input type="email" placeholder="Optional">
+              <input type="email" id="email" name="email" placeholder="Optional">
             </label>
             <label class="customer-field">
               <span>CNIC / Tax ID</span>
-              <input type="text" placeholder="Optional ID number">
+              <input type="text" id="cnic_tax_id" name="cnic_tax_id" placeholder="Optional ID number">
             </label>
           </div>
         </section>
@@ -65,41 +65,41 @@
           <div class="customer-grid">
             <label class="customer-field customer-field--wide">
               <span>Address</span>
-              <input type="text" placeholder="House, street, area">
+              <input type="text" id="address" name="address" placeholder="House, street, area">
             </label>
             <label class="customer-field">
               <span>City</span>
-              <input type="text" placeholder="City name">
+              <input type="text" id="city" name="city" placeholder="City name">
             </label>
             <label class="customer-field">
               <span>Customer Type</span>
-              <select>
-                <option>Regular</option>
-                <option>Retail</option>
-                <option>Wholesale</option>
-                <option>Credit Customer</option>
+              <select id="customer_type" name="customer_type">
+                <option value="Regular">Regular</option>
+                <option value="Retail">Retail</option>
+                <option value="Wholesale">Wholesale</option>
+                <option value="Credit Customer">Credit Customer</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Opening Balance</span>
-              <input type="number" placeholder="0.00">
+              <input type="number" id="opening_balance" name="opening_balance" placeholder="0.00">
             </label>
             <label class="customer-field">
               <span>Credit Limit</span>
-              <input type="number" placeholder="Optional">
+              <input type="number" id="credit_limit" name="credit_limit" placeholder="Optional">
             </label>
             <label class="customer-field customer-field--wide">
               <span>Notes</span>
-              <textarea placeholder="Special instructions, delivery notes, or payment terms"></textarea>
+              <textarea id="notes" name="notes" placeholder="Special instructions, delivery notes, or payment terms"></textarea>
             </label>
           </div>
 
           <div class="customer-actions">
-            <button class="customer-save-button" type="button">
+            <button id="save_customer_button" name="save_customer_button" class="customer-save-button" type="button">
               <i class="fa-solid fa-user-plus"></i>
               <span>Save Customer</span>
             </button>
-            <button class="customer-clear-button" type="button">
+            <button id="clear_customer_button" name="clear_customer_button" class="customer-clear-button" type="button">
               <i class="fa-solid fa-eraser"></i>
               <span>Clear</span>
             </button>
@@ -114,16 +114,16 @@
             <p class="customer-card__subtitle">Saved customers will appear here for quick search and billing.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Customers</span>
-            <button class="table-export-button" type="button">
+            <span id="customer_count_badge" class="customer-table-card__badge">0 Customers</span>
+            <button id="export_csv_button" name="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-update-button" type="button">
+            <button id="update_button" name="update_button" class="table-update-button" type="button">
               <i class="fa-solid fa-pen"></i>
               <span>Update</span>
             </button>
-            <button class="table-delete-button" type="button">
+            <button id="delete_button" name="delete_button" class="table-delete-button" type="button">
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
@@ -131,7 +131,7 @@
         </div>
 
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="customer_table" class="customer-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -143,7 +143,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="customer_table_body">
               <tr class="customer-table__empty">
                 <td colspan="7">
                   <i class="fa-solid fa-users"></i>

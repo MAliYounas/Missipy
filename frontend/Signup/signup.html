@@ -33,23 +33,23 @@
         </div>
       </div>
 
-      <form class="auth-form" action="../Home%20Page/home_page.html" method="get">
+      <form class="auth-form" id="signup_form" action="../Home%20Page/home_page.html" method="get">
         <div class="auth-grid">
           <label class="customer-field">
             <span>Full name</span>
-            <input type="text" name="full_name" placeholder="Your full name" autocomplete="name" required>
+            <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" required>
           </label>
           <label class="customer-field">
             <span>Work email</span>
-            <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
           </label>
           <label class="customer-field">
             <span>Business name</span>
-            <input type="text" name="business" placeholder="Company or store name" autocomplete="organization" required>
+            <input type="text" id="business" name="business" placeholder="Company or store name" autocomplete="organization" required>
           </label>
           <label class="customer-field">
             <span>Role</span>
-            <select name="role" required>
+            <select id="role" name="role" required>
               <option value="Executive" selected>Executive</option>
               <option value="Owner">Owner</option>
               <option value="Director">Director</option>
@@ -58,28 +58,28 @@
           </label>
           <label class="customer-field">
             <span>Username</span>
-            <input type="text" name="username" placeholder="Choose a username" autocomplete="username" required>
+            <input type="text" id="username" name="username" placeholder="Choose a username" autocomplete="username" required>
           </label>
           <label class="customer-field">
             <span>Phone</span>
-            <input type="tel" name="phone" placeholder="03XX-XXXXXXX" autocomplete="tel">
+            <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX" autocomplete="tel">
           </label>
           <label class="customer-field">
             <span>Password</span>
-            <input type="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
+            <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
           </label>
           <label class="customer-field">
             <span>Confirm password</span>
-            <input type="password" name="confirm_password" placeholder="Re-enter password" autocomplete="new-password" required>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" autocomplete="new-password" required>
           </label>
         </div>
 
         <label class="auth-check">
-          <input type="checkbox" name="terms" required>
+          <input type="checkbox" id="terms" name="terms" required>
           <span>I confirm I am authorized to manage this business on Missipy.</span>
         </label>
 
-        <button class="customer-save-button auth-submit" type="submit">
+        <button class="customer-save-button auth-submit" id="create_account_button" type="submit">
           <i class="fa-solid fa-user-plus"></i>
           <span>Create executive account</span>
         </button>

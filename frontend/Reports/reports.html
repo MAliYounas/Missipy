@@ -29,26 +29,26 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-file-arrow-down inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Available Reports</span>
-          <strong class="inventory-stat-card__value">8 Types</strong>
+          <strong class="inventory-stat-card__value" id="available_reports">8 Types</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-calendar-days inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Period</span>
-          <strong class="inventory-stat-card__value">Custom</strong>
+          <strong class="inventory-stat-card__value" id="report_period">Custom</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-file-pdf inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Formats</span>
-          <strong class="inventory-stat-card__value">PDF / CSV</strong>
+          <strong class="inventory-stat-card__value" id="report_formats">PDF / CSV</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-clock-rotate-left inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Last Export</span>
-          <strong class="inventory-stat-card__value">—</strong>
+          <strong class="inventory-stat-card__value" id="last_export">—</strong>
         </article>
       </div>
 
-      <form class="customer-card" action="#" aria-labelledby="report-filter-title">
+      <form class="customer-card" id="report_filter_form" action="#" aria-labelledby="report-filter-title">
         <div class="customer-card__header">
           <div>
             <h2 class="customer-card__title" id="report-filter-title">Report filters</h2>
@@ -59,15 +59,15 @@
         <div class="customer-grid">
           <label class="customer-field">
             <span>Start Date</span>
-            <input type="date">
+            <input type="date" id="start_date" name="start_date">
           </label>
           <label class="customer-field">
             <span>End Date</span>
-            <input type="date">
+            <input type="date" id="end_date" name="end_date">
           </label>
           <label class="customer-field">
             <span>Export Format</span>
-            <select>
+            <select id="export_format" name="export_format">
               <option>PDF</option>
               <option>CSV</option>
               <option>Excel</option>
@@ -75,7 +75,7 @@
           </label>
           <label class="customer-field">
             <span>Branch / Store</span>
-            <select>
+            <select id="branch_store" name="branch_store">
               <option>All Stores</option>
               <option>Main Store</option>
             </select>
@@ -109,11 +109,11 @@
               <p class="report-card__text">Invoice totals, payment methods, and customer sales for the selected period.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="sales_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="sales_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -129,11 +129,11 @@
               <p class="report-card__text">Supplier purchases, bill amounts, and stock received over the date range.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="purchase_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="purchase_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -149,11 +149,11 @@
               <p class="report-card__text">Stock levels, low stock items, and product valuation snapshot.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="inventory_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="inventory_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -169,11 +169,11 @@
               <p class="report-card__text">Business expenses by category, payment method, and date.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="expense_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="expense_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -189,11 +189,11 @@
               <p class="report-card__text">Sales vs purchases and expenses for a clear profit overview.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="profit_loss_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="profit_loss_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -209,11 +209,11 @@
               <p class="report-card__text">Customer balances, credit limits, and outstanding dues.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="customer_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="customer_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -229,11 +229,11 @@
               <p class="report-card__text">Supplier payables, purchase history, and contact summary.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="supplier_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="supplier_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>
@@ -249,11 +249,11 @@
               <p class="report-card__text">Tax collected and paid across invoices for compliance records.</p>
             </div>
             <div class="report-card__actions">
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="tax_gst_report_pdf" type="button">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>PDF</span>
               </button>
-              <button class="table-export-button" type="button">
+              <button class="table-export-button" id="tax_gst_report_csv" type="button">
                 <i class="fa-solid fa-file-csv"></i>
                 <span>CSV</span>
               </button>

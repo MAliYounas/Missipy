@@ -25,7 +25,7 @@
         </div>
       </header>
 
-      <form class="customer-form" action="#">
+      <form id="expense_form" name="expense_form" class="customer-form" action="#">
         <section class="customer-card" aria-labelledby="expense-basic-title">
           <div class="customer-card__header">
             <div>
@@ -37,26 +37,26 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Expense Title</span>
-              <input type="text" placeholder="Example: Shop rent, fuel, electricity">
+              <input type="text" id="expense_title" name="expense_title" placeholder="Example: Shop rent, fuel, electricity">
             </label>
             <label class="customer-field">
               <span>Category</span>
-              <select>
-                <option>Rent</option>
-                <option>Utilities</option>
-                <option>Salary</option>
-                <option>Transport</option>
-                <option>Maintenance</option>
-                <option>Other</option>
+              <select id="category" name="category">
+                <option value="Rent">Rent</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Salary">Salary</option>
+                <option value="Transport">Transport</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Other">Other</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Amount</span>
-              <input type="number" placeholder="0.00">
+              <input type="number" id="amount" name="amount" placeholder="0.00">
             </label>
             <label class="customer-field">
               <span>Expense Date</span>
-              <input type="date">
+              <input type="date" id="expense_date" name="expense_date">
             </label>
           </div>
         </section>
@@ -72,42 +72,42 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Payment Method</span>
-              <select>
-                <option>Cash</option>
-                <option>Bank Transfer</option>
-                <option>Card</option>
-                <option>Cheque</option>
-                <option>Other</option>
+              <select id="payment_method" name="payment_method">
+                <option value="Cash">Cash</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="Card">Card</option>
+                <option value="Cheque">Cheque</option>
+                <option value="Other">Other</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Paid To</span>
-              <input type="text" placeholder="Person or company name">
+              <input type="text" id="paid_to" name="paid_to" placeholder="Person or company name">
             </label>
             <label class="customer-field">
               <span>Reference / Receipt No.</span>
-              <input type="text" placeholder="Optional">
+              <input type="text" id="reference_receipt_no" name="reference_receipt_no" placeholder="Optional">
             </label>
             <label class="customer-field">
               <span>Status</span>
-              <select>
-                <option>Paid</option>
-                <option>Pending</option>
-                <option>Partially Paid</option>
+              <select id="status" name="status">
+                <option value="Paid">Paid</option>
+                <option value="Pending">Pending</option>
+                <option value="Partially Paid">Partially Paid</option>
               </select>
             </label>
             <label class="customer-field customer-field--wide">
               <span>Notes</span>
-              <textarea placeholder="Add details about the expense or payment"></textarea>
+              <textarea id="notes" name="notes" placeholder="Add details about the expense or payment"></textarea>
             </label>
           </div>
 
           <div class="customer-actions">
-            <button class="customer-save-button" type="button">
+            <button id="save_expense_button" name="save_expense_button" class="customer-save-button" type="button">
               <i class="fa-solid fa-wallet"></i>
               <span>Save Expense</span>
             </button>
-            <button class="customer-clear-button" type="button">
+            <button id="clear_expense_button" name="clear_expense_button" class="customer-clear-button" type="button">
               <i class="fa-solid fa-eraser"></i>
               <span>Clear</span>
             </button>
@@ -122,16 +122,16 @@
             <p class="customer-card__subtitle">Saved expenses will appear here for reporting and account records.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Expenses</span>
-            <button class="table-export-button" type="button">
+            <span id="expense_count_badge" class="customer-table-card__badge">0 Expenses</span>
+            <button id="export_csv_button" name="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-update-button" type="button">
+            <button id="update_button" name="update_button" class="table-update-button" type="button">
               <i class="fa-solid fa-pen"></i>
               <span>Update</span>
             </button>
-            <button class="table-delete-button" type="button">
+            <button id="delete_button" name="delete_button" class="table-delete-button" type="button">
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
@@ -148,7 +148,7 @@
         </div>
 
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="expense_table" class="customer-table">
             <thead>
               <tr>
                 <th>Title</th>
@@ -159,7 +159,7 @@
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="expense_table_body">
               <tr class="customer-table__empty">
                 <td colspan="6">
                   <i class="fa-solid fa-wallet"></i>

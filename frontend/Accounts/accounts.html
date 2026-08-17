@@ -30,26 +30,26 @@
         <article class="inventory-stat-card">
           <i class="fa-solid fa-user-tie inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Cashier</span>
-          <strong class="inventory-stat-card__value">0</strong>
+          <strong id="cashier_count" class="inventory-stat-card__value">0</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-user-gear inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Manager</span>
-          <strong class="inventory-stat-card__value">0</strong>
+          <strong id="manager_count" class="inventory-stat-card__value">0</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-user-shield inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Executive</span>
-          <strong class="inventory-stat-card__value">0</strong>
+          <strong id="executive_count" class="inventory-stat-card__value">0</strong>
         </article>
         <article class="inventory-stat-card">
           <i class="fa-solid fa-users inventory-stat-card__icon" aria-hidden="true"></i>
           <span class="inventory-stat-card__label">Total Accounts</span>
-          <strong class="inventory-stat-card__value">0</strong>
+          <strong id="total_accounts" class="inventory-stat-card__value">0</strong>
         </article>
       </div>
 
-      <form class="customer-form" action="#">
+      <form id="account_form" name="account_form" class="customer-form" action="#">
         <section class="customer-card" aria-labelledby="account-basic-title">
           <div class="customer-card__header">
             <div>
@@ -61,46 +61,46 @@
           <div class="customer-grid">
             <label class="customer-field">
               <span>Full Name</span>
-              <input type="text" placeholder="Enter full name">
+              <input type="text" id="full_name" name="full_name" placeholder="Enter full name">
             </label>
             <label class="customer-field">
               <span>Username</span>
-              <input type="text" placeholder="Login username">
+              <input type="text" id="username" name="username" placeholder="Login username">
             </label>
             <label class="customer-field">
               <span>Email</span>
-              <input type="email" placeholder="Optional email">
+              <input type="email" id="email" name="email" placeholder="Optional email">
             </label>
             <label class="customer-field">
               <span>Phone Number</span>
-              <input type="tel" placeholder="03XX-XXXXXXX">
+              <input type="tel" id="phone_number" name="phone_number" placeholder="03XX-XXXXXXX">
             </label>
             <label class="customer-field">
               <span>Password</span>
-              <input type="password" placeholder="Create password">
+              <input type="password" id="password" name="password" placeholder="Create password">
             </label>
             <label class="customer-field">
               <span>Confirm Password</span>
-              <input type="password" placeholder="Re-enter password">
+              <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password">
             </label>
             <label class="customer-field">
               <span>Account Role</span>
-              <select>
-                <option>Cashier</option>
-                <option>Manager</option>
-                <option>Executive</option>
+              <select id="account_role" name="account_role">
+                <option value="Cashier">Cashier</option>
+                <option value="Manager">Manager</option>
+                <option value="Executive">Executive</option>
               </select>
             </label>
             <label class="customer-field">
               <span>Status</span>
-              <select>
-                <option>Active</option>
-                <option>Inactive</option>
+              <select id="status" name="status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
               </select>
             </label>
             <label class="customer-field customer-field--wide">
               <span>Notes</span>
-              <textarea placeholder="Optional notes about access or permissions"></textarea>
+              <textarea id="notes" name="notes" placeholder="Optional notes about access or permissions"></textarea>
             </label>
           </div>
 
@@ -120,11 +120,11 @@
           </div>
 
           <div class="customer-actions">
-            <button class="customer-save-button" type="button">
+            <button id="save_account_button" name="save_account_button" class="customer-save-button" type="button">
               <i class="fa-solid fa-user-plus"></i>
               <span>Save Account</span>
             </button>
-            <button class="customer-clear-button" type="button">
+            <button id="clear_account_button" name="clear_account_button" class="customer-clear-button" type="button">
               <i class="fa-solid fa-eraser"></i>
               <span>Clear</span>
             </button>
@@ -139,16 +139,16 @@
             <p class="customer-card__subtitle">All cashier, manager, and executive accounts will appear here.</p>
           </div>
           <div class="customer-table-card__controls">
-            <span class="customer-table-card__badge">0 Accounts</span>
-            <button class="table-export-button" type="button">
+            <span id="account_count_badge" class="customer-table-card__badge">0 Accounts</span>
+            <button id="export_csv_button" name="export_csv_button" class="table-export-button" type="button">
               <i class="fa-solid fa-file-csv"></i>
               <span>Export CSV</span>
             </button>
-            <button class="table-update-button" type="button">
+            <button id="update_button" name="update_button" class="table-update-button" type="button">
               <i class="fa-solid fa-pen"></i>
               <span>Update</span>
             </button>
-            <button class="table-delete-button" type="button">
+            <button id="delete_button" name="delete_button" class="table-delete-button" type="button">
               <i class="fa-solid fa-trash"></i>
               <span>Delete</span>
             </button>
@@ -163,7 +163,7 @@
         </div>
 
         <div class="customer-table-wrap">
-          <table class="customer-table">
+          <table id="account_table" class="customer-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -175,7 +175,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="account_table_body">
               <tr class="customer-table__empty">
                 <td colspan="7">
                   <i class="fa-solid fa-building-columns"></i>

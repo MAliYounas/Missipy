@@ -24,16 +24,16 @@
         </div>
       </div>
 
-      <form class="auth-form" action="../Home%20Page/home_page.html" method="get">
+      <form class="auth-form" id="login_form" action="../Home%20Page/home_page.html" method="get">
         <label class="customer-field">
           <span>Username</span>
-          <input type="text" name="username" placeholder="Enter username" autocomplete="username">
+          <input type="text" id="username" name="username" placeholder="Enter username" autocomplete="username">
         </label>
         <label class="customer-field">
           <span>Password</span>
-          <input type="password" name="password" placeholder="Enter password" autocomplete="current-password">
+          <input type="password" id="password" name="password" placeholder="Enter password" autocomplete="current-password">
         </label>
-        <button class="customer-save-button auth-submit" type="submit">
+        <button class="customer-save-button auth-submit" id="sign_in_button" type="submit">
           <i class="fa-solid fa-right-to-bracket"></i>
           <span>Sign In</span>
         </button>
