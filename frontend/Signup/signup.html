@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <form class="auth-form" id="signup_form" action="../Home%20Page/home_page.html" method="get">
+      <form class="auth-form" id="signup_form">
         <div class="auth-grid">
           <label class="customer-field">
             <span>Full name</span>
@@ -51,9 +51,7 @@
             <span>Role</span>
             <select id="role" name="role" required>
               <option value="Executive" selected>Executive</option>
-              <option value="Owner">Owner</option>
-              <option value="Director">Director</option>
-              <option value="Manager">Manager</option>
+              
             </select>
           </label>
           <label class="customer-field">
@@ -79,7 +77,7 @@
           <span>I confirm I am authorized to manage this business on Missipy.</span>
         </label>
 
-        <button class="customer-save-button auth-submit" id="create_account_button" type="submit">
+        <button class="customer-save-button auth-submit" id="create_account_button" type="button">
           <i class="fa-solid fa-user-plus"></i>
           <span>Create executive account</span>
         </button>
@@ -91,5 +89,7 @@
       </p>
     </section>
   </main>
+
+  <script src="signup.js?v=36"></script>
 </body>
 </html>
